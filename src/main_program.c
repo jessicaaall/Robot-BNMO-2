@@ -7,4 +7,13 @@
 /* - Rayhan Nugraha Putra       - 18221149 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
+int main() {
+    printf("Welcome To Geeksforgeeks\n");
+    getchar();
+    system("clear"); 
+    printf("A computer science portal ");
+    getchar();
+    return 0;
+}
