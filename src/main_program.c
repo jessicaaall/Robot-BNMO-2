@@ -10,10 +10,10 @@
 #include <stdlib.h>
 
 int main() {
-    printf("Welcome To Geeksforgeeks\n");
+    printf("Testing cls\n");
     getchar();
     system("clear"); 
-    printf("A computer science portal ");
+    printf("Testing juga");
     getchar();
     return 0;
 }
