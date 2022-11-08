@@ -1,6 +1,6 @@
-#include "../Array/array.h"
-#include "../MesinKataKar/mesin_kar.h"
-#include "../MesinKataKar/mesin_kata.h"
+#include "../ADT/Array/array.h"
+#include "../ADT/MesinKataKar/mesin_kar.h"
+#include "../ADT/MesinKataKar/mesin_kata.h"
 
 void load(char * filename, Tab * loadsave) {
     /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
