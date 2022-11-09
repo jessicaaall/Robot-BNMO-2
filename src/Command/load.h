@@ -2,8 +2,8 @@
 /* Definisi spesifikasi load */
 
 #include "../Array/array.h"
-#include "../MesinKataKar/mesin_kar.h"
-#include "../MesinKataKar/mesin_kata.h"
+#include "../MesinKarakter/mesinkarakter.h"
+#include "../MesinKata/mesinkata.h"
 
 #ifndef LOAD_H 
 #define LOAD_H

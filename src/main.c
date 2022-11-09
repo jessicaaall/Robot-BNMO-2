@@ -1,6 +1,6 @@
 #include "./ADT/Array/array.h"
-#include "./ADT/MesinKataKar/mesin_kar.h"
-#include "./ADT/MesinKataKar/mesin_kata.h"
+#include "./ADT/MesinKarakter/mesinkarakter.h"
+#include "./ADT/MesinKata/mesinkata.h"
 #include "boolean.h"
 #include <stdio.h>
 

@@ -3,7 +3,7 @@
 /* Penempatan elemen selalu rapat kiri */
 
 #include "../../boolean.h"
-#include "../MesinKataKar/mesin_kata.h"
+#include "../MesinKata/mesinkata.h"
 
 #ifndef ARRAY_H 
 #define ARRAY_H
@@ -16,7 +16,7 @@
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType;
-typedef Kata ElType;
+typedef Word ElType;
 
 typedef struct 
 {

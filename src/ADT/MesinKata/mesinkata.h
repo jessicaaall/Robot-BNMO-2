@@ -1,23 +1,56 @@
-/* File : mesinkatacommand.h */
+/* File : mesinkata.h */
 /* Definisi Mesin Kata : Model Akuisisi Versi I */
 
-#ifndef __MESIN_KATA_COMMAND_H__
-#define __MESIN_KATA_COMMAND_H__
+#ifndef __MESIN_KATA_H__
+#define __MESIN_KATA_H__
 
 #include "../../boolean.h"
-#include "../MesinKarCommand/mesinkarcommand.h"
+#include "../MesinKarakter/mesinkarakter.h"
 
 #define NMax 1000
 #define BLANK ' '
 
 typedef struct {
-    char TabWord[NMax];
+    char TabWord[NMax];    /* container penyimpan kata, indeks yang dipakai [0..NMax-1] */
     int Length;
 } Word;
 
 /* State Mesin Kata */
 extern boolean EndWord;
+extern Word CWord;
 extern Word CommandCC;
+
+
+/* *** ADT Mesin Kata untuk Baca File Eksternal *** */
+
+void IgnoreBlank();
+/* Mengabaikan satu atau beberapa BLANK
+   I.S. : CC sembarang
+   F.S. : CC ≠ BLANK atau CC = ENTER */
+
+void CopyWord();
+/* Mengakuisisi kata, menyimpan dalam CKata
+   I.S. : CC adalah karakter pertama dari kata
+   F.S. : CKata berisi kata yang sudah diakuisisi;
+          CC = BLANK atau CC = ENTER;
+          CC adalah karakter sesudah karakter terakhir yang diakuisisi.
+          Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+          
+void STARTWORD(char * filename);
+/* I.S. : CC sembarang
+   F.S. : EndKata = true, dan CC = ENTER;
+          atau EndKata = false, CKata adalah kata yang sudah diakuisisi,
+          CC karakter pertama sesudah karakter terakhir kata */
+
+void ADVWORD();
+/* I.S. : CC adalah karakter pertama kata yang akan diakuisisi
+   F.S. : CKata adalah kata terakhir yang sudah diakuisisi,
+          CC adalah karakter pertama dari kata berikutnya, mungkin ENTER
+          Jika CC = ENTER, EndKata = true.
+   Proses : Akuisisi kata menggunakan procedure CopyWord */
+
+
+/* *** ADT Mesin Kata untuk Baca Command *** */
 
 void IgnoreBlanks();
 /* Mengabaikan satu atau beberapa BLANK
@@ -47,6 +80,7 @@ void CopyCommand();
 
 
 /* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
+
 void PrintWord(Word kata);
 /* Mencetak kata ke layar
    I.S. : kata terdefinisi
@@ -54,6 +88,11 @@ void PrintWord(Word kata);
 
 int LengthOfString(char* string);
 /* Mengirimkan panjang string*/
+
+void WordToString (Word kata, char* string);
+/* Mengubah kata menjadi string 
+   I.S. : kata terdefinisi 
+   F.S. : string berisi elemen array kata */
 
 Word StringToWord(char* string);
 /* Mengirimkan Word yang elemen arraynya adalah string */

@@ -1,13 +1,6 @@
-/* 
-NIM                 : 18221085
-Nama                : Nalendro N.U.A.R.F
-Tanggal             : 15 oktober 2022
-Topik praktikum     : Queue
-Deskripsi           : implementasi program queue.h
-*/
-
 #include <stdio.h>
 #include "queue.h"
+
 void CreateQueue(Queue *q){
     IDX_HEAD(*q) = IDX_UNDEF;
     IDX_TAIL(*q) = IDX_UNDEF;

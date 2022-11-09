@@ -1,7 +1,67 @@
-#include "mesinkatacommand.h"
+#include "mesinkata.h"
 
 boolean EndWord;
+Word CWord;
 Word CommandCC;
+
+
+/* *** ADT Mesin Kata untuk Baca File Eksternal *** */
+
+void IgnoreBlank() {
+    while (((CC == BLANK) || (CC == ENTER)) && (!EOP)) {
+        ADV();
+    }
+}
+/* Mengabaikan satu atau beberapa BLANK
+   I.S. : CC sembarang
+   F.S. : CC ≠ BLANK atau CC = ENTER */
+
+void CopyWord() {
+    int i = 0;
+    while ((CC != ENTER) && (CC != BLANK) && (i <= NMax) && (!EOP)) {
+        CWord.TabWord[i] = CC;
+        ADV();
+        i++;
+    }
+    if(CC == ENTER || CC == BLANK || EOP) {
+        CWord.TabWord[i] = '\0';
+    }
+    CWord.Length = i;
+}
+/* Mengakuisisi kata, menyimpan dalam CKata
+   I.S. : CC adalah karakter pertama dari kata
+   F.S. : CKata berisi kata yang sudah diakuisisi;
+          CC = BLANK atau CC = ENTER;
+          CC adalah karakter sesudah karakter terakhir yang diakuisisi.
+          Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+          
+void STARTWORD(char * filename) {
+    START(filename);
+    IgnoreBlank();
+    if (CC != ENTER) {
+        CopyWord();
+    }
+}
+/* I.S. : CC sembarang
+   F.S. : EndKata = true, dan CC = ENTER;
+          atau EndKata = false, CKata adalah kata yang sudah diakuisisi,
+          CC karakter pertama sesudah karakter terakhir kata */
+
+void ADVWORD() {
+    IgnoreBlank();
+    if (CC != ENTER) {
+        CopyWord();
+        IgnoreBlank();
+    }
+}
+/* I.S. : CC adalah karakter pertama kata yang akan diakuisisi
+   F.S. : CKata adalah kata terakhir yang sudah diakuisisi,
+          CC adalah karakter pertama dari kata berikutnya, mungkin ENTER
+          Jika CC = ENTER, EndKata = true.
+   Proses : Akuisisi kata menggunakan procedure CopyWord */
+
+
+/* *** ADT Mesin Kata untuk Baca Command *** */
 
 void IgnoreBlanks() {
     while (CC == BLANK) {
@@ -62,6 +122,7 @@ void CopyCommand() {
 
 
 /* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
+
 void PrintWord(Word kata) {
     int i;
     for (i = 0; i < kata.Length; i++) {
@@ -81,6 +142,17 @@ int LengthOfString(char* string) {
     return i;
 }
 /* Mengirimkan panjang string*/
+
+void WordToString (Word kata, char* string) {
+    int i;
+    for (i = 0; i < kata.Length; i++) {
+        string[i] = kata.TabWord[i];
+    }
+    string[kata.Length] = '\0';
+}
+/* Mengubah kata menjadi string 
+   I.S. : kata terdefinisi 
+   F.S. : string berisi elemen array kata */
 
 Word StringToWord(char* string) {
     Word kata;

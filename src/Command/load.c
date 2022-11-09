@@ -1,6 +1,6 @@
 #include "../ADT/Array/array.h"
-#include "../ADT/MesinKataKar/mesin_kar.h"
-#include "../ADT/MesinKataKar/mesin_kata.h"
+#include "../ADT/MesinKarakter/mesinkarakter.h"
+#include "../ADT/MesinKata/mesinkata.h"
 
 void load(char * filename, Tab * loadsave) {
     /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
@@ -10,11 +10,11 @@ void load(char * filename, Tab * loadsave) {
     char *fileDir;
     concatStr(dir, filename, fileDir);
     int i = 0;
-    STARTKATA(fileDir);
-    while (!EndKata) {
-        (*loadsave).TI[i] = CKata;
+    STARTWORD(fileDir);
+    while (!EndWord) {
+        (*loadsave).TI[i] = CWord;
         (*loadsave).Neff++;
-        ADVKATA();
+        ADVWORD();
         i++;
     }
 }
