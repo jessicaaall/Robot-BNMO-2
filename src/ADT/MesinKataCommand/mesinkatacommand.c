@@ -1,7 +1,7 @@
 #include "mesinkatacommand.h"
 
 boolean EndWord;
-Word EndWord;
+Word CommandCC;
 
 void IgnoreBlanks() {
     while (CC == BLANK) {
@@ -28,7 +28,6 @@ void STARTCOMMAND() {
           CC karakter pertama sesudah karakter terakhir kata */
 
 void ADVCOMMAND() {
-    IgnoreBlanks();
     if (CC == ENTER) {
         EndWord = true;
     } else {
@@ -44,7 +43,7 @@ void ADVCOMMAND() {
 
 void CopyCommand() {
     int i = 0;
-    while ((CC != BLANK) && (CC != ENTER) && (i < NMax)) {
+    while ((CC != ENTER) && (i < NMax)) {
         if ((CC >= 'a') && (CC <= 'z')) {
             CC -= 32;
         }
