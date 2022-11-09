@@ -104,9 +104,6 @@ void ADVCOMMAND() {
 void CopyCommand() {
     int i = 0;
     while ((CC != ENTER) && (i < NMax) && (CC != BLANK)) {
-        if ((CC >= 'a') && (CC <= 'z')) {
-            CC -= 32;
-        }
         CommandCC.TabWord[i] = CC;
         ADVC();
         i++;
@@ -188,17 +185,37 @@ boolean IsWordSame(Word kata1, Word kata2) {
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
 
-void scan(Word *c1, Word *c2) {
+void Scan(Word *c1, Word *c2) {
 	STARTCOMMAND();
 	if (!EndWord) {
-		*c1 = CommandCC;
+		*c1 = WordUpper(CommandCC);
+		ADVCOMMAND();
+		if (!EndWord) {
+			*c2 = WordUpper(CommandCC);
+		}
+	}
+} 
+/* mengembalikan nilai yang dibaca oleh stdin */
+
+void InitialScan(Word *c1, Word *c2) {
+	STARTCOMMAND();
+	if (!EndWord) {
+		*c1 = WordUpper(CommandCC);
 		ADVCOMMAND();
 		if (!EndWord) {
 			*c2 = CommandCC;
 		}
 	}
 } 
-/* mengembalikan nilai yang dibaca oleh stdin */
+
+Word WordUpper(Word kata) {
+	for (int i = 0; i < kata.Length; i++) {
+		if ((kata.TabWord[i] >= 'a') && (kata.TabWord[i] <= 'z')) {
+			kata.TabWord[i] -= 32;
+		}
+	}
+	return kata;
+}
 
 boolean ValidTxt(Word txt){
     boolean check = false;

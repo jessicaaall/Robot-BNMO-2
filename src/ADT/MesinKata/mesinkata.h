@@ -99,6 +99,10 @@ Word StringToWord(char* string);
 
 boolean IsWordSame(Word kata1, Word kata2);
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
-void scan(Word *c1, Word *c2);
+void Scan(Word *c1, Word *c2);
+
+void InitialScan(Word *c1, Word *c2);
+
+Word WordUpper(Word kata);
 
 #endif
