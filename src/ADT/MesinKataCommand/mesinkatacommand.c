@@ -45,6 +45,9 @@ void ADVCOMMAND() {
 void CopyCommand() {
     int i = 0;
     while ((CC != BLANK) && (CC != ENTER) && (i < NMax)) {
+        if ((CC >= 'a') && (CC <= 'z')) {
+            CC -= 32;
+        }
         CommandCC.TabWord[i] = CC;
         ADVC();
         i++;
