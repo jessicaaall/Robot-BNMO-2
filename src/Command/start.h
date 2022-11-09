@@ -1,9 +1,10 @@
 /* File: load.h */
 /* Definisi spesifikasi load */
 
-#include "../Array/array.h"
-#include "../MesinKataKar/mesin_kar.h"
-#include "../MesinKataKar/mesin_kata.h"
+#include "../ADT/Array/array.h"
+#include "../ADT/MesinKarakter/mesinkarakter.h"
+#include "../ADT/MesinKata/mesinkata.h"
+#include "load.h"
 
 #ifndef START_H 
 #define START_H
