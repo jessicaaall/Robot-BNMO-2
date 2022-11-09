@@ -9,7 +9,7 @@ void load(char * filename, Tab * loadsave) {
     int i = 0;
     STARTKATA(filename);
     while (!EndKata) {
-        (*loadsave).TI[i] = KatatoStr(CKata);
+        (*loadsave).TI[i] = CKata;
         (*loadsave).Neff++;
         ADVKATA();
         i++;
