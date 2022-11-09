@@ -7,9 +7,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-void skorgame();
-/* Proses : Membangkitkan integer random sebagai skor akhir */
-/* I.S. Sembarang */
-/* F.S. Mencetak game over dan skor akhir berupa integer random */
+int skorgame();
+/* Mengembalikan skor akhir berupa integer random */
 
 #endif

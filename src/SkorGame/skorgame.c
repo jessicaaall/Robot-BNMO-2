@@ -1,6 +1,6 @@
 #include "skorgame.h"
 
-void skorgame() {
+int skorgame() {
     int i, skor;
     time_t waktu;
     struct tm *infotime;
@@ -14,7 +14,7 @@ void skorgame() {
     }
 
     printf("GAME OVER\n\nSkor Anda = %d\n", skor);
+
+    return skor;
 }
-/* Proses : Membangkitkan integer random sebagai skor akhir */
-/* I.S. Sembarang */
-/* F.S. Mencetak game over dan skor akhir berupa integer random */
+/* Mengembalikan skor akhir berupa integer random */
