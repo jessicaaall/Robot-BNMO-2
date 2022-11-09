@@ -193,3 +193,42 @@ Word scan(){
     return CommandCC;
 } 
 /* mengembalikan nilai yang dibaca oleh stdin */
+
+boolean ValidTxt(Word txt){
+    boolean check = false;
+    if (txt.TabWord[txt.Length-4]=='.'){
+        if (txt.TabWord[txt.Length-3]=='t'){
+            if (txt.TabWord[txt.Length-2]=='x'){
+                if (txt.TabWord[txt.Length-1]=='t'){
+                    check = true;
+                }
+            }
+        }
+    }
+    return check;
+}
+
+
+int LengthFirstWord(Word kata){
+    int i= 0;
+    while (i<kata.Length && kata.TabWord[i]!=' '){
+        i++;
+    }
+    return i;
+}
+boolean IsFirstWordSame(Word kata1, Word kata2){
+    int i=0;
+    boolean check = true;
+    if (LengthFirstWord(kata1)==LengthFirstWord(kata2)){
+        while (i<LengthFirstWord(kata1) && check){
+            if (kata1.TabWord[i]!=kata2.TabWord[i]){
+                check=false;
+            }
+            i++;
+        }
+    }
+    else{
+        check = false;
+    }
+    return check;
+}
