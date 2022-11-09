@@ -8,11 +8,11 @@
 
 #define MARK '\n'
 /* State Mesin */
-extern char CC;
-extern boolean EOP;
-extern boolean MBR;
+extern char CCQ;
+extern boolean EOPQ;
+extern boolean MBRQ;
 
-void START(char * filename);
+void START();
 /* Mesin siap dioperasikan. Pita dari .txt untuk dibaca
 Karakter pertama yang ada pada pita posisinya adalah pada jendela.
 I.S. : sembarang

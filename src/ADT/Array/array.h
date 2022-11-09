@@ -10,13 +10,13 @@
 
 /* Kamus Umum */
 
-#define IdxMax 200
+#define IdxMax 1000
 #define IdxMin 1
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType;
-typedef char * ElType;
+typedef Kata ElType;
 
 typedef struct 
 {

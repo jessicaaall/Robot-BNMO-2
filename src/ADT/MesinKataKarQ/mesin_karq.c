@@ -1,14 +1,14 @@
 #include "mesin_kar.h"
 #include <stdio.h>
 
-char CC;
-boolean EOP;
-boolean MBR;
+char CCQ;
+boolean EOPQ;
+boolean MBRQ;
 
-static FILE *pita;
-static int retval;
+static FILE *pitaQ;
+static int retvalQ;
 
-void START(filename)
+void STARTQ()
 {
     /* Mesin siap dioperasikan. Pita dari .txt untuk dibaca
     Karakter pertama yang ada pada pita posisinya adalah pada jendela.
@@ -17,12 +17,16 @@ void START(filename)
            Jika CC = MARK maka EOP akan menyala (true) */
 
     /* Algoritma */
-    pita = fopen(filename, "r");
-    EOP = false;
-    ADV();
+    char *dir = "../../savefile/";
+    static FILE *pitaQ;
+    char CCQ;
+    int retvalQ;
+    pitaQ = stdin;
+    EOPQ = false;
+    ADVQ();
 }
 
-void ADV()
+void ADVQ()
 {
     /* Pita dimajukan satu karakter.
     I.S. : Karakter pada jendela =
@@ -32,9 +36,8 @@ void ADV()
            Jika  retval < 0 maka EOP akan menyala (true) */
 
     /* Algoritma */
-    retval = fscanf(pita, "%c", &CC);
-    if (retval < 0) {
-        EOP = true;
-        fclose(pita);
+    retvalQ = fscanf(pitaQ, "%c", &CCQ);
+    if (CCQ == '\n') {
+        EOPQ = true;
     }
 }
