@@ -41,8 +41,7 @@ void ADVKATA(){
 char * KatatoStr(Kata kata) {
     char * str;
     for (int i = 0; i < kata.Length; i++) {
-        *str = kata.TabKata[i];
-        str++;
+        str[i] = kata.TabKata[i];
     }
     return str;
 
