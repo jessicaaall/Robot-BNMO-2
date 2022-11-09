@@ -9,15 +9,13 @@
 #include "../../boolean.h"
 #include "../MesinKataCommand/mesinkatacommand.h"
 
-void RNGgame();
-/* Proses : Menentukan sebuah angka acak X 
-            Pemain diberikan kesempatan menebak angka X 
-            dan game memberi tahu apakah tebakan pemain dibandingkan terhadap X lebih besar atau lebih kecil 
-            Permainan selesai jika pemain menebak angka X dengan benar atau jika kesempatan menebak habis
-            Pemain memiliki skor awal 100, skor akan berkurang 5 setiap tebakan pemain salah 
-            Kesempatan menebak habis ketika skor pemain telah berkurang menjadi 0 */
-/* I.S. Sembarang */
-/* F.S. Permainan selesai jika pemain menebak angka X dengan benar atau jika kesempatan menebak telah habis 
-        Skor akhir pemain dicetak */
+int RNGgame();
+/* Mengembalikan skor akhir pemain pada RNG game */
+/* RNG game : 
+   Menentukan sebuah angka acak X 
+   Pemain diberikan kesempatan menebak angka X dan game memberi tahu apakah tebakan pemain dibandingkan terhadap X lebih besar atau lebih kecil 
+   Permainan selesai jika pemain menebak angka X dengan benar atau jika kesempatan menebak habis
+   Pemain memiliki skor awal 100, skor akan berkurang 5 setiap tebakan pemain salah 
+   Kesempatan menebak habis ketika skor pemain telah berkurang menjadi 0 */
 
 #endif
