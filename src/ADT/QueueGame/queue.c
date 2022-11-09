@@ -44,15 +44,16 @@ void dequeue(Queue *q, ElType *val){
         IDX_TAIL(*q) = IDX_UNDEF;
     }
     else{
-    for (i=0;i<IDX_TAIL(*q);i++){
-        (*q).buffer[i] = (*q).buffer[i+1];
+        (*val)=HEAD(*q);
+        for (i=0;i<IDX_TAIL(*q);i++){
+            q->buffer[i]=q->buffer[i+1];
+        }
         IDX_TAIL(*q)--;
-    }}
+    }
 }
 
 void displayQueueGame(Queue Q){
     int i;
-    printf("Berikut adalah daftar antrian game-mu\n");
     for (i=0;i<=IDX_TAIL(Q);i++){
         printf("%d. %s\n", i+1, Q.buffer[i]);
     }
