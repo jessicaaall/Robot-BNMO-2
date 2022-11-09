@@ -22,7 +22,7 @@ void SalinKata(){
     CKata.Length = i;
 };
          
-void STARTKATA(filename){
+void STARTKATA(char *filename){
     START(filename);
     IgnoreBlank();
     if (CC != MARK) {
