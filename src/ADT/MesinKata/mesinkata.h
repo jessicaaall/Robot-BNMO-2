@@ -99,5 +99,6 @@ Word StringToWord(char* string);
 
 boolean IsWordSame(Word kata1, Word kata2);
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
+void scan(Word *c1, Word *c2);
 
 #endif

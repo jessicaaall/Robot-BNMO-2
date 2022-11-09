@@ -103,7 +103,7 @@ void ADVCOMMAND() {
 
 void CopyCommand() {
     int i = 0;
-    while ((CC != ENTER) && (i < NMax)) {
+    while ((CC != ENTER) && (i < NMax) && (CC != BLANK)) {
         if ((CC >= 'a') && (CC <= 'z')) {
             CC -= 32;
         }
@@ -188,9 +188,15 @@ boolean IsWordSame(Word kata1, Word kata2) {
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
 
-Word scan(){
-    STARTCOMMAND();
-    return CommandCC;
+void scan(Word *c1, Word *c2) {
+	STARTCOMMAND();
+	if (!EndWord) {
+		*c1 = CommandCC;
+		ADVCOMMAND();
+		if (!EndWord) {
+			*c2 = CommandCC;
+		}
+	}
 } 
 /* mengembalikan nilai yang dibaca oleh stdin */
 

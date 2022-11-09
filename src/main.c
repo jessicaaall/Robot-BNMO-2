@@ -1,6 +1,8 @@
 #include "./ADT/Array/array.h"
 #include "./ADT/MesinKarakter/mesinkarakter.h"
 #include "./ADT/MesinKata/mesinkata.h"
+#include "./ADT/MesinKarakter/mesinkarakter.h"
+#include "./ADT/MesinKata/mesinkata.h"
 #include "boolean.h"
 #include <stdio.h>
 
@@ -8,12 +10,16 @@ int main() {
     // WELKAM
     // Ada Tampilan keren
     // Ada menu (START, LOAD, EXIT)
-    char *dir = "../../savefile/";
-    static FILE *pita;
-    char CC;
-    int retval;
-    pita = stdin;
-    return 0;
+    boolean isExit = false;
+    char *curentComand;
+    Word START = StringToWord("START");
+    Word LOAD = StringToWord("LOAD");
+    Word EXIT = StringToWord("EXIT");
+    STARTCOMMAND();
+    WordToString(CommandCC, curentComand);
+    if (compareWord(CommandCC, START)) {
+        Start();
+    }
 }
 
 void concatStr(char *str1, char *str2, char *str3) {
@@ -31,13 +37,13 @@ void concatStr(char *str1, char *str2, char *str3) {
     str3[i] = '\0';
 }
 
-boolean compareKata(Kata K1, Kata K2) {
+boolean compareWord(Word K1, Word K2) {
     if (K1.Length != K2.Length) {
         return false;
     } else {
         int i = 0;
         while (i < K1.Length) {
-            if (K1.TabKata[i] != K2.TabKata[i]) {
+            if (K1.TabWord[i] != K2.TabWord[i]) {
                 return false;
             }
             i++;
