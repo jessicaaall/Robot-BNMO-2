@@ -186,3 +186,10 @@ boolean IsWordSame(Word kata1, Word kata2) {
     return sama;
 }
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
+
+
+Word scan(){
+    STARTCOMMAND();
+    return CommandCC;
+} 
+/* mengembalikan nilai yang dibaca oleh stdin */
