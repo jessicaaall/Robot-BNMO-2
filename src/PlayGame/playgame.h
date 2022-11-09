@@ -1,7 +1,7 @@
 #include "queue.h"
 
 #ifndef PLAYGAME_H
-#DEFINE PLAYGAME_H
+#define PLAYGAME_H
 
 void playgame(Queue *Q);
 /*

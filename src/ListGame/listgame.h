@@ -1,7 +1,7 @@
-#include "array.h"
+#include "../ADT/Array/array.h"
 
 #ifndef LISTGAME_H
-#DEFINE LISTGAME_H
+#define LISTGAME_H
 
 void listgame(Tab T);
 /* 

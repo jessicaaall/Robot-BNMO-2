@@ -1,4 +1,5 @@
 #include "listgame.h"
+#include "../ADT/Array/array.h"
 
 void listgame(Tab T){
     int i;
