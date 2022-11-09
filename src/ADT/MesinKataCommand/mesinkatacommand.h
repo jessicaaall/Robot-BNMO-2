@@ -7,7 +7,7 @@
 #include "../../boolean.h"
 #include "../MesinKarCommand/mesinkarcommand.h"
 
-#define NMax 200
+#define NMax 1000
 #define BLANK ' '
 
 typedef struct {
@@ -44,5 +44,21 @@ void CopyCommand();
           CC = BLANK atau CC = ENTER;
           CC adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+
+
+/* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
+void PrintWord(Word kata);
+/* Mencetak kata ke layar
+   I.S. : kata terdefinisi
+   F.S. : kata tercetak pada layar */
+
+int LengthOfString(char* string);
+/* Mengirimkan panjang string*/
+
+Word StringToWord(char* string);
+/* Mengirimkan Word yang elemen arraynya adalah string */
+
+boolean IsWordSame(Word kata1, Word kata2);
+/* Mengirimkan true apabila kata1 sama dengan kata2 */
 
 #endif

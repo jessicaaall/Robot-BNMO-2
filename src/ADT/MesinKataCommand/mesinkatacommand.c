@@ -59,3 +59,58 @@ void CopyCommand() {
           CC = BLANK atau CC = ENTER;
           CC adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+
+
+/* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
+void PrintWord(Word kata) {
+    int i;
+    for (i = 0; i < kata.Length; i++) {
+        printf("%c", kata.TabWord[i]);
+    }
+    printf("\n");
+}
+/* Mencetak kata ke layar
+   I.S. : kata terdefinisi
+   F.S. : kata tercetak pada layar */
+
+int LengthOfString(char* string) {
+    int i = 0;
+    while (string[i] != '\0') {
+        i++;
+    }
+    return i;
+}
+/* Mengirimkan panjang string*/
+
+Word StringToWord(char* string) {
+    Word kata;
+    int panjangstring = LengthOfString(string);
+    int i;
+
+    for (i = 0; i < panjangstring; i++) {
+        kata.TabWord[i] = string[i];
+    }
+    kata.Length = panjangstring;
+
+    return kata;
+}
+/* Mengirimkan Word yang elemen arraynya adalah string */
+
+boolean IsWordSame(Word kata1, Word kata2) {
+    boolean sama = true;
+    int i = 0;
+
+    if (kata1.Length != kata2.Length) {
+        sama = false;
+    } else {
+        while ((i < kata1.Length) && (sama)) {
+            if (kata1.TabWord[i] != kata2.TabWord[i]) {
+                sama = false;
+            }
+            i++;
+        }
+    }
+
+    return sama;
+}
+/* Mengirimkan true apabila kata1 sama dengan kata2 */
