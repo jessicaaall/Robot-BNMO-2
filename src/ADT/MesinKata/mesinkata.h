@@ -4,7 +4,7 @@
 #ifndef __MESIN_KATA_H__
 #define __MESIN_KATA_H__
 
-#include "../../boolean.h"
+#include "../boolean.h"
 #include "../MesinKarakter/mesinkarakter.h"
 
 #define NMax 1000
