@@ -25,7 +25,7 @@ IdxType GetLastIdxArray (Tab T){
 	return ((T).Neff);
 }
 
-ElType GetElmtArray (Tab T, IdxType i){
+WordType GetElmtArray (Tab T, IdxType i){
 	return ((T).TI[(i)]);
 }
 
@@ -35,7 +35,7 @@ void SetTabArray (Tab Tin, Tab *Tout){
 	*Tout = Tin;
 }
 
-void SetElArray (Tab *T, IdxType i, ElType v){
+void SetElArray (Tab *T, IdxType i, WordType v){
 	(*T).TI[(i)] = v ;
 }
 

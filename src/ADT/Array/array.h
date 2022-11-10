@@ -16,11 +16,11 @@
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType;
-typedef Word ElType;
+typedef Word WordType;
 
 typedef struct 
 {
-	ElType TI [IdxMax-IdxMin+1]; /* memori tempat penyimpan elemen (container) */
+	WordType TI [IdxMax-IdxMin+1]; /* memori tempat penyimpan elemen (container) */
 	int Neff; /* banyaknya elemen efektif */
 } Tab;
 
@@ -58,7 +58,7 @@ IdxType GetLastIdxArray (Tab T);
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks elemen terakhir */
 /* *** Menghasilkan sebuah elemen *** */
-ElType GetElmtArray (Tab T, IdxType i);
+WordType GetElmtArray (Tab T, IdxType i);
 /* Prekondisi : Tabel tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen tabel yang ke-i */
 
@@ -68,7 +68,7 @@ void SetTabArray (Tab Tin, Tab *Tout);
 /* I.S. Tin terdefinisi, sembarang */
 /* F.S. Tout berisi salinan Tin */
 /* Assignment THsl -> Tin */
-void SetElArray (Tab *T, IdxType i, ElType v);
+void SetElArray (Tab *T, IdxType i, WordType v);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 /* Mengeset nilai elemen tabel yang ke-i sehingga bernilai v */
