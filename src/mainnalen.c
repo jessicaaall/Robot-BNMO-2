@@ -1,16 +1,17 @@
-
-
-
-
+#include "./ADT/Array/array.h"
+#include "./ADT/MesinKarakter/mesinkarakter.h"
+#include "./ADT/MesinKata/mesinkata.h"
+#include "./ADT/MesinKarakter/mesinkarakter.h"
+#include "./ADT/MesinKata/mesinkata.h"
+#include "./ADT/Queue/queue.h"
+#include "boolean.h"
 #include <stdio.h>
-
-
 
 
 int main(){
 
     boolean check1,check2;
-    check = false;
+    boolean check = false;
     Word command1;
     Word command2;
     Queue Q;
@@ -19,10 +20,10 @@ int main(){
     printf("ENTER COMMAND : ");
     InitialScan(&command1, &command2);
     printf("\n");
-    if (compareWord(StringToWord("START"), command1)){
+    if (IsWordSame(StringToWord("START"), command1)){
             START();
     }
-    else if (compareWord(StringToWord("LOAD"), command1)){
+    else if (IsWordSame(StringToWord("LOAD"), command1)){
         //fungsi Load
         if (T.Neff==1){
             check=true;
@@ -33,39 +34,36 @@ int main(){
         QUIT(&check);
     }
 
-
-        
-    
-    
+   
     while (!check){
         printf("ENTER COMMAND : ");
         Scan(&command1, &command2);
         printf("\n");
-        if (compareWord(StringToWord("CREATE"), command1) && compareWord(StringToWord("GAME"), command2)){
+        if (IsWordSame(StringToWord("CREATE"), command1) && IsWordSame(StringToWord("GAME"), command2)){
             CREATEGAME(&T);
         }
-        else if(compareWord(StringToWord("LIST"), command1) && compareWord(StringToWord("GAME"), command2)){
+        else if(IsWordSame(StringToWord("LIST"), command1) && IsWordSame(StringToWord("GAME"), command2)){
             LISTGAME(T);
         }
-        else if(compareWord(StringToWord("DELETEGAME"), command1) && compareWord(StringToWord("GAME"), command2)){
+        else if(IsWordSame(StringToWord("DELETEGAME"), command1) && IsWordSame(StringToWord("GAME"), command2)){
             DELETEGAME(&T,Q);
         }
-        else if(compareWord(StringToWord("QUEUE"), command1) && compareWord(StringToWord("GAME"), command2)){
+        else if(IsWordSame(StringToWord("QUEUE"), command1) && IsWordSame(StringToWord("GAME"), command2)){
             QUEUEGAME(T,&Q);
         }
-        else if(compareWord(StringToWord("PLAY"), command1) && compareWord(StringToWord("GAME"), command2)){
+        else if(IsWordSame(StringToWord("PLAY"), command1) && IsWordSame(StringToWord("GAME"), command2)){
             PLAYGAME(&Q);
         }
-        else if(compareWord(StringToWord("HELP"), command1)){
+        else if(IsWordSame(StringToWord("HELP"), command1)){
             HELP();
         }
-        else if(compareWord(StringToWord("SAVE"), command1)){
+        else if(IsWordSame(StringToWord("SAVE"), command1)){
 
         }
-        else if(compareWord(StringToWord("SKIP"), command1)){
+        else if(IsWordSame(StringToWord("SKIP"), command1)){
             SKIPGAME(command2,&Q);
         }
-        else if(compareWord(StringToWord("QUIT"), command1)){
+        else if(IsWordSame(StringToWord("QUIT"), command1)){
             QUIT(&check);
         }
         else{
@@ -74,4 +72,3 @@ int main(){
     }
     
 }
-
