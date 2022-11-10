@@ -225,14 +225,16 @@ Word WordUpper(Word kata) {
 
 boolean ValidTxt(Word txt){
     boolean check = false;
-    if (txt.TabWord[txt.Length-4]=='.'){
-        if (txt.TabWord[txt.Length-3]=='t'){
-            if (txt.TabWord[txt.Length-2]=='x'){
-                if (txt.TabWord[txt.Length-1]=='t'){
-                    check = true;
+    if (txt.Length>=5){
+	if (txt.TabWord[txt.Length-4]=='.'){
+        	if (txt.TabWord[txt.Length-3]=='t'){
+            		if (txt.TabWord[txt.Length-2]=='x'){
+                		if (txt.TabWord[txt.Length-1]=='t'){
+                    			check = true;
                 }
             }
         }
+    }
     }
     return check;
 }
