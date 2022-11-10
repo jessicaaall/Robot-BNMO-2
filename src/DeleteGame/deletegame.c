@@ -8,7 +8,7 @@ void DELETEGAME (Tab *daftargame, Queue queuegame) {
 
     boolean valid = true, found = false;
     int i = 0, nomor;
-    ElType antriangame[NMax];
+    ElType antriangame;
     WordType namagame;
 
     while ((valid) && (i < CommandCC.Length)) {
