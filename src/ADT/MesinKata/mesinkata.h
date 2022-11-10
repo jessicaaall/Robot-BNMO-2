@@ -103,10 +103,16 @@ boolean IsWordSame(Word kata1, Word kata2);
 void Scan(Word *c1, Word *c2);
 /* Memisahkan kata pertama dan kata kedua yang diambil stdin 
    I.S. : Sembarang 
-   F.S. : c1 adalah kata pertama dan c2 adalah kata kedua yang diambil stdin */
+   F.S. : c1 adalah kata pertama dan c2 adalah kata kedua yang diambil stdin 
+          dengan c1 dan c2 di-upper */
 
 void InitialScan(Word *c1, Word *c2);
+/* Memisahkan kata pertama dan kata kedua yang diambil stdin 
+   I.S. : Sembarang 
+   F.S. : c1 adalah kata pertama dan c2 adalah kata kedua yang diambil stdin 
+          dengan c1 di-upper dan c2 tidak di-upper */
 
 Word WordUpper(Word kata);
+/* Mengirimkan kata yang telah di-upper */
 
 #endif

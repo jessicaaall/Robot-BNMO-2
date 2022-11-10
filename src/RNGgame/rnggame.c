@@ -23,8 +23,6 @@ int RNGgame() {
             printf("Tebakan >> ");
             STARTCOMMAND();
 
-            CommandCC = WordUpper(CommandCC);
-
             valid = true;
             for (i = 0; i < CommandCC.Length; i++) {
                 if ((CommandCC.TabWord[i] < '0') || (CommandCC.TabWord[i] > '9')) {
