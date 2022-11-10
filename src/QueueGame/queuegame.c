@@ -1,21 +1,42 @@
-
 #include <stdio.h>
 #include "queuegame.h"
+#include "../ListGame/listgame.h"
 
-void queuegame(Queue *Q,Tab *T){
-    boolean check = false; 
-    printf("Berikut adalah daftar Game-mu\n");
-    displayQueueGame(*Q);
-    listgame(*T);
-    while (!check){
-    printf("Nomor game yang  ingin ditambahkan dalam antrian : ");
+void QUEUEGAME(Tab daftargame, Queue *queuegame) {
+    printf("Berikut adalah daftar antrian game-mu\n");
+    displayQueueGame(*queuegame);
+    LISTGAME(daftargame);
+
+    printf("\nNomor game yang mau ditambahkan ke antrian >> ");
     STARTCOMMAND();
-    if (CommandCC<=(*T).TI[0]){
-        enqueue(Q,(*T).TI[CommandCC]);
-        printf("\nGame berhasil ditambahkan ke dalam antrian.\n");
-        check = true;
+    printf("\n");
+
+    boolean valid = true;
+    int i, nomor;
+
+    for (i = 0; i < CommandCC.Length; i++) {
+        if ((CommandCC.TabWord[i] < '0') || (CommandCC.TabWord[i] > '9')) {
+            valid = false;
+        }
     }
-    else{
-        printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
-    }}
+
+    if (!valid) {
+        printf("\nNomor permainan tidak valid, silahkan masukkan nomor game pada daftar game.\n");
+    } else {
+        nomor = 0;
+        for (i = 0; i < CommandCC.Length; i++) {
+            nomor = nomor*10 + (CommandCC.TabWord[i] - '0');
+        }
+
+        if ((nomor == 0) || (nomor > daftargame.Neff)) {
+            printf("\nNomor permainan tidak valid, silahkan masukkan nomor game pada daftar game.\n");
+        } else {
+            enqueue(queuegame, daftargame.TI[nomor-1].TabWord);
+            printf("\nGame berhasil ditambahkan ke dalam daftar antrian.\n");
+        }
+    }
 }
+/* Proses : Menerima input nomor game yang ingin ditambahkan dalam daftar antrian game
+            Apabila input nomor game valid, daftar antrian game bertambah
+            Apabila input nomor game tidak valid, daftar antrian game tetap */
+/* I.S. Daftar antrian game terdefinisi */

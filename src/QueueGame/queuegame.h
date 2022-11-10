@@ -1,14 +1,17 @@
-#include "../ADT/Queue/queue.h"
-#include "../ADT/Array/array.h"
-#include "../ADT/MesinKata/mesinkata.h"
-#include "../boolean.h"
-#include "../ListGame/listgame.h"
+/* File : queuegame.h */
+
 #ifndef QUEUEGAME_H
 #define QUEUEGAME_H
 
-void queuegame();
+#include "../../boolean.h"
+#include "../ADT/Queue/queue.h"
+#include "../ADT/Array/array.h"
+#include "../ADT/MesinKata/mesinkata.h"
 
-/*
-I.S. Daftar game terdefinisi.
-F.S. Daftar game yang telah ditambahkan .
-*/
+void QUEUEGAME(Tab daftargame, Queue *queuegame);
+/* Proses : Menerima input nomor game yang ingin ditambahkan dalam daftar antrian game
+            Apabila input nomor game valid, daftar antrian game bertambah
+            Apabila input nomor game tidak valid, daftar antrian game tetap */
+/* I.S. Daftar antrian game terdefinisi */
+
+#endif
