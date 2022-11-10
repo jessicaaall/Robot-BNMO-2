@@ -6,15 +6,18 @@ void load(char * filename, Tab * loadsave) {
     /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
     I.S. : filename terdefinisi, Tab kosong
     F.S. : Tab loadsave terisi dengan .txt yang bernama filename */
-    char *dir = "../../savefile/";
-    char *fileDir;
-    concatStr(dir, filename, fileDir);
     int i = 0;
-    STARTWORD(fileDir);
-    while (!EndWord) {
+    // printf("lagi 0\n"); //
+    STARTWORD(filename);
+    // printf("lagi 1\n"); //
+    while (!EOP) {
         (*loadsave).TI[i] = CWord;
-        (*loadsave).Neff++;
+        printf("%s\n", CWord.TabWord); //
         ADVWORD();
+        // printf("%d\n", i);
         i++;
     }
+    (*loadsave).TI[i] = CWord;
+    i++;
+    (*loadsave).Neff = i;
 }

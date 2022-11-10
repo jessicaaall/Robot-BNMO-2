@@ -18,12 +18,12 @@ void IgnoreBlank() {
 
 void CopyWord() {
     int i = 0;
-    while ((CC != ENTER) && (CC != BLANK) && (i <= NMax) && (!EOP)) {
+    while ((CC != ENTER) && (i <= NMax) && (!EOP)) {
         CWord.TabWord[i] = CC;
         ADV();
         i++;
     }
-    if(CC == ENTER || CC == BLANK || EOP) {
+    if(CC == ENTER || EOP) {
         CWord.TabWord[i] = '\0';
     }
     CWord.Length = i;

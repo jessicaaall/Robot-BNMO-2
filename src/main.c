@@ -16,6 +16,9 @@ int main() {
     Word START = StringToWord("START");
     Word LOAD = StringToWord("LOAD");
     Word EXIT = StringToWord("EXIT");
+    Tab arrayGame;
+    char *strout;
+    MakeEmptyArray(&arrayGame);
 	printf("Masukan command :");
 	InitialScan(&command1, &command2);
     if (compareWord(command1, EXIT)) {
@@ -29,10 +32,12 @@ int main() {
 		printf("panjang1 : %d\n", command1.Length);
     } else if (compareWord(command1, LOAD)) {
 		printf("Ini Load ges\n");
-		printf("command1   : %s\n", command1.TabWord);
-		printf("panjang1   : %d\n", command1.Length);
-		printf("filename   : %s\n", command2.TabWord);
-		printf("panjangnya : %d\n", command2.Length);
+		load(command2.TabWord, &arrayGame);
+		printf("berhasil load\n");
+		for (int i = 0; i < NbElmtArray(arrayGame); i++) {
+			printf("isi file : %s\n", arrayGame.TI[i].TabWord);
+		}
+		printf("Neff : %d\n", arrayGame.Neff);
     }
     while (isExit == false) {
 		printf("Masukan command :");
