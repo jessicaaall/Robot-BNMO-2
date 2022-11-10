@@ -6,7 +6,7 @@
 #include "DD2.h"
 #include "../ADT/MesinKata/mesinkata.h"
 
-void diner_dash();
+void DINNERDASH();
 //Desc: Menjalankan game Diner Dash
 /* IS: Sembarang
    FS: Game Diner Dash dimainkan */

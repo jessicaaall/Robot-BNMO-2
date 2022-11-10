@@ -2,7 +2,7 @@
 #include <time.h>
 #include "diner_dash.h"
 
-void diner_dash(){
+void DINNERDASH(){
     printf("\nSelamat Datang di Diner Dash!\n");
 
     Queue qPesanan, qDiproses , qSelesai;
