@@ -1,5 +1,5 @@
 /* File : queue.h */
-/* Definisi ADT Queue dengan representasi array secara eksplisit dan alokasi statik */
+/* Definisi ADT Queue dengan representasi array secara eksplisit dan alokasi statik ALT-1 */
 
 #ifndef QUEUE_H
 #define QUEUE_H
@@ -36,9 +36,9 @@ void CreateQueue(Queue *q);
 /* ********* Prototype ********* */
 boolean isEmpty(Queue q);
 /* Mengirim true jika q kosong: lihat definisi di atas */
+
 boolean isFull(Queue q);
 /* Mengirim true jika tabel penampung elemen q sudah penuh */
-
 
 int length(Queue q);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
@@ -47,17 +47,20 @@ int length(Queue q);
 void enqueue(Queue *q, ElType val);
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
-/* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" . */
+/* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" */
 
 void dequeue(Queue *q, ElType *val);
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
-/* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
+/* F.S. val = nilai elemen HEAD pd I.S. , 
+		semua elemen mulai dari IDX_HEAD+1 sampai IDX_TAIL digeser
+		IDX_TAIL "maju"
         q mungkin kosong */
 
 /* *** Display Queue *** */
 void displayQueueGame(Queue q);
-
+/* Proses : Menuliskan isi Queue dengan traversal */
 /* I.S. q boleh kosong */
-/* F.S. Jika q tidak kosong akan menulis antrian game*/
+/* F.S. Jika q tidak kosong, menulis daftar antrian game*/
+
 #endif
