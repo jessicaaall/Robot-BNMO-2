@@ -3,7 +3,7 @@
 #ifndef __CREATEGAME_H__
 #define __CREATEGAME_H__
 
-#include "../../boolean.h"
+#include "../boolean.h"
 #include "../ADT/Array/array.h"
 #include "../ADT/Queue/queue.h"
 #include "../ADT/MesinKata/mesinkata.h"

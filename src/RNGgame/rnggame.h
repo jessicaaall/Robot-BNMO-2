@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "../../boolean.h"
+#include "../boolean.h"
 #include "../MesinKata/mesinkata.h"
 
 int RNGgame();

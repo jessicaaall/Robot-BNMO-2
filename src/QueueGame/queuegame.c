@@ -5,7 +5,6 @@
 void QUEUEGAME(Tab daftargame, Queue *queuegame) {
     printf("Berikut adalah daftar antrian game-mu\n");
     displayQueueGame(*queuegame);
-    printf("Berikut adalah daftar game yang tersedia\n");
     LISTGAME(daftargame);
 
     printf("\nNomor game yang mau ditambahkan ke antrian >> ");

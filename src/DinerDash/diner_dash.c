@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "diner_dash.h"
-#include "mesinkatacommand.h"
 
 void diner_dash(){
     printf("\nSelamat Datang di Diner Dash!\n");

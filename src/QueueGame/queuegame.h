@@ -3,7 +3,7 @@
 #ifndef QUEUEGAME_H
 #define QUEUEGAME_H
 
-#include "../../boolean.h"
+#include "../boolean.h"
 #include "../ADT/Queue/queue.h"
 #include "../ADT/Array/array.h"
 #include "../ADT/MesinKata/mesinkata.h"

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "DD2.h"
-#include "mesinkatacommand.h"
 
 const int IDX_UNDEF = -1;
 const int CAPACITY = 15;

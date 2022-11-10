@@ -1,6 +1,8 @@
 #ifndef DD2_H
 #define DD2_H
-#include "boolean.h"
+
+#include "../boolean.h"
+#include "../ADT/MesinKata/mesinkata.h"
 
 typedef struct {
     char Makanan[3];
@@ -114,6 +116,7 @@ int GetIdx(Queue q, char foodId[]);
 
 boolean IsFinish(Queue qPesanan, Queue qSelesai);
 // Mengecek apakah permainan selesai
+
 #endif
 
 
