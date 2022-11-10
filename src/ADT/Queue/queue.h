@@ -7,7 +7,7 @@
 #include "../../boolean.h"
 
 #define IDX_UNDEF -1
-#define CAPACITY 1000
+#define CAPACITY 500
 
 /* Definisi elemen dan address */
 typedef char *ElType;

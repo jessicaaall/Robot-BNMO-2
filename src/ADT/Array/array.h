@@ -10,7 +10,7 @@
 
 /* Kamus Umum */
 
-#define IdxMax 999
+#define IdxMax 499
 #define IdxMin 0
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
