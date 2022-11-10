@@ -26,7 +26,7 @@ void DELETEGAME (Tab *daftargame, Queue queuegame) {
             nomor = nomor*10 + (CommandCC.TabWord[i] - '0');
         }
 
-        if (((nomor >= 0) && (nomor <= 5)) || (nomor > NbElmtArray(*daftargame))) {
+        if (((nomor >= 0) && (nomor <= 5)) || (nomor > (*daftargame).Neff)) {
             printf("\nGame gagal dihapus.\n");
         } else {
             namagame = GetElmtArray(*daftargame, nomor-1);
