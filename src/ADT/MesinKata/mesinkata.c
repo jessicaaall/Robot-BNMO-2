@@ -238,28 +238,3 @@ boolean ValidTxt(Word txt){
     }
     return check;
 }
-
-
-int LengthFirstWord(Word kata){
-    int i= 0;
-    while (i<kata.Length && kata.TabWord[i]!=' '){
-        i++;
-    }
-    return i;
-}
-boolean IsFirstWordSame(Word kata1, Word kata2){
-    int i=0;
-    boolean check = true;
-    if (LengthFirstWord(kata1)==LengthFirstWord(kata2)){
-        while (i<LengthFirstWord(kata1) && check){
-            if (kata1.TabWord[i]!=kata2.TabWord[i]){
-                check=false;
-            }
-            i++;
-        }
-    }
-    else{
-        check = false;
-    }
-    return check;
-}
