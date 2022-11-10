@@ -8,7 +8,7 @@
 #include "../ADT/MesinKata/mesinkata.h"
 #include "../PlayGame/playgame.h"
 
-void skipgame(char *command,Queue *q);
+void SKIPGAME(Word n, Queue *q);
 
 //SKIPGAME merupakan command yang digunakan untuk melewatkan permainan sebanyak n.
 //I.S. Daftar queue game yang terdefinisi.

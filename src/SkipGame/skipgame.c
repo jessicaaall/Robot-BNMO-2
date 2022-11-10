@@ -2,36 +2,34 @@
 #include "skipgame.h"
 
 
-void skipgame(Word command,Queue *q){
-    int i=0;
-    int hasil=0;
-    int j=0;
-    boolean check;
-    printf("Berikut adalah daftar game-mu\n");
-    displayQueueGame(*q);
-    while (i<command.Length && !check){
-        if (command.TabWord[i]>='A' &&  command.TabWord[i]<='Z'){
-            check = true;
-        }
-        else{
-        hasil = hasil*10 + command.TabWord[i] - 48;
-        i++;}
+void SKIPGAME(Word n, Queue *q){
+    int i, hasil = 0;
+    boolean valid = true;
+    ElType namagame;
 
+    printf("Berikut adalah daftar antrian game-mu\n");
+    displayQueueGame(*q);
+
+    while ((valid) && (i < n.Length)) {
+        if ((n.TabWord[i] < '0') || (n.TabWord[i] > '9')) {
+            valid = false;
+        }
     }
-    if (!check){
-    if (hasil<length(*q)){
-        for (j=0;j<hasil;j++){
-            dequeue(q);
-    }
-    playgame(q);
-    }
-    else{
-        CreateQueue(q);
-        printf("Tidak ada permainan lagi dalam daftar game-mu.\n");
-    }
-    }
-    else{
-        printf("Masukkan untuk melakukan SKIPGAME salah, dimohon untuk mengganti masukkan game yang ingin di input dengan format angka.\n");
+
+    if (!valid) {
+        printf("\nMasukan banyak game yang diskip tidak valid.\n");
+    } else {
+        for (i = 0; i < n.Length; i++) {
+            hasil = hasil*10 + (n.TabWord[i] - '0');
+        }
+
+        if (hasil < length(*q)) {
+            for (i = 0; i < hasil; i++) {
+                dequeue(q, &namagame);
+            }
+            PLAYGAME(q);
+        } else {
+            printf("\nTidak ada permainan lagi dalam daftar antrian game-mu.\n");
+        }
     }
 }
-
