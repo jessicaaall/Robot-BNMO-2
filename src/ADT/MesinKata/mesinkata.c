@@ -184,7 +184,6 @@ boolean IsWordSame(Word kata1, Word kata2) {
 }
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
-
 void Scan(Word *c1, Word *c2) {
 	STARTCOMMAND();
 	if (!EndWord) {
@@ -195,7 +194,10 @@ void Scan(Word *c1, Word *c2) {
 		}
 	}
 } 
-/* mengembalikan nilai yang dibaca oleh stdin */
+/* Memisahkan kata pertama dan kata kedua yang diambil stdin 
+   I.S. : Sembarang 
+   F.S. : c1 adalah kata pertama dan c2 adalah kata kedua yang diambil stdin 
+          dengan c1 dan c2 di-upper */
 
 void InitialScan(Word *c1, Word *c2) {
 	STARTCOMMAND();
@@ -206,7 +208,11 @@ void InitialScan(Word *c1, Word *c2) {
 			*c2 = CommandCC;
 		}
 	}
-} 
+}
+/* Memisahkan kata pertama dan kata kedua yang diambil stdin 
+   I.S. : Sembarang 
+   F.S. : c1 adalah kata pertama dan c2 adalah kata kedua yang diambil stdin 
+          dengan c1 di-upper dan c2 tidak di-upper */
 
 Word WordUpper(Word kata) {
 	for (int i = 0; i < kata.Length; i++) {
@@ -216,6 +222,7 @@ Word WordUpper(Word kata) {
 	}
 	return kata;
 }
+/* Mengirimkan kata yang telah di-upper */
 
 boolean ValidTxt(Word txt){
     boolean check = false;
