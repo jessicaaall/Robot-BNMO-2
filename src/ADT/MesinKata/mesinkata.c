@@ -103,7 +103,7 @@ void ADVCOMMAND() {
 
 void CopyCommand() {
     int i = 0;
-    while ((CC != ENTER) && (i < NMax) && (CC != BLANK)) {
+    while ((CC != ENTER) && (i < NMax)) {
         CommandCC.TabWord[i] = CC;
         ADVC();
         i++;
@@ -113,7 +113,7 @@ void CopyCommand() {
 /* Mengakuisisi kata, menyimpan dalam CommandCC
    I.S. : CC adalah karakter pertama dari kata
    F.S. : CommandCC berisi kata yang sudah diakuisisi;
-          CC = BLANK atau CC = ENTER;
+          CC = ENTER;
           CC adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
