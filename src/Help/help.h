@@ -1,7 +1,11 @@
+/* File : help.h */
+
 #ifndef HELP_H
 #define HELP_H
-void help();
-// Desc: Menampilkan informasi command-command yang dapat dipanggil
-/* IS: sembarang
-   FS: Menampilkan command-command beserta informasinya */
+
+void HELP ();
+/* Menampilkan bantuan daftar command yang dapat dipanggil */
+/* I.S. : sembarang
+   F.S. : Menampilkan daftar command beserta kegunaannya */
+
 #endif
