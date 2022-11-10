@@ -1,11 +1,11 @@
 #include "playgame.h"
 
-void playgame(Queue *Q){
+void PLAYGAME(Queue *Q){
     /*
     I.S. Daftar game terdefinisi
     F.S. Game yang dipilih dimainkan
     */
-    int i;
+    int i, skor;
     ElType game;
 
     if (!isEmpty(*Q)){
@@ -14,7 +14,7 @@ void playgame(Queue *Q){
         dequeue(Q, &game);
         if (game == "RNG"){
             printf("Loading RNG ...\n");
-            RNGgame();
+            skor = RNGgame();
         } else if (game == "Diner DASH"){
             printf("Loading DINER DASH ...\n");
             DinerDash();
@@ -25,7 +25,7 @@ void playgame(Queue *Q){
             printf("Game %s masih dalam maintenance, belum dapat dimainkan. Silahkan pilih game lain\n",game);
         } else {
             printf("Loading %s ...\n", game);
-            skorgame();
+            skor = skorgame();
         }
     }
     

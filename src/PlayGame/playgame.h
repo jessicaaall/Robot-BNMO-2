@@ -8,7 +8,7 @@
 #include "../DinerDash/diner_dash.h"
 #include "../SkorGame/skorgame.h"
 
-void playgame(Queue *Q);
+void PLAYGAME(Queue *Q);
 /*
 I.S. Daftar game terdefinisi
 F.S. Game yang dipilih dimainkan
