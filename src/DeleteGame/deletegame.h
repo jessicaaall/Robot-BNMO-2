@@ -1,7 +1,7 @@
 /* File : deletegame.h */
 
-#ifndef __CREATEGAME_H__
-#define __CREATEGAME_H__
+#ifndef __DELETEGAME_H__
+#define __DELETEGAME_H__
 
 #include "../boolean.h"
 #include "../ADT/Array/array.h"
