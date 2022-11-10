@@ -125,7 +125,6 @@ void PrintWord(Word kata) {
     for (i = 0; i < kata.Length; i++) {
         printf("%c", kata.TabWord[i]);
     }
-    printf("\n");
 }
 /* Mencetak kata ke layar
    I.S. : kata terdefinisi
