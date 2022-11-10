@@ -7,6 +7,7 @@
 #include "../ADT/Array/array.h"
 #include "../ADT/Queue/queue.h"
 #include "../ADT/MesinKata/mesinkata.h"
+#include "../ListGame/listgame.h"
 #include <stdio.h>
 
 void DELETEGAME (Tab *daftargame, Queue queuegame);

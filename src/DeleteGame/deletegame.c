@@ -1,10 +1,9 @@
 #include "deletegame.h"
 
 void DELETEGAME (Tab *daftargame, Queue queuegame) {
-    printf("Berikut adalah daftar game yang tersedia\n");
     LISTGAME(*daftargame);
 
-    printf("\nMasukkan nomor game yang akan dihapus");
+    printf("\nMasukkan nomor game yang akan dihapus >> ");
     STARTCOMMAND();
 
     boolean valid = true, found = false;
