@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "../boolean.h"
-#include "../MesinKata/mesinkata.h"
+#include "../ADT/MesinKata/mesinkata.h"
 
 int RNGgame();
 /* Mengembalikan skor akhir pemain pada RNG game */
