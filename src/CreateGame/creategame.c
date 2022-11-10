@@ -23,8 +23,10 @@ void CREATEGAME (Tab *daftargame) {
         printf(" gagal ditambahkan. Game sudah ada pada daftar game.\n");
     } else {
         if (!IsFullArray(*daftargame)) {
+            (*daftargame).TI[(*daftargame).Neff].Length = 0;
             for (i = 0; i < CommandCC.Length; i++) {
                 (*daftargame).TI[(*daftargame).Neff].TabWord[i] = CommandCC.TabWord[i];
+                (*daftargame).TI[(*daftargame).Neff].Length++;
             }
             (*daftargame).Neff++;
             printf("\nGame ");
