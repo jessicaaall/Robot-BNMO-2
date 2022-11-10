@@ -10,8 +10,8 @@
 
 /* Kamus Umum */
 
-#define IdxMax 1000
-#define IdxMin 1
+#define IdxMax 999
+#define IdxMin 0
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */

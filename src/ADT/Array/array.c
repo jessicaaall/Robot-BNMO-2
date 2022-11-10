@@ -22,7 +22,7 @@ IdxType GetFirstIdxArray (Tab T){
 }
 
 IdxType GetLastIdxArray (Tab T){
-	return ((T).Neff);
+	return ((T).Neff-1);
 }
 
 WordType GetElmtArray (Tab T, IdxType i){
