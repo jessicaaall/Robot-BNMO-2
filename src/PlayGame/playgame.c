@@ -20,7 +20,9 @@ void PLAYGAME(Queue *queuegame) {
             printf("Loading DINER DASH ...\n");
             DINNERDASH();
         } else if (IsWordSame(game, StringToWord("DINOSAUR IN EARTH")) || IsWordSame(game, StringToWord("RISEWOMAN")) || IsWordSame(game, StringToWord("EIFFEL TOWER"))){
-            printf("Game %s masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n", game);
+            printf("Game ");
+            PrintWord(game);
+            printf(" masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n");
         } else {
             printf("Loading ");
             PrintWord(game);
