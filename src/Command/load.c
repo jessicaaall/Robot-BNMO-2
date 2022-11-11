@@ -7,10 +7,11 @@ void load(char * filename, Tab * loadsave) {
     int i = 0;
     // printf("lagi 0\n"); //
     STARTWORD(filename);
+    ADVWORD();
     // printf("lagi 1\n"); //
     while (!EOP) {
         (*loadsave).TI[i] = CWord;
-        printf("%s\n", CWord.TabWord); //
+        //printf("%s\n", CWord.TabWord); //
         ADVWORD();
         // printf("%d\n", i);
         i++;

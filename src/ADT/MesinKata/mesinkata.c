@@ -163,6 +163,7 @@ void CopyCommand2() {
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
 
+
 /* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
 
 void PrintWord(Word kata) {
@@ -229,8 +230,8 @@ boolean IsWordSame(Word kata1, Word kata2) {
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
 void Scan(Word *c1, Word *c2) {
-    *c1 = StringToWord("\0");
-    *c2 = StringToWord("\0");
+    *c1 = StringToWord("");
+    *c2 = StringToWord("");
 	STARTCOMMAND();
 	if (!EndWord) {
 		*c1 = WordUpper(CommandCC);
@@ -246,8 +247,8 @@ void Scan(Word *c1, Word *c2) {
           dengan c1 dan c2 di-upper */
 
 void InitialScan(Word *c1, Word *c2) {
-    *c1 = StringToWord("\0");
-    *c2 = StringToWord("\0");
+    *c1 = StringToWord("");
+    *c2 = StringToWord("");
 	STARTCOMMAND();
 	if (!EndWord) {
 		*c1 = WordUpper(CommandCC);
