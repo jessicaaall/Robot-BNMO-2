@@ -136,7 +136,7 @@ void ADVCOMMAND2() {
     if (CC == ENTER) {
         EndWord = true;
     } else {
-        CopyCommand();
+        CopyCommand2();
         IgnoreBlanks();
     }
 }
@@ -228,6 +228,25 @@ boolean IsWordSame(Word kata1, Word kata2) {
     return sama;
 }
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
+
+boolean IsStringSame(char* str1, char* str2) {
+    boolean sama = true;
+    int i = 0;
+
+    if (LengthOfString(str1) == LengthOfString(str2)) {
+        sama = false;
+    } else {
+        while ((i < LengthOfString(str1)) && (sama)) {
+            if (str1[i] != str2[i]) {
+                sama = false;
+            }
+        }
+        i++;
+    }
+
+    return sama;
+}
+/* Mengirimkan true apabila string1 sama dengan string2 */
 
 void Scan(Word *c1, Word *c2) {
     *c1 = StringToWord("");

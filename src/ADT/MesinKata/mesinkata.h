@@ -121,6 +121,9 @@ Word StringToWord(char* string);
 boolean IsWordSame(Word kata1, Word kata2);
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
+boolean IsStringSame(char* str1, char* str2);
+/* Mengirimkan true apabila string1 sama dengan string2 */
+
 void Scan(Word *c1, Word *c2);
 /* Memisahkan kata pertama dan kata kedua yang diambil stdin 
    I.S. : Sembarang 
