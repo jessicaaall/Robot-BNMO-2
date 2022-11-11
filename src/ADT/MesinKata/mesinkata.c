@@ -254,7 +254,7 @@ void Scan(Word *c1, Word *c2) {
 	STARTCOMMAND();
 	if (!EndWord) {
 		*c1 = WordUpper(CommandCC);
-		ADVCOMMAND();
+		ADVCOMMAND2();
 		if (!EndWord) {
 			*c2 = WordUpper(CommandCC);
 		}
@@ -271,7 +271,7 @@ void InitialScan(Word *c1, Word *c2) {
 	STARTCOMMAND();
 	if (!EndWord) {
 		*c1 = WordUpper(CommandCC);
-		ADVCOMMAND();
+		ADVCOMMAND2();
 		if (!EndWord) {
 			*c2 = CommandCC;
 		}
