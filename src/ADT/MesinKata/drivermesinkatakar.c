@@ -1,3 +1,5 @@
+// gcc -o driverkatakar ./src/ADT/MesinKata/mesinkata.c ./src/ADT/MesinKarakter/mesinkarakter.c ./src/ADT/MesinKata/drivermesinkatakar.c
+// driverkatakar
 #include <stdio.h>
 #include "mesinkata.h"
 
