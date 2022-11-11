@@ -88,21 +88,28 @@ int main() {
 		printf("panjang1 : %d\n", command1.Length);
         printf("command2 : %s\n", command2.TabWord);
 		printf("panjang2 : %d\n", command2.Length); */
-        if (IsWordSame(StringToWord("START"), command1)) {
+        if ((IsWordSame(StringToWord("START"), command1)) && (command2.Length == 0)) {
             start(&listgame);
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
-            load(command2.TabWord, &listgame);
-            if (listgame.Neff != 1) {
-                check = true;
-                IsCommandStart = false;
+            if (command2.Length != 0) {
+                load(command2.TabWord, &listgame);
+                if (listgame.Neff != 1) {
+                    check = true;
+                    IsCommandStart = false;
+                } else {
+                    printf("Filename ");
+                    PrintWord(command2);
+                    printf(" tidak ditemukan.\n");
+                }
             } else {
-                printf("Filename %s tidak ditemukan.\n", command2.TabWord);
+                printf("Masukan tidak valid. Silahkan masukkan nama file yang ingin dibaca.\n");
             }
         } else {
-            printf("\nAnda harus memanggil command START atau LOAD terlebih dahulu.\n");
+            printf("\nCommand tidak valid. Silahkan masukkan command START atau LOAD <filename> terlebih dahulu.\n");
         }
     }
+
     if (check) {
         printf("\n");
         if (IsCommandStart) {
@@ -131,16 +138,24 @@ int main() {
         } else if (IsWordSame(StringToWord("PLAY"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             PLAYGAME(&antriangame);
         } else if (IsWordSame(StringToWord("SKIPGAME"), command1)) {
-            SKIPGAME(command2, &antriangame);
-        } else if (IsWordSame(StringToWord("QUIT"), command1)) {
+            if (command2.Length != 0) {
+                SKIPGAME(command2, &antriangame);
+            } else {
+                printf("\nMasukan tidak valid. Silahkan masukkan jumlah permainan yang ingin dilewatkan.\n");
+            }
+        } else if ((IsWordSame(StringToWord("QUIT"), command1)) && (command2.Length == 0)) {
             QUIT();
             IsQuit = true;
-        } else if (IsWordSame(StringToWord("HELP"), command1)) {
+        } else if ((IsWordSame(StringToWord("HELP"), command1)) && (command2.Length == 0)) {
             HELP();
         } else if (IsWordSame(StringToWord("SAVE"), command1)) {
-            SAVE(command2, listgame);
+            if (command2.Length != 0) {
+                SAVE(command2, listgame);
+            } else {
+                printf("\nMasukan tidak valid. Silahkan masukkan nama file yang akan disimpan.\n");
+            }
         } else {
-            printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
+            printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
         }
 
         printf("\n");
