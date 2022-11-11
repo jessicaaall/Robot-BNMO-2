@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
-#include "diner_dash.h"
 #include "DD2.h"
+#include "diner_dash.h"
 
 void DINNERDASH(){
     printf("\nSelamat Datang di Diner Dash!\n");
