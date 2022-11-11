@@ -82,7 +82,7 @@ int main() {
     CreateQueue(&antriangame);
 
     while (!check) {
-        printf("ENTER COMMAND >> ");
+        printf("\nENTER COMMAND >> ");
         InitialScan(&command1, &command2);
         /*printf("command1 : %s\n", command1.TabWord);
 		printf("panjang1 : %d\n", command1.Length);
