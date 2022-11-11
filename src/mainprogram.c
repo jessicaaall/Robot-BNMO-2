@@ -79,17 +79,19 @@ int main() {
     boolean check = false, IsQuit = false;
 
     printf("ENTER COMMAND >> ");
-    InitialScan(&command1, &command2);
-    printf("\n");
 
     MakeEmptyArray(&listgame);
     CreateQueue(&antriangame);
 
     while (!check) {
+        InitialScan(&command1, &command2);
+        printf("command1 : %s\n", command1.TabWord);
+		printf("panjang1 : %d\n", command1.Length);
         if (IsWordSame(StringToWord("START"), command1)) {
             start(&listgame);
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
+            printf("HAHHA");
             load(command2.TabWord, &listgame);
             if (listgame.Neff != 1) {
                 check = true;
@@ -103,6 +105,8 @@ int main() {
     while (!IsQuit) {
         printf("\nENTER COMMAND >> ");
         Scan(&command1, &command2);
+        printf("command1 : %s\n", command1.TabWord);
+		printf("panjang1 : %d\n", command1.Length);
         printf("\n\n");
 
         if ((IsWordSame(StringToWord("START"), command1)) || (IsWordSame(StringToWord("LOAD"), command1))) {
