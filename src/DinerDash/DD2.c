@@ -302,7 +302,7 @@ boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qD
     } else if (IsSkip(command)) {
         retVal = true;
     } else {
-        printf("Command tidak valid\n");
+        printf("\nCommand tidak valid\n\n");
     }
 
     return retVal;
