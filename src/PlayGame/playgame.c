@@ -22,7 +22,9 @@ void PLAYGAME(Queue *queuegame) {
         } else if (IsWordSame(game, StringToWord("DINOSAUR IN EARTH")) || IsWordSame(game, StringToWord("RISEWOMAN")) || IsWordSame(game, StringToWord("EIFFEL TOWER"))){
             printf("Game %s masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n", game);
         } else {
-            printf("Loading %s ...\n\n", game);
+            printf("Loading ");
+            PrintWord(game);
+            printf(" ...\n\n");
             skor = skorgame();
         }
     }      
