@@ -277,7 +277,7 @@ Word WordUpper(Word kata) {
 }
 /* Mengirimkan kata yang telah di-upper */
 
-boolean ValidTxt(Word txt){
+boolean ValidTxt(Word txt) {
     boolean check = false;
     if (txt.Length>=5) {
 	    if (txt.TabWord[txt.Length-4]=='.') {
