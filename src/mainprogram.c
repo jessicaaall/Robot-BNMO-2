@@ -76,7 +76,7 @@ int main() {
 	Word command2 = StringToWord("\0");
     Tab listgame;
     Queue antriangame;
-    boolean check = false, IsQuit = false;
+    boolean check = false, IsQuit = false, IsCommandStart = true;
 
     MakeEmptyArray(&listgame);
     CreateQueue(&antriangame);
@@ -95,22 +95,28 @@ int main() {
             load(command2.TabWord, &listgame);
             if (listgame.Neff != 1) {
                 check = true;
+                IsCommandStart = false;
             } else {
-                printf("Tidak ada filename tersebut.\n");
-                printf("\nAnda harus memanggil command START atau LOAD terlebih dahulu.\n");
+                printf("Filename %s tidak ditemukan.\n", command2.TabWord);
             }
         } else {
             printf("\nAnda harus memanggil command START atau LOAD terlebih dahulu.\n");
         }
     }
     if (check) {
-        printf("Berhasil masuk");
+        printf("\n");
+        if (IsCommandStart) {
+            printf("File konfigurasi sistem berhasil dibaca. BNMO berhasil dijalankan.");
+        } else {
+            printf("%s berhasil dibaca. BNMO berhasil dijalankan.", command2.TabWord);
+        }
+        printf("\n");
     }
 
     while (!IsQuit) {
         printf("\nENTER COMMAND >> ");
         Scan(&command1, &command2);
-        printf("\n\n");
+        printf("\n");
 
         if ((IsWordSame(StringToWord("START"), command1)) || (IsWordSame(StringToWord("LOAD"), command1))) {
             printf("Anda telah melakukan pembacaan file.");
@@ -132,12 +138,12 @@ int main() {
         } else if (IsWordSame(StringToWord("HELP"), command1)) {
             HELP();
         } else if (IsWordSame(StringToWord("SAVE"), command1)) {
-
+            SAVE(command2.TabWord, listgame);
         } else {
             printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }
 
-        printf("\n\n");
+        printf("\n");
     }
 
     return 0;

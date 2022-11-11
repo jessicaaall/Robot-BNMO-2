@@ -9,7 +9,7 @@
 #ifndef SAVE_H 
 #define SAVE_H
 
-void save(char * filename, Tab loadsave);
+void SAVE(char * filename, Tab loadsave);
 /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
 I.S. : filename terdefinisi, Tab kosong
 F.S. : Tab loadsave terisi dengan .txt yang bernama filename */
