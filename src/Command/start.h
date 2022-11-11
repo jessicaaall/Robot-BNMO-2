@@ -9,7 +9,7 @@
 #ifndef START_H 
 #define START_H
 
-void start(char * filename, Tab * loadsave);
+void start(Tab * loadsave);
 /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
 I.S. : filename terdefinisi, Tab kosong
 F.S. : Tab loadsave terisi dengan .txt yang bernama filename */

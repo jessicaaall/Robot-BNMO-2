@@ -4,6 +4,7 @@
 #include "./ADT/Queue/queue.h"
 #include "./Command/load.h"
 #include "./Command/start.h"
+#include "./Command/save.h"
 #include "./CreateGame/creategame.h"
 #include "./ListGame/listgame.h"
 #include "./DeleteGame/deletegame.h"
@@ -86,11 +87,13 @@ int main() {
 
     while (!check) {
         if (IsWordSame(StringToWord("START"), command1)) {
-            start("konfigurasi.txt", &listgame);
+            start(&listgame);
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
             load(command2.TabWord, &listgame);
-            check = true;
+            if (listgame.Neff != 1) {
+                check = true;
+            }
         } else {
             printf("\nAnda harus memanggil command START atau LOAD terlebih dahulu.\n");
         }
