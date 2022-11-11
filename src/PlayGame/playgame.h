@@ -7,6 +7,7 @@
 #include "../RNGgame/rnggame.h"
 #include "../DinerDash/diner_dash.h"
 #include "../SkorGame/skorgame.h"
+#include "../boolean.h"
 
 void PLAYGAME(Queue *Q);
 /*
