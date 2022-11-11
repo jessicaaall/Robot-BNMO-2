@@ -327,6 +327,10 @@ void SettingCommand(Word kata, char command[], char foodId[]){
         for (int i = 0; i < 5; i++) {
             command[i] = kata.TabWord[i];
         }
+    } else if (!IsWordSame(kata, StringToWord("RanPisan"))) {
+        command[0] = 'N';
+        command[1] = 'I';
+        command[2] = 'L';
     }
 }
 
