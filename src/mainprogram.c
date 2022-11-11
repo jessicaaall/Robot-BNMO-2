@@ -138,7 +138,7 @@ int main() {
         } else if (IsWordSame(StringToWord("HELP"), command1)) {
             HELP();
         } else if (IsWordSame(StringToWord("SAVE"), command1)) {
-            SAVE(command2.TabWord, listgame);
+            SAVE(command2, listgame);
         } else {
             printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }

@@ -9,7 +9,7 @@
 #ifndef SAVE_H 
 #define SAVE_H
 
-void SAVE(char * filename, Tab loadsave);
+void SAVE(Word filename, Tab loadsave);
 /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
 I.S. : filename terdefinisi, Tab kosong
 F.S. : Tab loadsave terisi dengan .txt yang bernama filename */

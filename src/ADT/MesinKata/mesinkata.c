@@ -229,25 +229,6 @@ boolean IsWordSame(Word kata1, Word kata2) {
 }
 /* Mengirimkan true apabila kata1 sama dengan kata2 */
 
-boolean IsStringSame(char* str1, char* str2) {
-    boolean sama = true;
-    int i = 0;
-
-    if (LengthOfString(str1) == LengthOfString(str2)) {
-        sama = false;
-    } else {
-        while ((i < LengthOfString(str1)) && (sama)) {
-            if (str1[i] != str2[i]) {
-                sama = false;
-            }
-        }
-        i++;
-    }
-
-    return sama;
-}
-/* Mengirimkan true apabila string1 sama dengan string2 */
-
 void Scan(Word *c1, Word *c2) {
     *c1 = StringToWord("");
     *c2 = StringToWord("");
@@ -258,6 +239,8 @@ void Scan(Word *c1, Word *c2) {
 		if (!EndWord) {
             if (!(IsWordSame(*c1, StringToWord("SAVE")))) {
                 *c2 = WordUpper(CommandCC);
+            } else {
+                *c2 = CommandCC;
             }
 		}
 	}
@@ -293,19 +276,3 @@ Word WordUpper(Word kata) {
 	return kata;
 }
 /* Mengirimkan kata yang telah di-upper */
-
-boolean ValidTxt(Word txt){
-    boolean check = false;
-    if (txt.Length>=5){
-	if (txt.TabWord[txt.Length-4]=='.'){
-        	if (txt.TabWord[txt.Length-3]=='t'){
-            		if (txt.TabWord[txt.Length-2]=='x'){
-                		if (txt.TabWord[txt.Length-1]=='t'){
-                    			check = true;
-                }
-            }
-        }
-    }
-    }
-    return check;
-}
