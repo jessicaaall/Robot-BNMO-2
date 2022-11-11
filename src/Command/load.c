@@ -1,6 +1,4 @@
-#include "../ADT/Array/array.h"
-#include "../ADT/MesinKarakter/mesinkarakter.h"
-#include "../ADT/MesinKata/mesinkata.h"
+#include "load.h"
 
 void load(char * filename, Tab * loadsave) {
     /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
@@ -20,4 +18,12 @@ void load(char * filename, Tab * loadsave) {
     (*loadsave).TI[i] = CWord;
     i++;
     (*loadsave).Neff = i;
+}
+
+void save(char * filename, Tab loadsave) {
+    FILE *f = fopen(filename, "w");
+    fprintf(f, "%d\n", loadsave.Neff);
+    for (int i = 1; i < loadsave.Neff; i++) {
+        fprintf(f, "%s\n", GetElmtArray(loadsave, i).TabWord);
+    }
 }
