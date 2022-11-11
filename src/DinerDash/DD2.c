@@ -302,31 +302,45 @@ boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qD
     } else if (IsSkip(command)) {
         retVal = true;
     } else {
-        printf("Command tidak valid\n");
+        printf("\nCommand tidak valid\n\n");
     }
 
     return retVal;
 }
 
 void SettingCommand(Word kata, char command[], char foodId[]){
-    if (IsCook(kata.TabWord)) {
-        for (int i = 5; i < kata.Length; i++) {
-            foodId[i-5] = kata.TabWord[i];
+    if (IsCook(kata.TabWord) && (kata.Length >= 5)) {
+        if (kata.TabWord[0] == 'C') {
+            if (kata.TabWord[1] == 'O') {
+                if (kata.TabWord[2] == 'O') {
+                    if (kata.TabWord[3] == 'K') {
+                        if (kata.TabWord[4] == ' ') {
+                            for (int i = 5; i < kata.Length; i++) {
+                                foodId[i-5] = kata.TabWord[i];
+                            }
+                            for (int i = 0; i < 4; i++) {
+                                command[i] = kata.TabWord[i];
+                            }
+                        }
+                    }
+                }
+            }
         }
+    } else if (IsSkip(kata.TabWord) && (kata.Length >= 5)) {
         for (int i = 0; i < 4; i++) {
             command[i] = kata.TabWord[i];
         }
-    } else if (IsSkip(kata.TabWord)) {
-        for (int i = 0; i < 4; i++) {
-            command[i] = kata.TabWord[i];
-        }
-    } else if (IsServe(kata.TabWord)) {
+    } else if (IsServe(kata.TabWord) && (kata.Length >= 6)) {
         for (int i = 6; i < kata.Length; i++) {
             foodId[i-6] = kata.TabWord[i];
         }
         for (int i = 0; i < 5; i++) {
             command[i] = kata.TabWord[i];
         }
+    } else if (!IsWordSame(kata, StringToWord("RanPisan"))) {
+        command[0] = 'N';
+        command[1] = 'I';
+        command[2] = 'L';
     }
 }
 

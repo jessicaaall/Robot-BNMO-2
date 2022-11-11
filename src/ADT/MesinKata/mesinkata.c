@@ -276,3 +276,20 @@ Word WordUpper(Word kata) {
 	return kata;
 }
 /* Mengirimkan kata yang telah di-upper */
+
+boolean ValidTxt(Word txt) {
+    boolean check = false;
+    if (txt.Length>=5) {
+	    if (txt.TabWord[txt.Length-4]=='.') {
+        	if (txt.TabWord[txt.Length-3]=='t') {
+            	if (txt.TabWord[txt.Length-2]=='x') {
+                	if (txt.TabWord[txt.Length-1]=='t') {
+                    	check = true;
+                    }
+                }
+            }
+        }
+    }
+    return check;
+}
+/* Mengirimkan true apabila txt memiliki .txt di akhir */

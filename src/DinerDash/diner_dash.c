@@ -32,7 +32,6 @@ void DINNERDASH(){
         STARTCOMMAND2();
         SettingCommand(CommandCC, command, foodId);
         while (!IsCommandValid(command, foodId, qPesanan, qDiproses)) {
-            printf("\nMasukkan Invalid\n");
             printf("MASUKKAN COMMAND: ");
             STARTCOMMAND2();
             SettingCommand(CommandCC, command, foodId);
@@ -58,7 +57,7 @@ void DINNERDASH(){
     } while (!IsFinish(qPesanan, qSelesai));
 
     printf("\nPermainan Selesai\n");
-    printf("qSelesai : %d\n", qSelesai.Count);
+    printf("\nSelesai : %d\n", qSelesai.Count);
     if (qSelesai.Count >= 15) {
         printf("Anda Menang\n");
     } else {

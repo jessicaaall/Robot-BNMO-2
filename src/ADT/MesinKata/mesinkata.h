@@ -139,4 +139,7 @@ void InitialScan(Word *c1, Word *c2);
 Word WordUpper(Word kata);
 /* Mengirimkan kata yang telah di-upper */
 
+boolean ValidTxt(Word txt);
+/* Mengirimkan true apabila txt memiliki .txt di akhir */
+
 #endif
