@@ -29,12 +29,12 @@ void DINNERDASH(){
         
         printf("MASUKKAN COMMAND: ");
         char command[5], foodId[3];
-        STARTCOMMAND();
+        STARTCOMMAND2();
         SettingCommand(CommandCC, command, foodId);
         while (!IsCommandValid(command, foodId, qPesanan, qDiproses)) {
             printf("\nMasukkan Invalid\n");
             printf("MASUKKAN COMMAND: ");
-            STARTCOMMAND();
+            STARTCOMMAND2();
             SettingCommand(CommandCC, command, foodId);
         }
 

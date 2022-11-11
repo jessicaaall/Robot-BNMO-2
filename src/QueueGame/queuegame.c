@@ -8,7 +8,7 @@ void QUEUEGAME(Tab daftargame, Queue *queuegame) {
     LISTGAME(daftargame);
 
     printf("\nNomor game yang mau ditambahkan ke antrian >> ");
-    STARTCOMMAND();
+    STARTCOMMAND2();
     printf("\n");
 
     boolean valid = true;

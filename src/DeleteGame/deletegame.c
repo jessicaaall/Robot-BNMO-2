@@ -4,7 +4,7 @@ void DELETEGAME (Tab *daftargame, Queue queuegame) {
     LISTGAME(*daftargame);
 
     printf("\nMasukkan nomor game yang akan dihapus >> ");
-    STARTCOMMAND();
+    STARTCOMMAND2();
 
     boolean valid = true, found = false;
     int i = 0, nomor;

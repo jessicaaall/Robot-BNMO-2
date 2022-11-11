@@ -21,7 +21,7 @@ int RNGgame() {
     do {
         do {
             printf("Tebakan >> ");
-            STARTCOMMAND();
+            STARTCOMMAND2();
 
             i = 0;
             valid = true;

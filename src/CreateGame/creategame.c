@@ -3,7 +3,7 @@
 void CREATEGAME (Tab *daftargame) {
 
     printf("Masukkan nama game yang akan ditambahkan >> ");
-    STARTCOMMAND();
+    STARTCOMMAND2();
 
     CommandCC = WordUpper(CommandCC);
     
