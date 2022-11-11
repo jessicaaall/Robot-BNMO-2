@@ -5,10 +5,10 @@
 void DINNERDASH(){
     printf("\nSelamat Datang di Diner Dash!\n");
 
-    Queue qPesanan, qDiproses , qSelesai;
-    CreateQueue(&qPesanan);
-    CreateQueue(&qDiproses);
-    CreateQueue(&qSelesai);
+    Queue2 qPesanan, qDiproses , qSelesai;
+    CreateQueue2(&qPesanan);
+    CreateQueue2(&qDiproses);
+    CreateQueue2(&qSelesai);
 
     Inisialisasi(&qPesanan);
     int antrian = 2;
@@ -63,10 +63,4 @@ void DINNERDASH(){
     } else {
         printf("Anda Kalah\n");
     }
-}
-
-int main() {
-    diner_dash();
-
-    return 0;
 }

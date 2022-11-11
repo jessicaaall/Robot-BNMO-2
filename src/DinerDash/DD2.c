@@ -5,13 +5,13 @@
 const int IDX_UNDEF = -1;
 const int CAPACITY = 15;
 
-void CreateQueue(Queue *q){
+void CreateQueue2(Queue2 *q){
     (*q).IdxHead = IDX_UNDEF;
     (*q).IdxTail = IDX_UNDEF;
     (*q).Count = 0;
 }
 
-boolean IsEmpty(Queue q){
+boolean IsEmpty(Queue2 q){
     return ((q.IdxHead == IDX_UNDEF) && (q.IdxTail == IDX_UNDEF));
 }
 
@@ -36,7 +36,7 @@ Pesanan CreateRanPesanan(int noAntrian){
     return (p);
 }
 
-void Inisialisasi(Queue *qPesanan){
+void Inisialisasi(Queue2 *qPesanan){
     for (int i = 0; i < 3; i++){
         Pesanan p = CreateRanPesanan(i);
         Enqueue(qPesanan, p);
@@ -51,7 +51,7 @@ int GenerateDurasi(){
     return ((rand() % (5-1+1)) + 1);
 }
 
-void TampilkanPesanan(Queue qPesanan){
+void TampilkanPesanan(Queue2 qPesanan){
     printf("Daftar Pesanan\n");
     printf("Makanan | Durasi Masak | Ketahanan | Harga\n");
     printf("------------------------------------------\n");
@@ -68,7 +68,7 @@ void TampilkanPesanan(Queue qPesanan){
     }
 }
 
-void TampilkanDimasak(Queue qDiproses){
+void TampilkanDimasak(Queue2 qDiproses){
     printf("Daftar Makanan yang sedang dimasak\n");
     printf("Makanan | Sisa durasi memasak\n");
     printf("-----------------------------\n");
@@ -89,7 +89,7 @@ void TampilkanDimasak(Queue qDiproses){
     }
 }
 
-void TampilkanSajian(Queue qDiproses){
+void TampilkanSajian(Queue2 qDiproses){
     printf("Daftar Makanan yang dapat disajikan\n");
     printf("Makanan | Sisa ketahanan makanan\n");
     printf("--------------------------------\n");
@@ -122,7 +122,7 @@ void TampilkanSajian(Queue qDiproses){
     }
 }
 
-void Enqueue(Queue *q, Pesanan p){
+void Enqueue(Queue2 *q, Pesanan p){
     if (IsEmpty(*q)) {
         (*q).IdxHead = 0;
         (*q).IdxTail = 0;
@@ -136,7 +136,7 @@ void Enqueue(Queue *q, Pesanan p){
     }
 }
 
-void Dequeue(Queue *q, Pesanan *p){
+void Dequeue(Queue2 *q, Pesanan *p){
     *p = (*q).buffer[(*q).IdxHead];
     if ((*q).Count == 1) {
         (*q).IdxHead = IDX_UNDEF;
@@ -151,14 +151,14 @@ void Dequeue(Queue *q, Pesanan *p){
     }
 }
 
-void Eliminate(Queue *q, char foodId[]){
+void Eliminate(Queue2 *q, char foodId[]){
     int idx = GetIdx((*q), foodId);
     for (int i = idx; i < (*q).IdxTail; i++) {
         (*q).buffer[i] = (*q).buffer[i+1];
     }
 }
 
-void Cook(Queue qPesanan, Queue *qDiproses, char foodId[]){
+void Cook(Queue2 qPesanan, Queue2 *qDiproses, char foodId[]){
     if ((*qDiproses).Count <= 5) {
         Pesanan p;
         p = qPesanan.buffer[GetIdx(qPesanan, foodId)];
@@ -169,7 +169,7 @@ void Cook(Queue qPesanan, Queue *qDiproses, char foodId[]){
     }
 }
 
-void Serve(Queue *qPesanan, Queue *qDiproses, Queue *qSelesai, char foodId[]){
+void Serve(Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai, char foodId[]){
     if (GetIdx((*qDiproses), foodId) == IDX_UNDEF) {
         printf("%s tidak sedang diproses\n", foodId);
     } else {
@@ -197,7 +197,7 @@ void Serve(Queue *qPesanan, Queue *qDiproses, Queue *qSelesai, char foodId[]){
     }
 }
 
-void Decrement(Queue *qDiproses) {
+void Decrement(Queue2 *qDiproses) {
     if (!IsEmpty(*qDiproses)) {
         for (int i = 0; i <= (*qDiproses).IdxTail; i++){
             if ((*qDiproses).buffer[i].DurasiMasak <= 0) {
@@ -256,7 +256,7 @@ boolean IsSkip(char command[]){
     return retVal;
 }
 
-boolean IsCommandValid(char command[], char foodId[], Queue qPesanan, Queue qDiproses){
+boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qDiproses){
     boolean retVal = false;
     if (IsCook(command)) {
         int val = GetIdx(qPesanan, foodId);
@@ -329,7 +329,7 @@ void SettingCommand(Word kata, char command[], char foodId[]){
     }
 }
 
-void ProsesCommand(char command[], char foodId[], Queue *qPesanan, Queue *qDiproses, Queue *qSelesai){
+void ProsesCommand(char command[], char foodId[], Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai){
     if (IsCook(command)) {
         Cook(*qPesanan, qDiproses, foodId);
     } else if (IsServe(command)) {
@@ -355,7 +355,7 @@ int GetId(char str[]){
     }
 }
 
-int GetIdx(Queue q, char foodId[]){
+int GetIdx(Queue2 q, char foodId[]){
     int idx = 0;
     boolean found = false;
     if (IsDuaDigit(foodId)) {
@@ -389,7 +389,7 @@ int GetIdx(Queue q, char foodId[]){
     }
 }
 
-boolean IsFinish(Queue qPesanan, Queue qSelesai){
+boolean IsFinish(Queue2 qPesanan, Queue2 qSelesai){
     return ((qPesanan.Count == 8) || (qSelesai.Count == 15));
 }
 

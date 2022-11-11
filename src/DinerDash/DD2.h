@@ -16,21 +16,21 @@ typedef struct {
     int IdxHead;
     int IdxTail;
     int Count;
-} Queue;
+} Queue2;
 
-void CreateQueue(Queue *q);
-// Desc: Membuat Queue q kosong
-/* IS: Queue q sembarang
-   FS: Queue q kosong */
+void CreateQueue2(Queue2 *q);
+// Desc: Membuat Queue2 q kosong
+/* IS: Queue2 q sembarang
+   FS: Queue2 q kosong */
 
-boolean IsEmpty(Queue q);
-// Mengecek apakah Queue q kosong
+boolean IsEmpty(Queue2 q);
+// Mengecek apakah Queue2 q kosong
 // return True apabila kosong
 // return false apabila tidak kosong
 
 Pesanan CreateRanPesanan(int noAntrian);
 
-void Inisialisasi(Queue *qPesanan);
+void Inisialisasi(Queue2 *qPesanan);
 // Desc: Mengeset 3 daftar pesanan awal 
 /* IS: qPesanan kosong
    FS: qPesanan terisi dengan 3 pesanan yang digenerate secara random */
@@ -43,47 +43,47 @@ int GenerateDurasi();
 // Mengenerate durasi secara random
 // Durasi yang digenerate berada pada rentang 1-5
 
-void TampilkanPesanan(Queue qPesanan);
+void TampilkanPesanan(Queue2 qPesanan);
 // Desc: Menampilkan pesanan pada tabel pesanan
 /* IS: qPesanan tidak kosong
    FS: Menampilkan seluruh pesanan pada tabel pesanan */
 
-void TampilkanDimasak(Queue qDiproses);
+void TampilkanDimasak(Queue2 qDiproses);
 // Desc: Menampilkan pesanan yang sedang dimasak (DurasiMasak > 0)
 /* IS: qDiproses, mungkin kosong
    FS: Menampilkan seluruh pesanan yang sedang dimasak */
 
-void TampilkanSajian(Queue qDiproses);
+void TampilkanSajian(Queue2 qDiproses);
 // Desc: Menampilkan pesanan yang siap disajikan (DurasiMasak <= 0) && (Ketahanan > 0)
 /* IS: qDiproses, mungkin kosong
    FS: Menampilkan seluruh pesanan yang siap disajikan */
 
-void Enqueue(Queue *q, Pesanan p);
-// Desc: Menambahkan pesanan pada index tail sebuah Queue q
-/* IS: Queue q terdefinisi, mungkin kosong
+void Enqueue(Queue2 *q, Pesanan p);
+// Desc: Menambahkan pesanan pada index tail sebuah Queue2 q
+/* IS: Queue2 q terdefinisi, mungkin kosong
    FS: Pesanan p ditambahkan pada q */
 
-void Dequeue(Queue *q, Pesanan *p);
-// Desc: Mengurangi pesanan pada index head sebuah Queue q
-/* IS: Queue q terdefinisi, tidak kosong
-   FS: Pesanan yang akan dihapus disimpan pada Pesanan p, p dihapus dari Queue q */
+void Dequeue(Queue2 *q, Pesanan *p);
+// Desc: Mengurangi pesanan pada index head sebuah Queue2 q
+/* IS: Queue2 q terdefinisi, tidak kosong
+   FS: Pesanan yang akan dihapus disimpan pada Pesanan p, p dihapus dari Queue2 q */
 
-void Eliminate(Queue *q, char foodId[]);
+void Eliminate(Queue2 *q, char foodId[]);
 // Desc: Menghapus pesanan pada indeks manapun
-/* IS: Queue q terdefinisi, tidak kosong
-   FS: Pesanan dengan id foodId dihapus dari Queue q */
+/* IS: Queue2 q terdefinisi, tidak kosong
+   FS: Pesanan dengan id foodId dihapus dari Queue2 q */
 
-void Cook(Queue qPesanan, Queue *qDiproses, char foodId[]);
+void Cook(Queue2 qPesanan, Queue2 *qDiproses, char foodId[]);
 // Desc: Melakukan command masak
 /* IS: qPesanan dan qDiproses terdefinisi, qDiproses mungkin kosong, foodId terdefinisi pada qPesanan
    FS: Pesanan dengan id foodId berhasil dimasak, dienqueue pada qDiproses */
 
-void Serve(Queue *qPesanan, Queue *qDiproses, Queue *qSelesai, char foodId[]);
+void Serve(Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai, char foodId[]);
 // Desc: Melakukan command serve
 /* IS: qPesanan, qDiproses, dan qSelesai terdefinisi. foodId terdefinisi pada qDiproses dan qPesanan
-   FS: Pesanan dengan id foodId berhasil disajikan, dieliminasi dari Queue qPesanan, didequeue dari qDiproses, dienqueue ke qSelesai */
+   FS: Pesanan dengan id foodId berhasil disajikan, dieliminasi dari Queue2 qPesanan, didequeue dari qDiproses, dienqueue ke qSelesai */
 
-void Decrement(Queue *qDiproses);
+void Decrement(Queue2 *qDiproses);
 // Desc: Mengurangi setiap DurasiMasak dan Ketahanan
 /* IS: qDiproses terdefinisi, mungkin kosong
    FS: DurasiMasak dan Ketahanan dikurangi */
@@ -97,10 +97,10 @@ boolean IsServe(char command[]);
 boolean IsSkip(char command[]);
 // Mengecek apakah command berisikan 'SKIP'
 
-boolean IsCommandValid(char command[], char foodId[], Queue qPesanan, Queue qDiproses);
+boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qDiproses);
 // Mengecek apakah command dan foofId yang diinput pengguna valid
 
-void ProsesCommand(char command[], char foodId[], Queue *qPesanan, Queue *qDiproses, Queue *qSelesai);
+void ProsesCommand(char command[], char foodId[], Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai);
 // Desc: Memproses command dengan id foodId sesuai inputan
 /* IS: command, foodId, qPesanan, qDiproses, dan qSelesai terdefinisi. 
    FS: Memproses command dengan id foodId sesuai inputan*/
@@ -111,10 +111,10 @@ boolean IsDuaDigit(char str[]);
 int GetId(char str[]);
 // Mendapatkan id dari sebuah string foodId
 
-int GetIdx(Queue q, char foodId[]);
-// Mendapatkan indeks lojik dari foodId pada Queue q
+int GetIdx(Queue2 q, char foodId[]);
+// Mendapatkan indeks lojik dari foodId pada Queue2 q
 
-boolean IsFinish(Queue qPesanan, Queue qSelesai);
+boolean IsFinish(Queue2 qPesanan, Queue2 qSelesai);
 // Mengecek apakah permainan selesai
 
 #endif
