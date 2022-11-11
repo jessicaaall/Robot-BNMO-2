@@ -136,7 +136,7 @@ void ADVCOMMAND2() {
     if (CC == ENTER) {
         EndWord = true;
     } else {
-        CopyCommand();
+        CopyCommand2();
         IgnoreBlanks();
     }
 }
