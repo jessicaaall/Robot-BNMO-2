@@ -29,6 +29,7 @@ int RNGgame() {
                 if ((CommandCC.TabWord[i] < '0') || (CommandCC.TabWord[i] > '9')) {
                     valid = false;
                 }
+                i++;
             }
 
             if (!(valid)) {
