@@ -70,10 +70,13 @@ void dequeue(Queue *q, ElType *val){
 
 /* *** Display Queue *** */
 void displayQueueGame(Queue Q){
-    int i;
-    for (i = 0; i <= IDX_TAIL(Q); i++){
-        printf("%d. %s\n", i+1, Q.buffer[i]);
-    }
+    int i, j;
+    for (i = 0; i <= IDX_TAIL(Q); i++) {
+        printf("%d. ", i+1);
+        PrintWord(Q.buffer[i]);
+        printf("\n");
+        }
+        printf("\n");
 }
 /* Proses : Menuliskan isi Queue dengan traversal */
 /* I.S. q boleh kosong */
