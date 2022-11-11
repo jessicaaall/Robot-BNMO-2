@@ -3,8 +3,13 @@
 #include "../ListGame/listgame.h"
 
 void QUEUEGAME(Tab daftargame, Queue *queuegame) {
-    printf("Berikut adalah daftar antrian game-mu\n");
-    displayQueueGame(*queuegame);
+    if (isEmpty(*queuegame)) {
+        printf("Daftar antrian game-mu kosong.\n");
+    } else {
+        printf("Berikut adalah daftar antrian game-mu\n");
+        displayQueueGame(*queuegame);
+    }
+    printf("\n");
     LISTGAME(daftargame);
 
     printf("\nNomor game yang mau ditambahkan ke antrian >> ");
