@@ -92,7 +92,7 @@ int main() {
             start(&listgame);
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
-            if (command2.Length != 0) {
+            if ((command2.Length != 0) && (ValidTxt(command2))) {
                 load(command2.TabWord, &listgame);
                 if (listgame.Neff != 1) {
                     check = true;
@@ -103,7 +103,7 @@ int main() {
                     printf(" tidak ditemukan.\n");
                 }
             } else {
-                printf("Masukan tidak valid. Silahkan masukkan nama file yang ingin dibaca.\n");
+                printf("\nMasukan tidak valid. Silahkan masukkan nama file .txt yang ingin dibaca.\n");
             }
         } else {
             printf("\nCommand tidak valid. Silahkan masukkan command START atau LOAD <filename> terlebih dahulu.\n");
@@ -149,10 +149,10 @@ int main() {
         } else if ((IsWordSame(StringToWord("HELP"), command1)) && (command2.Length == 0)) {
             HELP();
         } else if (IsWordSame(StringToWord("SAVE"), command1)) {
-            if (command2.Length != 0) {
+            if ((command2.Length != 0) && (ValidTxt(command2))) {
                 SAVE(command2, listgame);
             } else {
-                printf("\nMasukan tidak valid. Silahkan masukkan nama file yang akan disimpan.\n");
+                printf("Masukan tidak valid. Silahkan masukkan nama file .txt yang akan disimpan.\n");
             }
         } else {
             printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
