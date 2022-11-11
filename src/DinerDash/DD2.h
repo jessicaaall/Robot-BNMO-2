@@ -100,6 +100,8 @@ boolean IsSkip(char command[]);
 boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qDiproses);
 // Mengecek apakah command dan foofId yang diinput pengguna valid
 
+void SettingCommand(Word kata, char command[], char foodId[]);
+
 void ProsesCommand(char command[], char foodId[], Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai);
 // Desc: Memproses command dengan id foodId sesuai inputan
 /* IS: command, foodId, qPesanan, qDiproses, dan qSelesai terdefinisi. 
