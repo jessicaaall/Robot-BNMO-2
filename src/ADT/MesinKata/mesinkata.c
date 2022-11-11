@@ -256,7 +256,9 @@ void Scan(Word *c1, Word *c2) {
 		*c1 = WordUpper(CommandCC);
 		ADVCOMMAND2();
 		if (!EndWord) {
-			*c2 = WordUpper(CommandCC);
+            if (!(IsWordSame(*c1, StringToWord("SAVE")))) {
+                *c2 = WordUpper(CommandCC);
+            }
 		}
 	}
 } 
