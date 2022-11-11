@@ -5,7 +5,7 @@
 #include "../ADT/MesinKata/mesinkata.h"
 
 typedef struct {
-    char Makanan[3];
+    char Makanan[4];
     int DurasiMasak;
     int Ketahanan;
     int Harga;
