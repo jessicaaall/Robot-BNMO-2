@@ -78,6 +78,27 @@ void CopyCommand();
           CC adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
+void STARTCOMMAND2();
+/* I.S. : CC sembarang
+   F.S. : EndWord = true, dan CC = ENTER;
+          atau EndWord = false, CommandCC adalah kata yang sudah diakuisisi,
+          CC karakter pertama sesudah karakter terakhir kata */
+
+void ADVCOMMAND2();
+/* I.S. : CC adalah karakter pertama kata yang akan diakuisisi
+   F.S. : CommandCC adalah kata terakhir yang sudah diakuisisi,
+          CC adalah karakter pertama dari kata berikutnya, mungkin ENTER
+          Jika CC = ENTER, EndWord = true.
+   Proses : Akuisisi kata menggunakan procedure CopyCommand2 */
+
+void CopyCommand2();
+/* Mengakuisisi kata, menyimpan dalam CommandCC
+   I.S. : CC adalah karakter pertama dari kata
+   F.S. : CommandCC berisi kata yang sudah diakuisisi;
+          CC = ENTER;
+          CC adalah karakter sesudah karakter terakhir yang diakuisisi.
+          Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+
 
 /* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
 
