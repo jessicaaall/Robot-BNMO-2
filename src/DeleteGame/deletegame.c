@@ -32,7 +32,7 @@ void DELETEGAME (Tab *daftargame, Queue queuegame) {
             namagame = GetElmtArray(*daftargame, nomor-1);
             while ((!isEmpty(queuegame)) && (!found)) {
                 dequeue(&queuegame, &antriangame);
-                if (IsWordSame(namagame, StringToWord(antriangame))) {
+                if (IsWordSame(namagame, antriangame)) {
                     found = true;
                 }
             }

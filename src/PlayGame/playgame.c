@@ -13,13 +13,13 @@ void PLAYGAME(Queue *queuegame) {
         int skor;
 
         dequeue(queuegame, &game);
-        if (IsStringSame(game, "RNG")){
+        if (IsWordSame(game, StringToWord("RNG"))){
             printf("Loading RNG ...\n");
             skor = RNGgame();
-        } else if (IsStringSame(game, "Diner DASH")){
+        } else if (IsWordSame(game, StringToWord("Diner DASH"))){
             printf("Loading DINER DASH ...\n");
             DINNERDASH();
-        } else if (IsStringSame(game, "DINOSAUR IN EARTH") || IsStringSame(game, "RISEWOMAN") || IsStringSame(game, "EIFFEL TOWER")){
+        } else if (IsWordSame(game, StringToWord("DINOSAUR IN EARTH")) || IsWordSame(game, StringToWord("RISEWOMAN")) || IsWordSame(game, StringToWord("EIFFEL TOWER"))){
             printf("Game %s masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n", game);
         } else {
             printf("Loading %s ...\n\n", game);

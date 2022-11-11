@@ -36,7 +36,7 @@ void QUEUEGAME(Tab daftargame, Queue *queuegame) {
         if ((nomor == 0) || (nomor > daftargame.Neff)) {
             printf("\nNomor permainan tidak valid, silahkan masukkan nomor game pada daftar game.\n");
         } else {
-            enqueue(queuegame, daftargame.TI[nomor-1].TabWord);
+            enqueue(queuegame, daftargame.TI[nomor-1]);
             printf("\nGame berhasil ditambahkan ke dalam daftar antrian.\n");
         }
     }
