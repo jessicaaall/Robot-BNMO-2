@@ -1,4 +1,5 @@
 /* File : quit.h */
+#include <stdio.h>
 
 #ifndef __QUIT_H__
 #define __QUIT_H__

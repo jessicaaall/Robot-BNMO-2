@@ -3,7 +3,6 @@
 #ifndef DINER_DASH_H
 #define DINER_DASH_H
 
-#include "DD2.h"
 #include "../ADT/MesinKata/mesinkata.h"
 
 void DINNERDASH();
