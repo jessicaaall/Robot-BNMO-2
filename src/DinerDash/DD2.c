@@ -45,10 +45,12 @@ void Inisialisasi(Queue2 *qPesanan){
 }
 
 int GenerateHarga(){
+    srand(time(NULL));
     return ((rand() % (50000-10000+1)) + 10000);
 }
 
 int GenerateDurasi(){
+    srand(time(NULL));
     return ((rand() % (5-1+1)) + 1);
 }
 
@@ -108,18 +110,6 @@ void TampilkanSajian(Queue2 qDiproses){
         if (count <= 0) {
             printf("        |\n");
         }
-        /*
-        // Is All empty?
-        boolean IsAllEmpty = true;
-        for (int j = 0; j <= qDiproses.Count; j++) {
-            if (qDiproses.buffer[j].Ketahanan > 0) {
-                IsAllEmpty = false;
-            }
-        }
-        if (IsAllEmpty) {
-            printf("        |\n");
-        }
-        */
     }
 }
 
@@ -166,7 +156,7 @@ void Cook(Queue2 qPesanan, Queue2 *qDiproses, char foodId[]){
         Enqueue(qDiproses, p);
         printf("Berhasil memasak %s\n", p.Makanan);
     } else {
-        printf("Tidak boleh memasak lebih dari 5 makanan dalam waktu yang sama\n");
+        printf("Tidak dapat memasak lebih dari 5 makanan dalam waktu yang sama\n");
     }
 }
 
@@ -193,6 +183,7 @@ void Serve(Queue2 *qPesanan, Queue2 *qDiproses, Queue2 *qSelesai, char foodId[])
                 Eliminate(qPesanan, foodId);
                 (*qPesanan).Count--;
                 (*qPesanan).IdxTail--;
+                printf("Berhasil mengantar %s\n", p.Makanan);
             }
         }
     }
@@ -257,11 +248,35 @@ boolean IsSkip(char command[]){
     return retVal;
 }
 
+boolean CheckId(char str[]) {
+    boolean valid = false;
+    if ((str[0] == 'M') || (str[0] == 'm')) {
+        int idx = 1;
+        while (str[idx] != '\0') {
+            if ((str[idx] >= 48) && (str[idx] <= 57)) {
+                valid = true;
+                idx++;
+            } else {
+                valid = false;
+                break;
+            }
+        }
+    }
+
+    return valid;
+}
+
 boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qDiproses){
     boolean retVal = false;
-    if (IsCook(command)) {
+    if ((foodId[0] == '\0') && (!IsSkip(command))){
+        printf("Masukan invalid\n\n");
+    } else if (IsSkip(command)) {
+        retVal = true;
+    } else if (!CheckId(foodId)){
+        printf("Masukan invalid\n\n");
+    } else if (IsCook(command)) {
         int val = GetIdx(qPesanan, foodId);
-        if (val != IDX_UNDEF) {
+        if ((val != IDX_UNDEF)) {
             // hitung jumlah memasak
             int countDimasak = 0;
             for (int i = 0; i < qDiproses.Count; i++) {
@@ -272,14 +287,14 @@ boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qD
             if (countDimasak <= 5) {
                 retVal = true;
             } else {
-                printf("Tidak bisa masak lebih dari 5 makanan\n");
+                printf("Tidak dapat memasak lebih dari 5 makanan dalam waktu yang sama\n");
             }
         } else {
-            printf("Tidak ada pada pesanan M%d\n", GetId(foodId));
+            printf("Tidak ada pesanan %s dalam daftar pesanan\n\n", foodId);
         }
     } else if (IsServe(command)) {
         int val = GetIdx(qDiproses,foodId);
-        if (val != IDX_UNDEF) {
+        if ((val != IDX_UNDEF)) {
             if (qDiproses.buffer[val].DurasiMasak <= 0) {
                 Pesanan p;
                 int idx = 0;
@@ -291,18 +306,16 @@ boolean IsCommandValid(char command[], char foodId[], Queue2 qPesanan, Queue2 qD
                 if (val1 == 0) {
                     retVal = true;
                 } else {
-                    printf("%s belum dapat disajikan karena %s belum selesai\n", (qDiproses).buffer[val1].Makanan, (qDiproses).buffer[0].Makanan);
+                    printf("%s belum dapat disajikan karena %s belum selesai\n\n", (qDiproses).buffer[val1].Makanan, (qDiproses).buffer[0].Makanan);
                 }
             } else {
-                printf("M%d belum selesai dimasak\n", GetId(foodId));
+                printf("%s belum selesai dimasak\n", foodId);
             }
         } else {
-            printf("M%d tidak sedang diproses\n", GetId(foodId));
+            printf("%s tidak sedang diproses\n\n",foodId);
         }
-    } else if (IsSkip(command)) {
-        retVal = true;
     } else {
-        printf("\nCommand tidak valid\n\n");
+        printf("Masukan invalid\n\n");
     }
 
     return retVal;
@@ -326,11 +339,11 @@ void SettingCommand(Word kata, char command[], char foodId[]){
                 }
             }
         }
-    } else if (IsSkip(kata.TabWord) && (kata.Length >= 5)) {
+    } else if (IsSkip(kata.TabWord) && (kata.Length >= 4)) {
         for (int i = 0; i < 4; i++) {
             command[i] = kata.TabWord[i];
         }
-    } else if (IsServe(kata.TabWord) && (kata.Length >= 6)) {
+    } else if (IsServe(kata.TabWord) && (kata.Length >= 5)) {
         for (int i = 6; i < kata.Length; i++) {
             foodId[i-6] = kata.TabWord[i];
         }
@@ -352,21 +365,39 @@ void ProsesCommand(char command[], char foodId[], Queue2 *qPesanan, Queue2 *qDip
     } else if (IsSkip(command)) {
         
     }
+    for (int j = 0; j < (*qDiproses).Count; j++) {
+        if ((*qDiproses).buffer[j].DurasiMasak == 0) {
+            printf("Makanan %s telah selesai dimasak\n", (*qDiproses).buffer[j].Makanan);
+            (*qDiproses).buffer[j].DurasiMasak = IDX_UNDEF;
+        }
+    }
 }
 
 boolean IsDuaDigit(char str[]){
-    if ((str[1] == 1) && (str[2] != '\0')){
-        return true;
-    } else {
+    if ((str[2] == '\0')) {
         return false;
+    } else if ((str[1] >= 49) && (str[3] != '\0')){
+        return true;
+    }
+}
+
+int StrToInt(char str[]) {
+    if (CheckId(str)) {
+        int idx = 1;
+        int count = 0;
+        int derajat = 1;
+        while (str[idx] != '\0') {
+            count = derajat * (str[idx]-48);
+            idx++;
+            derajat *= 10;
+        }
+        return count;
     }
 }
 
 int GetId(char str[]){
-    if (IsDuaDigit(str)) {
-        return (10 + (str[2]-48));
-    } else {
-        return (str[1]-48);
+    if (CheckId(str)){
+        return (StrToInt(str));
     }
 }
 
@@ -379,7 +410,7 @@ int GetIdx(Queue2 q, char foodId[]){
             idx++;
         }
         while ((idx <= q.IdxTail) && (!found)){
-            if (q.buffer[idx].Makanan[2] == foodId[2]){
+            if (IsWordSame(StringToWord(q.buffer[idx].Makanan), StringToWord(foodId))){
                 found = true;
             }
             idx++;  
@@ -391,7 +422,7 @@ int GetIdx(Queue2 q, char foodId[]){
         }
     } else {
         while ((idx <= q.IdxTail) && (!found)) {
-            if (q.buffer[idx].Makanan[1] == foodId[1]) {
+            if (IsWordSame(StringToWord(q.buffer[idx].Makanan), StringToWord(foodId))) {
                 found = true;
             }
             idx++;

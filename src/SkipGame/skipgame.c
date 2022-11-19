@@ -3,7 +3,7 @@
 
 
 void SKIPGAME(Word n, Queue *q){
-    int i, hasil = 0;
+    int i = 0, hasil = 0;
     boolean valid = true;
     ElType namagame;
 
@@ -15,6 +15,7 @@ void SKIPGAME(Word n, Queue *q){
             if ((n.TabWord[i] < '0') || (n.TabWord[i] > '9')) {
                 valid = false;
             }
+            i++;
         }
 
         if (!valid) {

@@ -14,6 +14,7 @@ void DINNERDASH(){
     Inisialisasi(&qPesanan);
     int antrian = 2;
     int saldo = 0;
+    char command[10], foodId[10];
 
     do {
         printf("\nSALDO: %d\n\n", saldo);
@@ -27,14 +28,17 @@ void DINNERDASH(){
 
         Decrement(&qDiproses);
         
-        printf("MASUKKAN COMMAND: ");
-        char command[5], foodId[3];
-        STARTCOMMAND2();
-        SettingCommand(CommandCC, command, foodId);
+        printf("MASUKKAN COMMAND >> ");
+        Word a, b;
+        Scan(&a, &b);
+        WordToString(a, command);
+        WordToString(b, foodId);
+
         while (!IsCommandValid(command, foodId, qPesanan, qDiproses)) {
-            printf("MASUKKAN COMMAND: ");
-            STARTCOMMAND2();
-            SettingCommand(CommandCC, command, foodId);
+            printf("MASUKKAN COMMAND >> ");
+            Scan(&a, &b);
+            WordToString(a, command);
+            WordToString(b, foodId);
         }
 
         printf("\n"); 
@@ -56,11 +60,6 @@ void DINNERDASH(){
 
     } while (!IsFinish(qPesanan, qSelesai));
 
-    printf("\nPermainan Selesai\n");
-    printf("\nSelesai : %d\n", qSelesai.Count);
-    if (qSelesai.Count >= 15) {
-        printf("Anda Menang\n");
-    } else {
-        printf("Anda Kalah\n");
-    }
+    printf("\n===== Permainan Selesai =====\n");
+    printf("\nSkor Akhir : %d\n", saldo);
 }

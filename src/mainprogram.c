@@ -84,10 +84,6 @@ int main() {
     while (!check) {
         printf("\nENTER COMMAND >> ");
         InitialScan(&command1, &command2);
-        /*printf("command1 : %s\n", command1.TabWord);
-		printf("panjang1 : %d\n", command1.Length);
-        printf("command2 : %s\n", command2.TabWord);
-		printf("panjang2 : %d\n", command2.Length); */
         if ((IsWordSame(StringToWord("START"), command1)) && (command2.Length == 0)) {
             start(&listgame);
             check = true;
@@ -136,7 +132,14 @@ int main() {
         } else if (IsWordSame(StringToWord("QUEUE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             QUEUEGAME(listgame, &antriangame);
         } else if (IsWordSame(StringToWord("PLAY"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
-            PLAYGAME(&antriangame);
+            if (isEmpty(antriangame)) {
+                printf("Daftar antrian game-mu kosong. Tidak ada game untuk dimainkan.\n");
+            } else {
+                printf("Berikut adalah daftar antrian game-mu\n");
+                displayQueueGame(antriangame);
+                printf("\n");
+                PLAYGAME(&antriangame);
+            }
         } else if (IsWordSame(StringToWord("SKIPGAME"), command1)) {
             if (command2.Length != 0) {
                 SKIPGAME(command2, &antriangame);
