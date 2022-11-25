@@ -36,14 +36,22 @@ int Length (Stack S) {
     return (S.TOP+1);
 }
 
-int Max (Stack S) {
-    int max = S.buffer[0];
-    for (int i = 0; i < Length(S); i++) {
-        if (S.buffer[i] > max) {
-            max = S.buffer[i];
+void GetInt (Word in, int *i) {
+    char strTemp[10];
+    WordToString(in, strTemp);
+    if (strTemp[1] == '\0') {
+        if ((strTemp[0] >= 49) && (strTemp[0] <= 57)) {
+            *i = strTemp[0] - 48;
+        } else {
+            *i = -1;
         }
+    } else {
+        *i = -1;
     }
-    return max;
+}
+
+void GetPiringan (Word in, int *piringan) {
+
 }
 
 void PrintBintang (int n, int piringan) {
@@ -90,8 +98,9 @@ void DisplayStack (Stack S, int piringan) {
         if (!IsEmpty(S)) {
             int idx = Top(S);
             for (int j = Length(S)-1; j >= 0; j--) {
-                PrintBintang(S.buffer[j], piringan);
-                // PrintBintang(S.buffer[idx]);
+                int temp;
+                Pop(&S, &temp);
+                PrintBintang(temp, piringan);
                 idx--;
             }
         }
@@ -114,13 +123,23 @@ Stack GetStack(char input, Stack a, Stack b, Stack c) {
 
 boolean IsPiringanValid (int piringan) {
     boolean valid = false;
-    if (piringan > 1) {
+    if (piringan >= 1) {
         valid = true;
     } else {
         printf("Jumlah piringan tidak valid\n\n");
     }
 
     return valid;
+}
+
+void GetChar (Word in, char *c) {
+    char strTemp[20];
+    WordToString(in, strTemp);
+    if (strTemp[1] == '\0') {
+        *c = strTemp[0];
+    } else {
+        *c = 'Z';
+    }
 }
 
 boolean IsInputValid (char src, char dst) {
@@ -133,7 +152,7 @@ boolean IsInputValid (char src, char dst) {
         }
     } else {
         if ((src != 'A') && (src != 'B') && (src != 'C')) {
-            printf("Source tidak valid\n");
+            printf("Source tidak valid\n\n");
         } else if ((dst != 'A') && (dst != 'B') && (dst != 'C')) {
             printf("Destinasi tidak valid\n\n");
         } 
@@ -181,60 +200,61 @@ void ProsesCommand (char src, char dst, Stack *a, Stack *b, Stack *c) {
 }
 
 boolean GameFinish (Stack S, int piringan) {
+    int temp;
     int idx = 0;
-    int val = JumlahMaksBintang(piringan);
+    int base = 1;
     boolean retVal = true;
     while (idx < piringan) {
-        if (S.buffer[idx] != val) {
+        Pop(&S, &temp);
+        if (temp != base) {
             retVal = false;
         }
         idx++;
-        val -= 2;
+        base += 2 ;
     }
     return retVal;
 }
 
-int CountScore (int step) {
-    int score;
-    if (step <= 31) {
-        score = 10;
-    } else if (step <= 41) {
-        score = 9;
-    } else if (step <= 51) {
-        score = 8;
-    } else if (step <= 55) {
-        score = 7;
-    } else if (step <= 60) {
-        score = 6;
-    } else if (step <= 65) {
-        score = 5;
-    } else if (step <= 70) {
-        score = 4;
-    }else if (step <= 72) {
-        score = 3;
-    }else if (step <= 74) {
-        score = 2;
-    }else if (step <= 76) {
-        score = 1;
+int CountScore (int step, int piringan) {
+    int StepMax = 1;
+    for (int i = 0; i < piringan; i++) {
+        StepMax *= 2;
     }
-
+    StepMax--;
+    printf("Step Max: %d\n", StepMax);
+    int score;
+    if (step <= StepMax) {
+        score = 10;
+    } else {
+        while (step > StepMax) {
+            StepMax--;
+            score--;
+        }
+        if (score <= 0) {
+            score = 1;
+        }
+    }
     return score;
 }
 
 int main() {
     int step = 0;
+    int piringan;
     char src, dst;
     Stack A, B, C;
+    Word in1, in2;
     CreateEmpty(&A);
     CreateEmpty(&B);
     CreateEmpty(&C);
 
-    int piringan;
     printf("Jumlah piringan: ");
-    scanf("%d", &piringan);
+    Scan(&in1, &in2);
+    GetInt(in1, &piringan);
     while (!IsPiringanValid(piringan)) {
         printf("Jumlah piringan: ");
-        scanf("%d", &piringan);
+        Scan(&in1, &in2);
+        GetInt(in1, &piringan);
+
     }
     Inisialisasi(&A, piringan);
 
@@ -255,12 +275,16 @@ int main() {
             printf(" ");
         }
         printf("C\n\n");
+        boolean done = false;
+
         do {
             do {
                 printf("TIANG ASAL: ");
-                scanf(" %c", &src);
+                Scan(&in1, &in2);
+                GetChar(in1, &src);
                 printf("TIANG TUJUAN: ");
-                scanf(" %c", &dst);
+                Scan(&in1, &in2);
+                GetChar(in1, &dst);
             } while (!IsInputValid(src, dst));
         } while (!IsCommandValid(src, dst, A, B, C));
         ProsesCommand(src, dst, &A, &B, &C);
@@ -283,67 +307,12 @@ int main() {
     printf("C\n\n");
 
     printf("Kamu berhasil !\n\n");
-    printf("Skor didapatkan: %d\n", CountScore(step));
+    printf("Step: %d\n", step);
+    printf("Skor didapatkan: %d\n", CountScore(step, piringan));
     char nama[10];
     printf("Nama: ");
-    scanf("%s", nama);
+    Scan(&in1, &in2);
+    WordToString(in1, nama);
 
     return 0;    
 }
-
-/*
-
-int main() {
-    int step = 0;
-    char src, dst;
-    Stack A, B, C;
-    CreateEmpty(&A);
-    CreateEmpty(&B);
-    CreateEmpty(&C);
-
-    Inisialisasi(&A);
-
-    int piringan;
-    printf("Jumlah piringan: ");
-    scanf("%d", &piringan);
-    while (!IsPiringanValid(piringan)) {
-        printf("Jumlah piringan: ");
-        scanf("%d", &piringan);
-    }
-
-    while (!GameFinish(C)) {
-        DisplayStack(A);
-        printf("    A\n\n");
-        DisplayStack(B);
-        printf("    B\n\n");
-        DisplayStack(C);
-        printf("    C\n\n");
-        do {
-            do {
-                printf("TIANG ASAL: ");
-                scanf(" %c", &src);
-                printf("TIANG TUJUAN: ");
-                scanf(" %c", &dst);
-            } while (!IsInputValid(src, dst));
-        } while (!IsCommandValid(src, dst, A, B, C));
-        ProsesCommand(src, dst, &A, &B, &C);
-        step++;
-    }
-    DisplayStack(A);
-    printf("    A\n\n");
-    DisplayStack(B);
-    printf("    B\n\n");
-    DisplayStack(C);
-    printf("    C\n\n");
-    printf("\n\nKamu berhasil!\n\n");
-
-    int score;
-    char nama[10];
-    score = CountScore(step);
-    printf("Skor didapatkan: %d\n", score);
-    printf("Nama: ");
-    scanf("%s", nama);
-    return 0;
-}
-
-*/
