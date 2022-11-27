@@ -8,7 +8,7 @@ void PLAYGAME(Queue *queuegame) {
     dequeue(queuegame, &game);
     if (IsWordSame(game, StringToWord("RNG"))){
         printf("Loading RNG ...\n");
-        skor = RNGgame();
+        RNGGAME(&skor);
     } else if (IsWordSame(game, StringToWord("Diner DASH"))){
         printf("Loading DINER DASH ...\n");
         DINNERDASH();
