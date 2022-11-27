@@ -5,9 +5,9 @@
 
 #include "../ADT/MesinKata/mesinkata.h"
 
-void TOWEROFHANOI();
+void TOWEROFHANOI(int *skor);
 // Desc: Menjalankan game Tower of Hanoi
 /* IS: Sembarang
-   FS: Game Tower of Hanoi dimainkan */
+   FS: Menghasilkan skor akhir dari game Tower Of Hanoi */
 
 #endif

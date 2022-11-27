@@ -13,7 +13,7 @@ void SKORGAME(int *skor) {
         *skor = (rand() + *skor) % 101;
     }
 
-    printf("\n===============================\n");
+    printf("\n\n===============================\n");
     printf("||     G A M E   O V E R     ||\n");
     printf("===============================\n\n");
     printf("Skor akhir = %d\n\n", *skor);

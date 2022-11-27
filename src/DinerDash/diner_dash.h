@@ -5,9 +5,9 @@
 
 #include "../ADT/MesinKata/mesinkata.h"
 
-void DINNERDASH();
+void DINNERDASH(int *skor);
 //Desc: Menjalankan game Diner Dash
 /* IS: Sembarang
-   FS: Game Diner Dash dimainkan */
+   FS: Menghasilkan skor akhir dari game Diner Dash */
 
 #endif

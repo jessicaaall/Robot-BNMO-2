@@ -7,6 +7,8 @@
 #include "../ADT/Queue/queue.h"
 #include "../RNGgame/rnggame.h"
 #include "../DinerDash/diner_dash.h"
+#include "../Hangman/hangman.h"
+#include "../TowerOfHanoi/towerofhanoi.h"
 #include "../SkorGame/skorgame.h"
 #include "../boolean.h"
 

@@ -3,8 +3,14 @@
 #include "DD2.h"
 #include "diner_dash.h"
 
-void DINNERDASH(){
-    printf("\nSelamat Datang di Diner Dash!\n");
+void DINNERDASH(int *skor){
+    printf("\n=========================================================================\n");
+    printf(" ____    ___   _   _   _____   ____      ____       _      ____    _   _ \n");
+    printf("|  _ \\  |_ _| | \\ | | | ____| |  _ \\    |  _ \\     / \\    / ___|  | | | |\n");
+    printf("| | | |  | |  |  \\| | |  _|   | |_) |   | | | |   / _ \\   \\___ \\  | |_| |\n");
+    printf("| |_| |  | |  | |\\  | | |___  |  _ <    | |_| |  / ___ \\   ___) | |  _  |\n");
+    printf("|____/  |___| |_| \\_| |_____| |_| \\_\\   |____/  /_/   \\_\\ |____/  |_| |_|\n");
+    printf("\n=========================================================================\n\n\n");
 
     Queue2 qPesanan, qDiproses , qSelesai;
     CreateQueue2(&qPesanan);
@@ -55,11 +61,11 @@ void DINNERDASH(){
             saldo += qSelesai.buffer[i].Harga;
         }
         printf("\n");
-
-
-
     } while (!IsFinish(qPesanan, qSelesai));
 
-    printf("\n===== Permainan Selesai =====\n");
-    printf("\nSkor Akhir : %d\n", saldo);
+    *skor = saldo;
+    printf("\n\n===============================\n");
+    printf("||     G A M E   O V E R     ||\n");
+    printf("===============================\n\n");
+    printf("Skor akhir = %d\n\n", *skor);
 }

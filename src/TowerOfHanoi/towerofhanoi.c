@@ -2,7 +2,7 @@
 #include "ToH.h"
 #include "towerofhanoi.h"
 
-void TOWEROFHANOI() {
+void TOWEROFHANOI(int *skor) {
     printf("\n========================================================================================================\n");
     printf(" _____    ___   __        __  _____   ____       ___    _____     _   _      _      _   _    ___    ___ \n");
     printf("|_   _|  / _ \\  \\ \\      / / | ____| |  _ \\     / _ \\  |  ___|   | | | |    / \\    | \\ | |  / _ \\  |_ _|\n");
@@ -11,7 +11,7 @@ void TOWEROFHANOI() {
     printf("  |_|    \\___/     \\_/\\_/    |_____| |_| \\_\\    \\___/  |_|       |_| |_| /_/   \\_\\ |_| \\_|  \\___/  |___|\n\n");
     printf("========================================================================================================\n\n\n");
 
-    int step = 0, skor;
+    int step = 0;
     int piringan;
     char src, dst;
     Stack A, B, C;
@@ -81,9 +81,9 @@ void TOWEROFHANOI() {
     printf("C\n\n");
 
     printf("\nSelamat, Anda berhasil!\n\n");
-    skor = CountScore(step, piringan);
+    *skor = CountScore(step, piringan);
     printf("\n===============================\n");
     printf("||     G A M E   O V E R     ||\n");
     printf("===============================\n\n");
-    printf("Skor akhir = %d\n\n", skor);
+    printf("Skor akhir = %d\n\n", *skor);
 }
