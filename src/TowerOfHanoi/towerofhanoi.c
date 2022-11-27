@@ -11,7 +11,7 @@ void TOWEROFHANOI() {
     printf("  |_|    \\___/     \\_/\\_/    |_____| |_| \\_\\    \\___/  |_|       |_| |_| /_/   \\_\\ |_| \\_|  \\___/  |___|\n\n");
     printf("========================================================================================================\n\n\n");
 
-    int step = 0;
+    int step = 0, skor;
     int piringan;
     char src, dst;
     Stack A, B, C;
@@ -80,10 +80,10 @@ void TOWEROFHANOI() {
     }
     printf("C\n\n");
 
-    printf("Kamu berhasil !\n\n");
-    printf("Skor didapatkan: %d\n", CountScore(step, piringan));
-    char nama[10];
-    printf("Nama: ");
-    Scan(&in1, &in2);
-    WordToString(in1, nama);
+    printf("\nSelamat, Anda berhasil!\n\n");
+    skor = CountScore(step, piringan);
+    printf("\n===============================\n");
+    printf("||     G A M E   O V E R     ||\n");
+    printf("===============================\n\n");
+    printf("Skor akhir = %d\n\n", skor);
 }

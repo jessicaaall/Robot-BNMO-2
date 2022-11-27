@@ -70,20 +70,20 @@ int main() {
 
     // IsInputValid
     printf("Cek IsInputValid\n");
-    printf("Misal, input3 = 'A', input3 = 'B'\n");
-    printf("      ,input3 = 'C', input3 = 'Z'\n");
+    printf("Misal, input3 = 'A', input4 = 'B'\n");
+    printf("      ,input5 = 'C', input6 = 'Z'\n");
     char input3 = 'A';
     char input4 = 'B';
     char input5 = 'C';
     char input6 = 'Z';
-    printf("Cek IsInputValid 1 (src: input3, dst: input4\n");
+    printf("Cek IsInputValid 1 (src: input3, dst: input4)");
     if (IsInputValid(input3, input4)) {
         printf("True\n");
     }
-    printf("Cek IsInputValid 2 (source sama)\n");
+    printf("Cek IsInputValid 2 (source sama)");
     if (!IsInputValid(input4, input4)) {
     }
-    printf("Cek IsInputValid 3 (input == 'Z')\n");
+    printf("Cek IsInputValid 3 (input == 'Z')");
     if (!IsInputValid(input6, input4)) {
     }
 
@@ -100,7 +100,6 @@ int main() {
     printf("Jika src: input3 dan dst: input4\n");
     printf("Apakah valid?\n");
     if (!IsCommandValid(input3,input4, A, B, C)) {
-        printf("Tidak valid, True, tidak diproses\n\n");
     }
 
     // GameFinish
@@ -132,22 +131,17 @@ int main() {
     printf("Misal ada 5 piringan\n");
     printf("step1: 31 step\n");
     printf("step2: 36 step\n");
-    printf("step3: 50 step\n");
+    printf("step3: 50 step\n\n");
     piringan = 5;
     int step1, step2, step3;
     step1 = 31;
     step2 = 36;
     step3 = 50;
-    printf("Score 1: %d\n", CountScore(step1, piringan));
-    printf("\n");
-    printf("Score 2: %d\n", CountScore(step2, piringan));
-    printf("\n");
-    printf("Score 3: %d\n", CountScore(step3, piringan));
-    printf("\n");
+    printf("Score step1: %d\n", CountScore(step1, piringan));
+    printf("Score step2: %d\n", CountScore(step2, piringan));
+    printf("Score step3: %d\n", CountScore(step3, piringan));
 
-    printf("\nDriver Selesai.\n");
-
-
+    printf("\n\nDriver Selesai.\n");
 
     return 0;
 }

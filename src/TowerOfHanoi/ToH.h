@@ -3,6 +3,7 @@
 
 #include "../boolean.h"
 #include "../ADT/MesinKata/mesinkata.h"
+#include <math.h>
 
 #define Nil -1
 

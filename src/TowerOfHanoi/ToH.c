@@ -223,26 +223,14 @@ boolean GameFinish (Stack S, int piringan) {
 }
 
 int CountScore (int step, int piringan) {
-    int StepMax = 1;
-    for (int i = 0; i < piringan; i++) {
-        StepMax *= 2;
+    int StepMax, score;
+    StepMax = pow(2,piringan) - 1;
+    score = 10 + (piringan - 5);
+    if (step > StepMax) {
+        score -= (step - StepMax);
     }
-    StepMax--;
-    printf("Step: %d\n", step);
-    printf("Step Max: %d\n", StepMax);
-    int score;
-    if (step <= StepMax) {
-        score = 10;
-    } else {
-        score = 10 - (step - StepMax);
-        if (score <= 1) {
-            score = 1;
-        }
-    }
-    if (piringan >= 5) {
-        score += (piringan - 5);
-    } else {
-        score -= (5 - piringan);
+    if (score <= 1) {
+        score = 1;
     }
     
     return score;
