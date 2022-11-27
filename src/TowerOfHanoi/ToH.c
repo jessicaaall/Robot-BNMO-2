@@ -235,5 +235,11 @@ int CountScore (int step, int piringan) {
             score = 1;
         }
     }
+    if (piringan >= 5) {
+        score += (piringan - 5);
+    } else {
+        score -= (5 - piringan);
+    }
+    
     return score;
 }
