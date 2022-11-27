@@ -36,24 +36,25 @@ int Length (Stack S) {
     return (S.TOP+1);
 }
 
-void GetInt (Word in, int *i) {
-    char strTemp[10];
-    WordToString(in, strTemp);
-    if (strTemp[1] == '\0') {
-        if ((strTemp[0] >= 49) && (strTemp[0] <= 57)) {
-            *i = strTemp[0] - 48;
-        } else {
-            *i = -1;
+void GetInt (Word in, int *number) {
+    boolean valid = true;
+    int i = 0;
+
+    while ((valid) && (i < in.Length)) {
+        if ((in.TabWord[i] < '0') || (in.TabWord[i] > '9')) {
+            valid = false;
         }
-    } else if (strTemp[2] == '\0'){
-        int temp;
-        if ((strTemp[0] >= 49) && (strTemp[0] <= 57) && (strTemp[1] >= 48) && (strTemp[1] <= 57)) {
-            temp = 10 * (strTemp[0] - 48);
-            temp += (strTemp[1] - 48);
-            *i = temp;
+        i++;
+    }
+
+    *number = 0;
+    if (valid) {
+        for (i = 0; i < in.Length; i++) {
+            *number = (*number)*10 + (in.TabWord[i] - '0');
         }
-    } else {
-        *i = -1;
+    }
+    if (*number > 500) {
+        *number = 0;
     }
 }
 
@@ -129,7 +130,7 @@ boolean IsPiringanValid (int piringan) {
     if (piringan >= 1) {
         valid = true;
     } else {
-        printf("Jumlah piringan tidak valid\n\n");
+        printf("Masukan jumlah piringan tidak valid.\n\n");
     }
 
     return valid;
@@ -147,18 +148,21 @@ void GetChar (Word in1, Word in2, char *c) {
 
 boolean IsInputValid (char src, char dst) {
     boolean valid = false;
+    printf("\n");
     if (((src == 'A') || (src == 'B') || (src == 'C')) && ((dst == 'A') || (dst == 'B') || (dst == 'C'))){
         if (src != dst) {
             valid = true;
         } else {
-            printf("Tidak terjadi pemindahan\n\n");
+            printf("Tidak terjadi pemindahan. Tiang asal dan tiang tujuan sama.\n\n");
         }
     } else {
         if ((src != 'A') && (src != 'B') && (src != 'C')) {
-            printf("Source tidak valid\n\n");
-        } else if ((dst != 'A') && (dst != 'B') && (dst != 'C')) {
-            printf("Destinasi tidak valid\n\n");
-        } 
+            printf("Masukan tiang asal tidak valid.\n");
+        }
+        if ((dst != 'A') && (dst != 'B') && (dst != 'C')) {
+            printf("Masukan tiang tujuan tidak valid.\n");
+        }
+        printf("\n");
     }
 
     return valid;
@@ -170,13 +174,13 @@ boolean IsCommandValid (char src, char dst, Stack a, Stack b, Stack c) {
     sSrc = GetStack(src, a, b, c);
     sDst = GetStack(dst, a, b ,c);
     if (IsEmpty(sSrc)) {
-        printf("Source kosong\n\n");
+        printf("Pemindahan gagal. Tiang asal kosong.\n\n");
     } else if (IsEmpty(sDst)) {
         valid = true;
     } else if (InfoTop(sSrc) < InfoTop(sDst)) {
         valid = true;
     } else if (InfoTop(sSrc) > InfoTop(sDst)) {
-        printf("Destinasi lebih besar\n\n");
+        printf("Pemindahan gagal. Piringan teratas pada tiang tujuan lebih kecil.\n\n");
     }
     return valid;
 }

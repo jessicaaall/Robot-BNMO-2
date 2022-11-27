@@ -17,12 +17,13 @@ void QUEUEGAME(Tab daftargame, Queue *queuegame) {
     printf("\n");
 
     boolean valid = true;
-    int i, nomor;
+    int i = 0, nomor;
 
-    for (i = 0; i < CommandCC.Length; i++) {
+    while ((valid) && (i < CommandCC.Length)) {
         if ((CommandCC.TabWord[i] < '0') || (CommandCC.TabWord[i] > '9')) {
             valid = false;
         }
+        i++;
     }
 
     if (!valid) {

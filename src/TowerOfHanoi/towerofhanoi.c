@@ -3,6 +3,14 @@
 #include "towerofhanoi.h"
 
 void TOWEROFHANOI() {
+    printf("\n========================================================================================================\n");
+    printf(" _____    ___   __        __  _____   ____       ___    _____     _   _      _      _   _    ___    ___ \n");
+    printf("|_   _|  / _ \\  \\ \\      / / | ____| |  _ \\     / _ \\  |  ___|   | | | |    / \\    | \\ | |  / _ \\  |_ _|\n");
+    printf("  | |   | | | |  \\ \\ /\\ / /  |  _|   | |_) |   | | | | | |_      | |_| |   / _ \\   |  \\| | | | | |  | | \n");
+    printf("  | |   | |_| |   \\ V  V /   | |___  |  _ <    | |_| | |  _|     |  _  |  / ___ \\  | |\\  | | |_| |  | | \n");
+    printf("  |_|    \\___/     \\_/\\_/    |_____| |_| \\_\\    \\___/  |_|       |_| |_| /_/   \\_\\ |_| \\_|  \\___/  |___|\n\n");
+    printf("========================================================================================================\n\n\n");
+
     int step = 0;
     int piringan;
     char src, dst;
@@ -12,15 +20,15 @@ void TOWEROFHANOI() {
     CreateEmpty(&B);
     CreateEmpty(&C);
 
-    printf("Jumlah piringan: ");
-    Scan(&in1, &in2);
-    GetInt(in1, &piringan);
-    while (!IsPiringanValid(piringan)) {
-        printf("Jumlah piringan: ");
+    do {
+        printf("Masukkan jumlah piringan >> ");
         Scan(&in1, &in2);
-        GetInt(in1, &piringan);
-
-    }
+        if (in2.Length == 0) {
+            GetInt(in1, &piringan);
+        } else {
+            piringan = 0;
+        }
+    } while (!IsPiringanValid(piringan));
     
     Inisialisasi(&A, piringan);
 
@@ -45,10 +53,10 @@ void TOWEROFHANOI() {
 
         do {
             do {
-                printf("TIANG ASAL: ");
+                printf("TIANG ASAL >> ");
                 Scan(&in1, &in2);
                 GetChar(in1, in2, &src);
-                printf("TIANG TUJUAN: ");
+                printf("TIANG TUJUAN >> ");
                 Scan(&in1, &in2);
                 GetChar(in1, in2, &dst);
             } while (!IsInputValid(src, dst));

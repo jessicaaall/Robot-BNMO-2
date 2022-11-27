@@ -7,7 +7,7 @@
 #define Nil -1
 
 typedef struct {
-    int buffer[100];
+    int buffer[500];
     int TOP;
 } Stack;
 
@@ -20,6 +20,7 @@ void CreateEmpty (Stack *S);
    FS: Stack S kosong */
 
 boolean IsEmpty (Stack S);
+/* Mengirim true apabila Stack kosong, yaitu TOP bernilai Nil */
 
 void Push(Stack *S, int X);
 // Desc: Memasukkan integer S ke Stack S dengan aturan LIFO (Last In, First Out)
@@ -44,8 +45,9 @@ int Length (Stack S);
 
 void GetInt (Word in, int *i);
 // Desc: Mengubah Word in menjadi integer i
-/* IS: Word in membentuk integer terdefinisi 2 digit (< 100)
-   FS: didapatkan integer i sesuai Word in yang terdefinisi */
+/* IS: Word in terdefinisi
+   FS: Apabila Word in merupakan integer <= 500, menghasilkan integer i sesuai Word in yang terdefinisi 
+       Di luar itu, menghasilkan integer i berupa 0 */
 
 void PrintBintang (int n, int piringan);
 // Desc: Mencetak bintang berjumlah n, berdasarkan piringan tertentu
@@ -65,7 +67,7 @@ Stack GetStack(char input, Stack a, Stack b, Stack c);
 
 boolean IsPiringanValid (int piringan);
 // Desc: Return True jika jumlah piringan valid
-// piringan valid jika > 0 dan < 1
+// piringan valid jika > 0
 
 void GetChar (Word in1, Word in2, char *c);
 // Desc: Mengubah Word in menjadi Char c

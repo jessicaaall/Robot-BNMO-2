@@ -15,7 +15,7 @@ void CreateStackEmpty(Stack *S) {
 boolean IsStackEmpty(Stack S) {
     return (Top(S) == Nil);
 }
-/* Mengirim true jika Stack kosong: lihat definisi di atas */
+/* Mengirim true jika Stack kosong, yaitu TOP bernilai Nil */
 
 boolean IsStackFull(Stack S) {
     return (Top(S) == MaxEl-1);

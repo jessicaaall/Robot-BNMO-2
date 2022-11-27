@@ -2,7 +2,7 @@
 #include "help.h"
 
 void HELP () {
-    printf("\n============================== HELP ==============================\n\n");
+    printf("\n=============================  H E L P  =============================\n\n");
     printf("START           : Membaca file konfigurasi default\n");
     printf("LOAD <file>     : Membaca file yang berisi daftar game\n");
     printf("SAVE <file>     : Menyimpan state game pemain saat ini ke suatu file\n");
@@ -13,4 +13,5 @@ void HELP () {
     printf("PLAY GAME       : Memainkan game pertama pada antrian game\n");
     printf("SKIPGAME <n>    : Melewatkan permainan sebanyak n\n");
     printf("QUIT            : Keluar dari program\n");
+    printf("\n====================================================================\n\n");
 }
