@@ -135,10 +135,10 @@ boolean IsPiringanValid (int piringan) {
     return valid;
 }
 
-void GetChar (Word in, char *c) {
+void GetChar (Word in1, Word in2, char *c) {
     char strTemp[20];
-    WordToString(in, strTemp);
-    if (strTemp[1] == '\0') {
+    WordToString(in1, strTemp);
+    if ((strTemp[1] == '\0') && (in2.Length == 0) && (in1.Length == 1)) {
         *c = strTemp[0];
     } else {
         *c = 'Z';

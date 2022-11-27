@@ -67,7 +67,7 @@ boolean IsPiringanValid (int piringan);
 // Desc: Return True jika jumlah piringan valid
 // piringan valid jika > 0 dan < 1
 
-void GetChar (Word in, char *c);
+void GetChar (Word in1, Word in2, char *c);
 // Desc: Mengubah Word in menjadi Char c
 /* IS: Word in sembarang
    FS: Apabila Word in merupakan karakter A-Z, Char c merupakan karakter yang sesuai Word in

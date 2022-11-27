@@ -47,10 +47,10 @@ void TOWEROFHANOI() {
             do {
                 printf("TIANG ASAL: ");
                 Scan(&in1, &in2);
-                GetChar(in1, &src);
+                GetChar(in1, in2, &src);
                 printf("TIANG TUJUAN: ");
                 Scan(&in1, &in2);
-                GetChar(in1, &dst);
+                GetChar(in1, in2, &dst);
             } while (!IsInputValid(src, dst));
         } while (!IsCommandValid(src, dst, A, B, C));
         ProsesCommand(src, dst, &A, &B, &C);
