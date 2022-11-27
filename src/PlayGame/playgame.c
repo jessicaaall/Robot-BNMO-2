@@ -20,7 +20,7 @@ void PLAYGAME(Queue *queuegame) {
         printf("Loading ");
         PrintWord(game);
         printf(" ...\n\n");
-        skor = skorgame();
+        SKORGAME(&skor);
     }     
 }
 /*

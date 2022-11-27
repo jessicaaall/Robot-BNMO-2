@@ -7,7 +7,9 @@
 #include <time.h>
 #include <stdlib.h>
 
-int skorgame();
-/* Mengembalikan skor akhir berupa integer random */
+void SKORGAME(int *skor);
+/* Proses : Membangkitkan integer random antara 0 sampai 100 */
+/* I.S  Terdefinisi */
+/* F.S  Menghasilkan skor akhir berupa integer random */
 
 #endif
