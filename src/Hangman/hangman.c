@@ -353,22 +353,16 @@ void HANGMAN(int *skor) {
                     printf("\nMasukkan tebakan >> ");
                     Scan(&word1, &word2);
                     if ((word1.Length == 1) && (word2.Length == 0) && (word1.TabWord[0] >= 'A') && (word1.TabWord[0] <= 'Z')) {
-                        valid = false;
                         i = 0;
-                        if (huruftebakan.Length == 0) {
-                            valid = true;
-                        } else {
-                            valid = true;
-                            i = 0;
-                            while ((valid) && (i < huruftebakan.Length)) {
-                                if (huruftebakan.TabWord[i] == word1.TabWord[0]) {
-                                    valid = false;
-                                }
-                                i++;
+                        valid = true;
+                        while ((valid) && (i < huruftebakan.Length)) {
+                            if (huruftebakan.TabWord[i] == word1.TabWord[0]) {
+                                valid = false;
                             }
-                            if (!valid) {
-                                printf("\nAnda sudah menebak huruf %c sebelumnya. Mohon masukkan huruf lain. \n", word1.TabWord[0]);
-                            }
+                            i++;
+                        }
+                        if (!valid) {
+                            printf("\nAnda sudah menebak huruf %c sebelumnya. Mohon masukkan huruf lain. \n", word1.TabWord[0]);
                         }
                     } else {
                         valid = false;
