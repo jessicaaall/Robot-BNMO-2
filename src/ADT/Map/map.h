@@ -2,12 +2,13 @@
 
 #ifndef __MAP_H__
 #define __MAP_H__
+
 #include <stdio.h>
 #include "../../boolean.h"
 #include "../MesinKata/mesinkata.h"
 
 /* MODUL Map
-Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri
+Deklarasi map dengan implementasi array eksplisit-statik rata kiri
 */
 
 // #define false 0

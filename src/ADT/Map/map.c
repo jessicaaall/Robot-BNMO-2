@@ -44,7 +44,6 @@ valuetype Value(Map M, keytype k) {
     return M.Elements[idx].Value;
 }
 /* Mengembalikan nilai value dengan key k dari M */
-/* Jika tidak ada key k pada M, akan mengembalikan Undefined */
 
 
 void Insert(Map *M, keytype k, valuetype v) {
