@@ -4,7 +4,7 @@
 /* ********* Prototype ********* */
 
 /* *** Konstruktor/Kreator *** */
-void CreateEmpty(Map *M) {
+void CreateEmptyMap(Map *M) {
     (*M).Count = Nil;
 }
 /* I.S. Sembarang */
@@ -13,14 +13,14 @@ void CreateEmpty(Map *M) {
 
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
-boolean IsEmpty(Map M) {
+boolean IsMapEmpty(Map M) {
     return (M.Count == Nil);
 }
 /* Mengirim true jika Map M kosong*/
 /* Ciri Map kosong : count bernilai Nil */
 
 
-boolean IsFull(Map M) {
+boolean IsMapFull(Map M) {
     return (M.Count == MaxEl);
 }
 /* Mengirim true jika Map M penuh */
