@@ -4,6 +4,7 @@
 #define __MAP_H__
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "../../boolean.h"
 #include "../MesinKata/mesinkata.h"
 
@@ -14,7 +15,7 @@ Deklarasi map dengan implementasi array eksplisit-statik rata kiri
 // #define false 0
 // #define true 1
 #define Nol 0
-#define MaxEl 500
+#define MaxElements 500
 
 // typedef int bool;
 typedef Word keytype;
@@ -29,7 +30,7 @@ typedef struct
 
 typedef struct
 {
-	infotype Elements[MaxEl];
+	infotype Elements[MaxElements];
 	countelmt Count;
 } Map;
 

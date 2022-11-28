@@ -21,7 +21,7 @@ boolean IsMapEmpty(Map M) {
 
 
 boolean IsMapFull(Map M) {
-    return (M.Count == MaxEl);
+    return (M.Count == MaxElements);
 }
 /* Mengirim true jika Map M penuh */
 /* Ciri Map penuh : count bernilai MaxEl */

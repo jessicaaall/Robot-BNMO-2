@@ -1,12 +1,12 @@
 /* File : arrayofmap.h */
 /* Penempatan elemen selalu rapat kiri */
 
+#ifndef __ARRAY_OF_MAP_H__ 
+#define __ARRAY_OF_MAP_H__ 
+
 #include "../../boolean.h"
 #include "../MesinKata/mesinkata.h"
 #include "../Map/map.h"
-
-#ifndef ARRAY_H 
-#define ARRAY_H
 
 /* Kamus Umum */
 
