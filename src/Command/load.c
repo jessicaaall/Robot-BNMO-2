@@ -1,22 +1,58 @@
 #include "load.h"
 
-void load(char * filename, Tab * loadsave) {
-    /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
-    I.S. : filename terdefinisi, Tab kosong
-    F.S. : Tab loadsave terisi dengan .txt yang bernama filename */
-    int i = 0;
-    // printf("lagi 0\n"); //
+void LOAD(char *filename, Tab *game, Stack *history, TabMap *scoreboard) {
+    Stack temphistory;
+    Map listscore;
+    Word word1, word2;
+    int i, j, count;
+
+    MakeEmptyArray(game);
+    CreateEmptyStack(history);
+    CreateEmptyStack(&temphistory);
+    MakeEmptyArrMap(scoreboard);
+
     STARTWORD(filename);
-    ADVWORD();
-    // printf("lagi 1\n"); //
-    while (!EOP) {
-        (*loadsave).TI[i] = CWord;
-        //printf("%s\n", CWord.TabWord); //
+    
+    count = WordToInt(CWord);
+    game->Neff = count;
+    for (i = 0; i < count; i++) {
         ADVWORD();
-        // printf("%d\n", i);
-        i++;
+        if (!IsFullArray(*game)) {
+            game->TI[i] = CWord;
+        }
     }
-    (*loadsave).TI[i] = CWord;
-    i++;
-    (*loadsave).Neff = i;
+
+    ADVWORD();
+    count = WordToInt(CWord);
+    for (i = 0; i < count; i++) {
+        ADVWORD();
+        if (!IsStackFull(temphistory)) {
+            Push(&temphistory, CWord);
+        }
+    }
+    InverseStack(temphistory, history);
+
+    for (i = 0; i < game->Neff; i++) {
+        ADVWORD();
+        count = WordToInt(CWord);
+        CreateEmptyMap(&listscore);
+        for (j = 0; j < count; j++) {
+            ADVWORD();
+            SplitWord(CWord, &word1, &word2);
+            if (!IsMapFull(listscore)) {
+                Insert(&listscore, word1, WordToInt(word2));
+            }
+        }
+        if ((*scoreboard).Nelmt != IdxMaxArrMap-IdxMinArrMap+1) {
+            InsertArrMap(scoreboard, listscore);
+        }
+    }
 }
+/* Proses : Membuka filename.txt 
+            Menyimpan isi filename.txt yang berupa daftar permainan ke Tab game 
+            Menyimpan isi filename.txt yang berupa daftar history permainan ke Stack history 
+            Menyimpan isi filename.txt yang berupa daftar scoreboard permainan ke TabMap scoreboard */
+/* I.S. filename terdefinisi */
+/* F.S. Tab game berisi daftar permainan yang terdapat dalam filename.txt
+        Stack history berisi daftar history permainan yang terdapat dalam filename.txt
+        TabMap scoreboard berisi daftar scoreboard permainan yang terdapat dalam filename.txt */

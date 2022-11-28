@@ -2,6 +2,9 @@
 #include "./ADT/MesinKarakter/mesinkarakter.h"
 #include "./ADT/MesinKata/mesinkata.h"
 #include "./ADT/Queue/queue.h"
+#include "./ADT/Stack/stack.h"
+#include "./ADT/Map/map.h"
+#include "./ADT/ArrayOfMap/arrayofmap.h"
 #include "./Command/load.h"
 #include "./Command/start.h"
 #include "./Command/save.h"
@@ -78,10 +81,11 @@ int main() {
 	Word command1 = StringToWord("\0");
 	Word command2 = StringToWord("\0");
     Tab listgame;
+    Stack historygame;
+    TabMap listscoreboard;
     Queue antriangame;
     boolean check = false, IsQuit = false, IsCommandStart = true;
 
-    MakeEmptyArray(&listgame);
     CreateQueue(&antriangame);
 
     while (!check) {
@@ -92,8 +96,8 @@ int main() {
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
             if ((command2.Length != 0) && (ValidTxt(command2))) {
-                load(command2.TabWord, &listgame);
-                if (listgame.Neff != 1) {
+                LOAD(command2.TabWord, &listgame, &historygame, &listscoreboard);
+                if (listgame.Neff != 0) {
                     check = true;
                     IsCommandStart = false;
                 } else {
