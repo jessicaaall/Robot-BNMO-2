@@ -2,7 +2,7 @@
 
 /* ************ Prototype ************ */
 /* *** Konstruktor/Kreator *** */
-void CreateStackEmpty(Stack *S) {
+void CreateEmptyStack(Stack *S) {
     Top(*S) = Nil;
 }
 /* I.S. sembarang; */
