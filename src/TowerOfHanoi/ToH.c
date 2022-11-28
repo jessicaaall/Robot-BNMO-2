@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include "ToH.h"
 
-void CreateEmpty (Stack *S) {
+void CreateSEmpty (Stack *S) {
     Top(*S) = Nil;
 }
 
-boolean IsEmpty (Stack S) {
+boolean IsSEmpty (Stack S) {
     return (Top(S) == Nil);
 }
 
-void Push(Stack *S, int X) {
+void PushS(Stack *S, int X) {
     Top(*S) += 1;
     InfoTop(*S) = X;
 }
 
-void Pop(Stack *S, int *X) {
+void PopS(Stack *S, int *X) {
     *X = InfoTop(*S);
     Top(*S) -= 1;
 }
@@ -23,16 +23,16 @@ int JumlahMaksBintang (int piringan) {
     return ((2*piringan)-1);
 }
 
-void Inisialisasi (Stack *S, int piringan) {
+void InisialisasiS (Stack *S, int piringan) {
     int ground = JumlahMaksBintang(piringan);
     int batas = piringan;
     for (int i = 0; i < batas; i++) {
-        Push(S, ground);
+        PushS(S, ground);
         ground -= 2;
     }
 }
 
-int Length (Stack S) {
+int LengthS (Stack S) {
     return (S.TOP+1);
 }
 
@@ -84,7 +84,7 @@ void PrintBintang (int n, int piringan) {
 
 void DisplayStack (Stack S, int piringan) {
     int batas = JumlahMaksBintang(piringan);
-    if (IsEmpty(S)) {
+    if (IsSEmpty(S)) {
         for (int i = 0; i < piringan; i++) {
             for (int k = 0; k < (batas-1)/2; k++) {
                 printf(" ");
@@ -92,18 +92,18 @@ void DisplayStack (Stack S, int piringan) {
             printf("|\n");
         }
     } else {
-        int tiang = piringan-Length(S);
+        int tiang = piringan-LengthS(S);
         for (int i = 0; i < tiang; i++) {
             for (int k = 0; k < piringan-1; k++){
                 printf(" ");
             }
             printf("|\n");
         }
-        if (!IsEmpty(S)) {
+        if (!IsSEmpty(S)) {
             int idx = Top(S);
-            for (int j = Length(S)-1; j >= 0; j--) {
+            for (int j = LengthS(S)-1; j >= 0; j--) {
                 int temp;
-                Pop(&S, &temp);
+                PopS(&S, &temp);
                 PrintBintang(temp, piringan);
                 idx--;
             }
@@ -168,14 +168,14 @@ boolean IsInputValid (char src, char dst) {
     return valid;
 }
 
-boolean IsCommandValid (char src, char dst, Stack a, Stack b, Stack c) {
+boolean IsCommandSValid (char src, char dst, Stack a, Stack b, Stack c) {
     boolean valid = false;
     Stack sSrc, sDst;
     sSrc = GetStack(src, a, b, c);
     sDst = GetStack(dst, a, b ,c);
-    if (IsEmpty(sSrc)) {
+    if (IsSEmpty(sSrc)) {
         printf("Pemindahan gagal. Tiang asal kosong.\n\n");
-    } else if (IsEmpty(sDst)) {
+    } else if (IsSEmpty(sDst)) {
         valid = true;
     } else if (InfoTop(sSrc) < InfoTop(sDst)) {
         valid = true;
@@ -185,22 +185,22 @@ boolean IsCommandValid (char src, char dst, Stack a, Stack b, Stack c) {
     return valid;
 }
 
-void ProsesCommand (char src, char dst, Stack *a, Stack *b, Stack *c) {
+void ProsesCommandS (char src, char dst, Stack *a, Stack *b, Stack *c) {
     int x;
     if (src == 'A') {
-        Pop(a, &x);
+        PopS(a, &x);
     } else if (src == 'B') {
-        Pop(b, &x);
+        PopS(b, &x);
     } else if (src == 'C') {
-        Pop(c, &x);
+        PopS(c, &x);
     }
     
     if (dst == 'A') {
-        Push(a, x);
+        PushS(a, x);
     } else if (dst == 'B') {
-        Push(b, x);
+        PushS(b, x);
     } else if (dst == 'C') {
-        Push(c, x);
+        PushS(c, x);
     }
     
     printf("\nMemindahkan piringan ke %c...\n\n", dst);
@@ -212,7 +212,7 @@ boolean GameFinish (Stack S, int piringan) {
     int base = 1;
     boolean retVal = true;
     while (idx < piringan) {
-        Pop(&S, &temp);
+        PopS(&S, &temp);
         if (temp != base) {
             retVal = false;
         }

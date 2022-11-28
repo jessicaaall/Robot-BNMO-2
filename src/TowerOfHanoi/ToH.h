@@ -15,20 +15,20 @@ typedef struct {
 #define Top(S) (S).TOP
 #define InfoTop(S) (S).buffer[(S).TOP]
 
-void CreateEmpty (Stack *S);
+void CreateSEmpty (Stack *S);
 // Desc: Membuat Stack kosong
 /* IS: Stack sembarang
    FS: Stack S kosong */
 
-boolean IsEmpty (Stack S);
+boolean IsSEmpty (Stack S);
 /* Mengirim true apabila Stack kosong, yaitu TOP bernilai Nil */
 
-void Push(Stack *S, int X);
+void PushS(Stack *S, int X);
 // Desc: Memasukkan integer S ke Stack S dengan aturan LIFO (Last In, First Out)
 /* IS: Stack S terdefinisi, mungkin kosong
    FS: integer X sebagai elemen Top pada stack S*/
 
-void Pop(Stack *S, int *X);
+void PopS(Stack *S, int *X);
 // Desc: Mengeluarkan elemen Top pada Stack S
 /* IS: Stack S terdefinisi, tidak kosong
    FS: Elemen Top Stack S akan disimpan di X, kemudian dikeluarkan dari Stack S*/
@@ -36,12 +36,12 @@ void Pop(Stack *S, int *X);
 int JumlahMaksBintang (int piringan);
 // Desc: Mengembalikan jumlah maksimal bintang pada piringan tertentu
 
-void Inisialisasi (Stack *S, int piringan);
+void InisialisasiS (Stack *S, int piringan);
 // Desc: Menginisialisasi jumlah piringan pada Stack A
 /* IS: Stack A kosong
    FS: Stack A sudah terisi piringan yang sesuai */
 
-int Length (Stack S);
+int LengthS (Stack S);
 // Desc: Mengembalikan panjang dari Stack S
 
 void GetInt (Word in, int *i);
@@ -80,7 +80,7 @@ boolean IsInputValid (char src, char dst);
 // Desc: Return True jika Input src dan dst valid
 // input src dan dst valid jika src dan dst merupakan karakter A, B, atau C
 
-boolean IsCommandValid (char src, char dst, Stack a, Stack b, Stack c);
+boolean IsCommandSValid (char src, char dst, Stack a, Stack b, Stack c);
 // Desc: Return True jika command valid
 /* command valid jika: 
 - Top dari Stack src < Top dari Stack dst
@@ -89,7 +89,7 @@ boolean IsCommandValid (char src, char dst, Stack a, Stack b, Stack c);
 */
 // Akan terjadi konversi char src menjadi Stack src dan char dst menjadi Srack dst
 
-void ProsesCommand (char src, char dst, Stack *a, Stack *b, Stack *c);
+void ProsesCommandS (char src, char dst, Stack *a, Stack *b, Stack *c);
 // Desc: Memindahkan piringan dari Source src ke Destinasi dst
 /* IS: Source, Destinasi, Stack a, Stack b, Stack c yang valid
    FS: Piringan dipindahkan dari Stack src ke Stack dst

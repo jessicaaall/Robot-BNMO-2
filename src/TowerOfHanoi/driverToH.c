@@ -8,25 +8,25 @@ int main() {
     Stack S;
     // CreateEmpty, IsEmpty
     printf("Cek IsEmpty dan CreateEmpty\n");
-    CreateEmpty(&S);
-    if (IsEmpty(S)) {
+    CreateSEmpty(&S);
+    if (IsSEmpty(S)) {
         printf("Stack S kosong, True\n\n");
     }
 
     // Push, Pop, Length
     printf("Cek Push dan Pop\n");
     printf("Push 3\n");
-    Push(&S, 3);
+    PushS(&S, 3);
     printf("Push 10\n");
-    Push(&S, 10);
-    printf("Length Stack: %d\n", Length(S));
+    PushS(&S, 10);
+    printf("Length Stack: %d\n", LengthS(S));
     int x;
     printf("Pop\n");
-    Pop(&S, &x);
+    PopS(&S, &x);
     printf("Pop\n");
-    Pop(&S, &x);
+    PopS(&S, &x);
     printf("2 kali pop. Cek apakah true dengan fungsi IsEmpty\n");
-    if (IsEmpty(S)) {
+    if (IsSEmpty(S)) {
         printf("Stack S kosong\n\n");
     }
 
@@ -34,7 +34,7 @@ int main() {
     printf("Cek Inisialisasi\n");
     int piringan = 5;
     printf("Misal piringan = 5\n\n");
-    Inisialisasi(&S, piringan);
+    InisialisasiS(&S, piringan);
     DisplayStack(S, piringan);
     printf("\n");
 
@@ -56,10 +56,10 @@ int main() {
     printf("Hasil diinginkan : tes1 = A dan tes2 = C\n");
     piringan = 5;
     Stack A, B, C;
-    CreateEmpty(&A);
-    CreateEmpty(&B);
-    CreateEmpty(&C);
-    Inisialisasi(&A, piringan);
+    CreateSEmpty(&A);
+    CreateSEmpty(&B);
+    CreateSEmpty(&C);
+    InisialisasiS(&A, piringan);
     char input1 = 'A';
     char input2 = 'C';
     Stack tes1 = GetStack(input1, A, B, C);
@@ -93,13 +93,13 @@ int main() {
     printf("       input3 = 'C', input3 = 'Z'\n");
     printf("Jika src: input3 dan dst: input4\n");
     printf("Apakah valid?\n");
-    if (IsCommandValid(input3,input4, A, B, C)) {
+    if (IsCommandSValid(input3,input4, A, B, C)) {
         printf("Valid, diproses\n");
-        ProsesCommand(input3,input4, &A, &B, &C);
+        ProsesCommandS(input3,input4, &A, &B, &C);
     }
     printf("Jika src: input3 dan dst: input4\n");
     printf("Apakah valid?\n");
-    if (!IsCommandValid(input3,input4, A, B, C)) {
+    if (!IsCommandSValid(input3,input4, A, B, C)) {
     }
 
     // GameFinish
@@ -110,11 +110,11 @@ int main() {
     printf("Stack C2 penuh\n");
     Stack C1, C2;
     piringan = 5;
-    CreateEmpty(&C1);
-    CreateEmpty(&C2);
-    Push(&C1, 3);
-    Push(&C1, 1);
-    Inisialisasi(&C2, piringan);
+    CreateSEmpty(&C1);
+    CreateSEmpty(&C2);
+    PushS(&C1, 3);
+    PushS(&C1, 1);
+    InisialisasiS(&C2, piringan);
 
     printf("Cek GameFinish Stack C1\n");
     if (!GameFinish(C1, piringan)) {

@@ -16,9 +16,9 @@ void TOWEROFHANOI(int *skor) {
     char src, dst;
     Stack A, B, C;
     Word in1, in2;
-    CreateEmpty(&A);
-    CreateEmpty(&B);
-    CreateEmpty(&C);
+    CreateSEmpty(&A);
+    CreateSEmpty(&B);
+    CreateSEmpty(&C);
 
     do {
         printf("Masukkan jumlah piringan >> ");
@@ -30,7 +30,7 @@ void TOWEROFHANOI(int *skor) {
         }
     } while (!IsPiringanValid(piringan));
     
-    Inisialisasi(&A, piringan);
+    InisialisasiS(&A, piringan);
 
     printf("\n");
     while (!GameFinish(C, piringan)) {
@@ -60,8 +60,8 @@ void TOWEROFHANOI(int *skor) {
                 Scan(&in1, &in2);
                 GetChar(in1, in2, &dst);
             } while (!IsInputValid(src, dst));
-        } while (!IsCommandValid(src, dst, A, B, C));
-        ProsesCommand(src, dst, &A, &B, &C);
+        } while (!IsCommandSValid(src, dst, A, B, C));
+        ProsesCommandS(src, dst, &A, &B, &C);
         step++;
     }
     DisplayStack(A, piringan);
