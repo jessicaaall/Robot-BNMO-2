@@ -41,3 +41,17 @@ void Pop(Stack *S, info *X) {
 /* Menghapus X dari Stack S. */
 /* I.S. S tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
+
+
+/* *** FUNGSI DAN PROSEDUR TAMBAHAN *** */
+void InverseStack (Stack stackin, Stack *stackout) {
+    info el;
+
+    while (!IsStackEmpty(stackin)) {
+        Pop(&stackin, &el);
+        Push(stackout, el);
+    }
+}
+/* Membalik elemen Stack */
+/* I.S. stackin terdefinisi, mungkin kosong */
+/* F.S. stackout adalah stackin dengan elemen yang telah dibalik */

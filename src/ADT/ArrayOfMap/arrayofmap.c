@@ -101,3 +101,13 @@ boolean IsFullArrMap (TabMap T) {
     return (T.Nelmt == IdxMaxArrMap);
 }
 /* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
+
+
+/* *** OPERATOR DASAR *** */
+void InsertArrMap (TabMap *T, Map M) {
+    (*T).Elmt[(*T).Nelmt] = M;
+    (*T).Nelmt++;
+}
+/* Menambahkan Map M sebagai elemen TabMap T */
+/* I.S. T mungkin kosong, tidak penuh */
+/* F.S. M menjadi anggota dari T */

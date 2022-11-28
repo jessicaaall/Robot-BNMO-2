@@ -183,7 +183,16 @@ int LengthOfString(char* string) {
     }
     return i;
 }
-/* Mengirimkan panjang string*/
+/* Mengirimkan panjang string */
+
+int WordToInt(Word kata) {
+    int i, sum = 0;
+    for (i = 0; i < kata.Length; i++) {
+        sum = sum*10 + (kata.TabWord[i] - '0');
+    }
+    return sum;
+}
+/* Mengubah kata menjadi integer */
 
 void WordToString (Word kata, char* string) {
     int i;
@@ -293,3 +302,28 @@ boolean ValidTxt(Word txt) {
     return check;
 }
 /* Mengirimkan true apabila txt memiliki .txt di akhir */
+
+
+void SplitWord(Word kata, Word *kata1, Word *kata2) {
+    int i = 0, j = 0;
+
+    *kata1 = StringToWord("");
+    *kata2 = StringToWord("");
+
+    while ((i < kata.Length) && (kata.TabWord[i] != BLANK)) {
+        (*kata1).TabWord[i] = kata.TabWord[i];
+        (*kata1).Length++;
+        i++;
+    }
+    i++;
+
+    while (i < kata.Length) {
+        (*kata2).TabWord[j] = kata.TabWord[i];
+        (*kata2).Length++;
+        i++;
+        j++;
+    }
+}
+/* Memisahkan Word kata menjadi Word kata1 dan Word kata2 */
+/* I.S. kata terdefinisi, dengan kata pertama dan kata kedua dipisahkan oleh spasi */
+/* F.S. kata1 merupakan kata pertama pada kata dan kata2 merupakan kata kedua pada kata */

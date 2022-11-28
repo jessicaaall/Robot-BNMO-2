@@ -7,7 +7,7 @@
 #include "../../boolean.h"
 #include "../MesinKarakter/mesinkarakter.h"
 
-#define NMax 500
+#define NMax 100
 #define BLANK ' '
 
 typedef struct {
@@ -108,7 +108,10 @@ void PrintWord(Word kata);
    F.S. : kata tercetak pada layar */
 
 int LengthOfString(char* string);
-/* Mengirimkan panjang string*/
+/* Mengirimkan panjang string */
+
+int WordToInt(Word kata);
+/* Mengubah kata menjadi integer */
 
 void WordToString (Word kata, char* string);
 /* Mengubah kata menjadi string 
@@ -141,5 +144,10 @@ Word WordUpper(Word kata);
 
 boolean ValidTxt(Word txt);
 /* Mengirimkan true apabila txt memiliki .txt di akhir */
+
+void SplitWord(Word kata, Word *kata1, Word *kata2);
+/* Memisahkan Word kata menjadi Word kata1 dan Word kata2 */
+/* I.S. kata terdefinisi, dengan kata pertama dan kata kedua dipisahkan oleh spasi */
+/* F.S. kata1 merupakan kata pertama pada kata dan kata2 merupakan kata kedua pada kata */
 
 #endif

@@ -10,7 +10,7 @@
 
 /* Kamus Umum */
 
-#define IdxMaxArrMap 499
+#define IdxMaxArrMap 99
 #define IdxMinArrMap 0
 #define IdxUndefArrMap -999 /* indeks tak terdefinisi*/
 
@@ -94,5 +94,11 @@ boolean IsEmptyArrMap (TabMap T);
 /* *** Test tabel penuh *** */
 boolean IsFullArrMap (TabMap T);
 /* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
+
+/* *** OPERATOR DASAR *** */
+void InsertArrMap (TabMap *T, Map M);
+/* Menambahkan Map M sebagai elemen TabMap T */
+/* I.S. T mungkin kosong, tidak penuh */
+/* F.S. M menjadi anggota dari T */
 
 #endif
