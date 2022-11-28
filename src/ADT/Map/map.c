@@ -5,7 +5,7 @@
 
 /* *** Konstruktor/Kreator *** */
 void CreateEmptyMap(Map *M) {
-    (*M).Count = Nil;
+    (*M).Count = Nol;
 }
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah Map M kosong berkapasitas MaxEl */
@@ -14,7 +14,7 @@ void CreateEmptyMap(Map *M) {
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
 boolean IsMapEmpty(Map M) {
-    return (M.Count == Nil);
+    return (M.Count == Nol);
 }
 /* Mengirim true jika Map M kosong*/
 /* Ciri Map kosong : count bernilai Nil */

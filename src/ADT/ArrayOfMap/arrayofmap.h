@@ -5,8 +5,8 @@
 #include "../MesinKata/mesinkata.h"
 #include "../Map/map.h"
 
-#ifndef ARRAY_H 
-#define ARRAY_H
+#ifndef __ARRAY_OF_MAP_H__ 
+#define __ARRAY_OF_MAP_H__
 
 /* Kamus Umum */
 

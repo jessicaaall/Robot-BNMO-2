@@ -24,7 +24,7 @@ boolean IsStackFull(Stack S) {
 
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void Push(Stack *S, infotype X) {
+void Push(Stack *S, info X) {
     Top(*S)++;
     InfoTop(*S) = X;
 }
@@ -34,7 +34,7 @@ void Push(Stack *S, infotype X) {
 
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void Pop(Stack *S, infotype *X) {
+void Pop(Stack *S, info *X) {
     *X = InfoTop(*S);
     Top(*S)--;
 }
