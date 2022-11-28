@@ -1,5 +1,4 @@
-/* MODUL TABEL INTEGER */
-/* Berisi definisi dan semua primitif pemrosesan tabel integer */
+/* File : array.h */
 /* Penempatan elemen selalu rapat kiri */
 
 #include "../../boolean.h"
@@ -21,7 +20,7 @@ typedef Word WordType;
 typedef struct 
 {
 	WordType TI [IdxMax-IdxMin+1]; /* memori tempat penyimpan elemen (container) */
-	int Neff; /* banyaknya elemen efektif */
+	IdxType Neff; /* banyaknya elemen efektif */
 } Tab;
 
 /* Indeks yang digunakan [IdxMin..IdxMax] */
