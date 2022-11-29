@@ -188,7 +188,9 @@ int LengthOfString(char* string) {
 int WordToInt(Word kata) {
     int i, sum = 0;
     for (i = 0; i < kata.Length; i++) {
-        sum = sum*10 + (kata.TabWord[i] - '0');
+        if (kata.TabWord[i] >= '0' && kata.TabWord[i] <= '9') {
+            sum = sum*10 + (kata.TabWord[i] - '0');
+        }
     }
     return sum;
 }

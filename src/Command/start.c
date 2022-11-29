@@ -3,10 +3,10 @@
 #include "../ADT/MesinKata/mesinkata.h"
 #include "load.h"
 
-void start( Tab * loadsave) {
+void STARTFILE(Tab *game, Stack *history, TabMap *scoreboard) {
     /* Membuka .txt dan menyimpan isi ke Tab loadsave setiap baris
     I.S. : filename terdefinisi, Tab kosong
     F.S. : Tab loadsave terisi dengan .txt yang bernama filename */
     char *fileDir = "konfigurasi.txt";
-    load(fileDir, loadsave);
+    LOAD(fileDir, game, history, scoreboard);
 }

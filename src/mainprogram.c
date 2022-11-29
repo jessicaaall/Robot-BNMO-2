@@ -92,7 +92,7 @@ int main() {
         printf("\nENTER COMMAND >> ");
         InitialScan(&command1, &command2);
         if ((IsWordSame(StringToWord("START"), command1)) && (command2.Length == 0)) {
-            start(&listgame);
+            STARTFILE(&listgame, &historygame, &listscoreboard);
             check = true;
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
             if ((command2.Length != 0) && (ValidTxt(command2))) {
