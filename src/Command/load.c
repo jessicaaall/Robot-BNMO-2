@@ -43,7 +43,7 @@ void LOAD(char *filename, Tab *game, Stack *history, TabMap *scoreboard) {
                 Insert(&listscore, word1, WordToInt(word2));
             }
         }
-        if ((*scoreboard).Nelmt != IdxMaxArrMap-IdxMinArrMap+1) {
+        if (!IsFullArrMap(*scoreboard)) {
             InsertArrMap(scoreboard, listscore);
         }
     }

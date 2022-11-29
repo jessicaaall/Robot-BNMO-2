@@ -9,7 +9,7 @@
 #include "../MesinKata/mesinkata.h"
 
 #define Nil -1
-#define MaxEl 500
+#define MaxEl 100
 /* Nil adalah stack dengan elemen kosong . */
 
 typedef Word info;

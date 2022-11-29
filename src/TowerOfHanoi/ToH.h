@@ -5,10 +5,11 @@
 #include "../ADT/MesinKata/mesinkata.h"
 #include <math.h>
 
-#define Nil -1
+#define Nill -1
+#define MaxS 100
 
 typedef struct {
-    int buffer[500];
+    int buffer[MaxS];
     int TOP;
 } Stack;
 

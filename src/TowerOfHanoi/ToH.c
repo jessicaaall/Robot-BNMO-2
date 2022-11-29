@@ -2,11 +2,11 @@
 #include "ToH.h"
 
 void CreateSEmpty (Stack *S) {
-    Top(*S) = Nil;
+    Top(*S) = Nill;
 }
 
 boolean IsSEmpty (Stack S) {
-    return (Top(S) == Nil);
+    return (Top(S) == Nill);
 }
 
 void PushS(Stack *S, int X) {
@@ -53,7 +53,7 @@ void GetInt (Word in, int *number) {
             *number = (*number)*10 + (in.TabWord[i] - '0');
         }
     }
-    if (*number > 500) {
+    if (*number > MaxS) {
         *number = 0;
     }
 }

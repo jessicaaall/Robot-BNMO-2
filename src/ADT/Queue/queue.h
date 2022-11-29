@@ -8,7 +8,7 @@
 #include "../MesinKata/mesinkata.h"
 
 #define IDX_UNDEF -1
-#define CAPACITY 500
+#define CAPACITY 100
 
 /* Definisi elemen dan address */
 typedef Word ElType;

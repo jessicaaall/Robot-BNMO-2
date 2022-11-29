@@ -15,7 +15,7 @@ Deklarasi map dengan implementasi array eksplisit-statik rata kiri
 // #define false 0
 // #define true 1
 #define Nol 0
-#define MaxElements 150
+#define MaxElements 90
 
 // typedef int bool;
 typedef Word keytype;
