@@ -225,6 +225,9 @@ void HANGMAN(int *skor) {
                     }
                     takenword.Neff++;
                     tebakan.Length = kata.Length;
+                    for (i = 0; i < tebakan.Length; i++) {
+                        tebakan.TabWord[i] = '\0';
+                    }
                     huruftebakan.Length = 0;
                 }
                 
@@ -403,10 +406,6 @@ void HANGMAN(int *skor) {
                     printf("\nBerhasil menebak kata ");
                     PrintWord(kata);
                     printf("! Anda mendapatkan %d poin!\n", kata.Length);
-
-                    for (i = 0; i < tebakan.Length; i++) {
-                        tebakan.TabWord[i] = '\0';
-                    }
                     tebakan.Length = 0;
                 }
             }
