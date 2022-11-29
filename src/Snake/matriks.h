@@ -1,11 +1,9 @@
-
-
-#ifndef ARRAY_H
-#define ARRAY_H
+#ifndef MATRIKS_H
+#define MATRIKS_H
 
 /* Kamus Umum */
 
-#define IdxUndef ' '  /* indeks tak terdefinisi*/
+#define IndxUndef ' '  /* indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */
 
@@ -39,4 +37,5 @@ void MakeEmpty (matriks *T);
 void Display(matriks M);
 /* I.S. sembarang */
 /* F.S. Mencetak matriks dengan letak snake yang sudah dalam koordinat */
+
 #endif

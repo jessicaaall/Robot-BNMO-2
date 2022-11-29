@@ -1,10 +1,3 @@
-/* 
-NIM                 : 18221085
-Nama                : Nalendro N.U.A.R.F
-Tanggal             : 25 September 2022
-Topik praktikum     : ADT, pointer, array dinamik
-Deskripsi           : implementasi program array.c
-*/
 #include "matriks.h"
 #include <stdio.h>
 
@@ -31,38 +24,51 @@ void MakeEmpty (matriks *M){
     }
 
 }
+
 void Display(matriks M){
-    int i,j;
-    printf("%c%c",201,205);
-    for (i=0;i<5;i++){
+    int i, j, k;
+
+    printf("%c%c", 201, 205);
+    for (i = 0; i < 10; i++) {
             printf("%c%c",205,205);
-        }
+    }
     printf("%c\n",187);
-    for (i=0;i<5;i++){
+    
+    for (i = 0; i < 5; i++){
         printf("%c ",186);
-        for (j=0;j<5;j++){
-            if (M.TI[i][j]==0){
-                printf("  ");
+        for (j = 0; j < 5; j++){
+            if (M.TI[i][j] == 0){
+                printf("   ");
+            } else if (M.TI[i][j] == 999){
+                printf(" H ");
+            } else if(M.TI[i][j] == -1){
+                printf(" o ");
+            } else if(M.TI[i][j] == -2){
+                printf(" M ");
+            } else {
+                printf(" %d ", M.TI[i][j]); 
             }
-            else if (M.TI[i][j]==999){
-                printf("H ");
+            if (j != 4) {
+                printf("%c",179);
+            } else {
+                printf(" ");
             }
-            else if(M.TI[i][j]==-1){
-                printf("o ");
-            }
-            else if(M.TI[i][j]==-2){
-                printf("M ");
-            }
-            else{
-               printf("%d ",M.TI[i][j]); 
-            }
-          
         }
-        printf("%c\n",186);}
-    printf("%c%c",200,205);
-    for (i=0;i<5;i++){
-            printf("%c%c",205,205);
+        printf("%c\n",186);
+        if (i != 4) {
+            printf("%c ",186);
+            for (k = 0; k < 4; k++) {
+                printf("%c%c%c%c", 196, 196, 196,197);
+            }
+            printf("%c%c%c ", 196, 196, 196);
+            printf("%c\n",186);
         }
+    }
+
+    printf("%c%c", 200, 205);
+    for (i = 0; i < 10; i++){
+            printf("%c%c", 205, 205);
+    }
     printf("%c\n",188);
 }
 /* I.S. sembarang */
