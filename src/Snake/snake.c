@@ -1,5 +1,3 @@
-
-
 #include "snake.h"
 
 
@@ -8,7 +6,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
     P = Prev(Last(*snake));
     *tempX = X(Prev(Last(*snake)));
     *tempY = Y(Prev(Last(*snake)));
-    if (input == 'w'){
+    if (input == 'W'){
        while (Prev(P)!=Nil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
@@ -20,7 +18,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        else{X(First(*snake)) = (X(First(*snake))-1);}
        
     }
-    else if (input == 's'){
+    else if (input == 'S'){
        while (Prev(P)!=Nil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
@@ -28,7 +26,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        } 
        X(First(*snake)) = (X(First(*snake))+1) % 5;
     }
-    else if (input == 'd'){
+    else if (input == 'D'){
        while (Prev(P)!=Nil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
@@ -36,7 +34,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        } 
        Y(First(*snake)) = (Y(First(*snake))+1) % 5;
     }
-    else if(input == 'a'){
+    else if(input == 'A'){
        while (Prev(P)!=Nil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
@@ -98,7 +96,7 @@ void nabrak(boolean * check, List snake){
 }
 
 boolean bekas_meteor(List snake,int x,int y,char input){
-    if (input=='a'){
+    if (input=='A'){
         if (Y(First(snake))-1==y && X(First(snake))==x){
             return true;
         }
@@ -106,7 +104,7 @@ boolean bekas_meteor(List snake,int x,int y,char input){
             return false;
         }
     }
-    else if (input=='d'){
+    else if (input=='D'){
         if (Y(First(snake))+1==y && X(First(snake))==x){
             return true;
         }
@@ -114,7 +112,7 @@ boolean bekas_meteor(List snake,int x,int y,char input){
             return false;
         }
     }
-    else if (input=='w'){
+    else if (input=='W'){
         if (X(First(snake))-1==x && Y(First(snake))==y){
             return true;
         }
@@ -136,17 +134,17 @@ boolean bekas_meteor(List snake,int x,int y,char input){
 
 
 char ubah_letak_badan(char input){
-    if (input =='a'){
-        return 'd';
+    if (input == 'A'){
+        return 'D';
     }
-    else if (input =='d'){
-        return 'a';
+    else if (input =='D'){
+        return 'A';
     }
-    else if (input =='w'){
-        return 's';
+    else if (input =='W'){
+        return 'S';
     }
-    else if (input =='s'){
-        return 'w';
+    else if (input =='S'){
+        return 'W';
     }
 }
 void snake(int *skor){
@@ -167,9 +165,12 @@ void snake(int *skor){
     bekas_meteor_y=-1;
     while (!end){
         printf("TURN %d\nSilahkan masukkan command anda :",turn);
-        input = START();
+        CommandCC.Length = 0;
+        STARTCOMMAND2();
+        CommandCC = WordUpper(CommandCC);
         printf("\n");
-        if (input == 'a' || input == 'w' || input == 's' || input == 'd' ){
+        if (IsWordSame(CommandCC, StringToWord("A")) || IsWordSame(CommandCC, StringToWord("W")) || IsWordSame(CommandCC, StringToWord("S")) || IsWordSame(CommandCC, StringToWord("D")) ){
+            input = CommandCC.TabWord[0];
             if (!bekas_meteor(snake,meteor_x,meteor_y,input)){
             if (input != letak_badan ){
                 move(&snake,input,&tempX,&tempY);
@@ -212,12 +213,5 @@ void snake(int *skor){
         }
     }
     printf("Game berakhir, skor anda %d\n", Length(snake)-2);
-    *skor= Length(snake)-2;
+    *skor = (Length(snake)-2) * 2;
 }
-
-
-
-
-
-
-

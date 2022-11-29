@@ -1,14 +1,12 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "mesinkarakter.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include <time.h>
+#include "./ADT/MesinKata/mesinkata.h"
 #include "listdp.h"
 #include "matriks.h"
-
 
 
 void move(List *snake, char input, int *tempX, int *tempY);
