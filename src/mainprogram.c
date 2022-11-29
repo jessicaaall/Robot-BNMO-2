@@ -160,7 +160,7 @@ int main() {
             HELP();
         } else if (IsWordSame(StringToWord("SAVE"), command1)) {
             if ((command2.Length != 0) && (ValidTxt(command2))) {
-                SAVE(command2, listgame);
+                SAVE(command2, listgame, historygame, listscoreboard);
             } else {
                 printf("Masukan tidak valid. Silahkan masukkan nama file .txt yang akan disimpan.\n");
             }
