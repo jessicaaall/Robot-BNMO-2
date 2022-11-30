@@ -29,7 +29,7 @@ void SCOREBOARD(TabMap TM,Tab T){
         if (currBoard.Count == 0){
             printf("----- SCOREBOARD KOSONG -----\n");
         } else {
-            printf("|-----------------|\n");
+            printf("|----------------------|\n");
             for (j = 0; j < currBoard.Count; j++){
                 printf("| ");
                 PrintWord(currBoard.Elements[j].Key);
