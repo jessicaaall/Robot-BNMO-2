@@ -12,7 +12,7 @@
 #include "../SkorGame/skorgame.h"
 #include "../boolean.h"
 
-void PLAYGAME(Queue *queuegame);
+int PLAYGAME(Queue *queuegame);
 /*
 I.S. Daftar antrian game terdefinisi
 F.S. Game pertama pada daftar antrian game dimainkan

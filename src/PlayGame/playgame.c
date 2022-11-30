@@ -1,7 +1,7 @@
 #include "playgame.h"
 #include <stdio.h>
 
-void PLAYGAME(Queue *queuegame) {
+int PLAYGAME(Queue *queuegame) {
     ElType game;
     int skor;
 
@@ -25,9 +25,8 @@ void PLAYGAME(Queue *queuegame) {
     } else {
         SKORGAME(&skor);
     }
-
+    return skor;
     // TAMBAH KE HISTORY
-    // TAMBAH KE SCOREBOARD
 }
 /*
 I.S. Daftar antrian game terdefinisi
