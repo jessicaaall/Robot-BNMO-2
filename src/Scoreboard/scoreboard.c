@@ -37,7 +37,14 @@ void SCOREBOARD(TabMap TM,Tab T){
                 for (k = 0; k < align-1; k++){
                     printf(" ");
                 }
-                printf("| %d   |\n", currBoard.Elements[j].Value);
+                printf("| %d", currBoard.Elements[j].Value);
+                if (currBoard.Elements[j].Value < 10){
+                    printf("   |\n");
+                } else if (currBoard.Elements[j].Value < 100){
+                    printf("  |\n");
+                } else {
+                    printf(" |\n");
+                }
             }
     }
         printf("\n");
