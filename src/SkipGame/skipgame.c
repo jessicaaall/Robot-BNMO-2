@@ -2,7 +2,7 @@
 #include "skipgame.h"
 
 
-void SKIPGAME(Word n, Queue *q){
+void SKIPGAME(Word n, Queue *q, TabMap *TM, Tab T) {
     int i = 0, hasil = 0;
     boolean valid = true;
     ElType namagame;
@@ -29,7 +29,7 @@ void SKIPGAME(Word n, Queue *q){
                 for (i = 0; i < hasil; i++) {
                     dequeue(q, &namagame);
                 }
-                PLAYGAME(q);
+                PLAYGAME(q, TM, T);
             } else {
                 printf("\nTidak ada permainan lagi dalam daftar antrian game-mu.\n");
             }

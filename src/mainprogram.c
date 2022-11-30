@@ -145,11 +145,11 @@ int main() {
                 printf("Berikut adalah daftar antrian game-mu\n");
                 displayQueueGame(antriangame);
                 printf("\n");
-                PLAYGAME(&antriangame);
+                PLAYGAME(&antriangame, &listscoreboard, listgame);
             }
         } else if (IsWordSame(StringToWord("SKIPGAME"), command1)) {
             if (command2.Length != 0) {
-                SKIPGAME(command2, &antriangame);
+                SKIPGAME(command2, &antriangame, &listscoreboard, listgame);
             } else {
                 printf("\nMasukan tidak valid. Silahkan masukkan jumlah permainan yang ingin dilewatkan.\n");
             }
@@ -164,6 +164,10 @@ int main() {
             } else {
                 printf("Masukan tidak valid. Silahkan masukkan nama file .txt yang akan disimpan.\n");
             }
+        } else if ((IsWordSame(StringToWord("SCOREBOARD"), command1)) && (command2.Length == 0)) {
+            SCOREBOARD(listscoreboard);
+        } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
+            RESETSCOREBOARD(&listscoreboard);
         } else {
             printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
         }
