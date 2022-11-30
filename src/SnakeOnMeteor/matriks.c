@@ -5,24 +5,23 @@
 /* Jika T adalah TabInt, cara deklarasi dan akses: */
 /* Deklarasi : T : TabInt */
 /* Maka cara akses:
- * T.Neff untuk mengetahui banyaknya elemen
- * T.TI untuk mengakses seluruh nilai elemen tabel
- * T.TI[i] untuk mengakses elemen ke-i */
+ * T.Ceff untuk mengetahui banyaknya elemen
+ * T.TM untuk mengakses seluruh nilai elemen tabel
+ * T.TM[i] untuk mengakses elemen ke-i */
 /* Definisi :
- * Tabel kosong: T.Neff = 0
- * Definisi elemen pertama : T.TI[i] dengan i=1
- * Definisi elemen terakhir yang terdefinisi: T.TI[i] dengan i=T.Neff */
+ * Tabel kosong: T.Ceff = 0
+ * Definisi elemen pertama : T.TM[i] dengan i=1
+ * Definisi elemen terakhir yang terdefinisi: T.TM[i] dengan i=T.Ceff */
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong */
-void MakeEmpty (matriks *M){
+void MakeEmptyMatriks (matriks *M){
     int i,j;
     for (i=0;i<5;i++){
         for (j=0;j<5;j++){
-            (*M).TI[i][j]= 0;
+            (*M).TM[i][j]= 0;
         }
     }
-
 }
 
 void Display(matriks M){
@@ -37,16 +36,16 @@ void Display(matriks M){
     for (i = 0; i < 5; i++){
         printf("%c ",186);
         for (j = 0; j < 5; j++){
-            if (M.TI[i][j] == 0){
+            if (M.TM[i][j] == 0){
                 printf("   ");
-            } else if (M.TI[i][j] == 999){
+            } else if (M.TM[i][j] == 999){
                 printf(" H ");
-            } else if(M.TI[i][j] == -1){
+            } else if(M.TM[i][j] == -1){
                 printf(" o ");
-            } else if(M.TI[i][j] == -2){
+            } else if(M.TM[i][j] == -2){
                 printf(" M ");
             } else {
-                printf(" %d ", M.TI[i][j]); 
+                printf(" %d ", M.TM[i][j]); 
             }
             if (j != 4) {
                 printf("%c",179);
