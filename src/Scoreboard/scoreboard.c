@@ -1,4 +1,5 @@
 #include "scoreboard.h"
+#include "../ADT/Mesikata/mesinkata.h"
 
 void insertScoreboard (int score, TabMap *TM){
     Word name1;

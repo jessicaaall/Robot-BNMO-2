@@ -2,7 +2,6 @@
 #include "../ADT/Map/map.h"
 #include "../ADT/ArrayOfMap/arrayofmap.h"
 #include "../ADT/Array/Array.h"
-#include "../ADT/Mesikata/mesinkata.h"
 
 #ifndef __SCOREBOARD_H__
 #define __SCOREBOARD_H__
