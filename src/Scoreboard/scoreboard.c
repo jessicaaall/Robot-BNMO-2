@@ -1,7 +1,7 @@
 #include "scoreboard.h"
 #include "../ADT/Mesikata/mesinkata.h"
 
-void insertScoreboard (int score, TabMap *TM){
+void INSERTSCOREBOARD(int score, TabMap *TM){
     Word name1;
     Word name2;
     printf("Silahkan masukkan nama anda: ");
@@ -14,7 +14,7 @@ void insertScoreboard (int score, TabMap *TM){
     printf("Score berhasil dimasukkan ke scoreboard!\n");
 }
 
-void displayScoreboard (TabMap TM,Tab T){
+void SCOREBOARD(TabMap TM,Tab T){
     Map currBoard;
     int i,j,align;
     for (i = 0; i < NbelmtArray(T); i++){
@@ -37,7 +37,7 @@ void displayScoreboard (TabMap TM,Tab T){
     }
 }
 
-void resetScoreboard (){
+void RESETSCOREBOARD(){
     //LIST SCOREBOARD
     printf("SCOREBOARD YANG INGIN DIHAPUS:");
     //INPUT ANGKA

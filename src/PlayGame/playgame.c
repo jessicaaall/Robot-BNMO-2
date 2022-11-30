@@ -1,7 +1,7 @@
 #include "playgame.h"
 #include <stdio.h>
 
-int PLAYGAME(Queue *queuegame) {
+void PLAYGAME(Queue *queuegame, TabMap *TM) {
     ElType game;
     int skor;
 
@@ -25,7 +25,7 @@ int PLAYGAME(Queue *queuegame) {
     } else {
         SKORGAME(&skor);
     }
-    return skor;
+    INSERTSCOREBOARD(skor,TM);
     // TAMBAH KE HISTORY
 }
 /*
