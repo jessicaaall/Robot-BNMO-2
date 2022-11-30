@@ -9,6 +9,8 @@ void insertHistory (char * gameName, Stack *S);
 
 void displayHistory (Stack S, int n);
 
+void deleteHistory (Stack *S, info gameName);
+
 void resetHistory (Stack *S);
 
 #endif

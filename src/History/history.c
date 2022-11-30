@@ -29,6 +29,17 @@ void displayHistory (Stack S, int n) {
     }   
 }
 
+void deleteHistory (Stack *S, info gameName) {
+    Stack sTemp;
+    info val;
+    while (!IsStackEmpty(*S)) {
+        Pop(&S, &val);
+        if (!IsWordSame(val, gameName)) {
+            Push(&sTemp, val);
+        }
+    }
+}
+
 void resetHistory (Stack *S) {
     info temp;
     Word command1, command2;
