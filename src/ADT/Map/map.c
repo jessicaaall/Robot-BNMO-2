@@ -101,3 +101,23 @@ boolean IsMember(Map M, keytype k) {
     return (found);
 }
 /* Mengembalikan true jika k adalah member dari M */
+
+void InsertScore(Map *M, keytype name, valuetype score){
+    int i,j;
+    if (!IsMember(*M, name)) {
+        for(i=0; i<(*M).Count; i++){
+            if(score > (*M).Elements[i].Value){
+                break;
+            }          
+        }
+        if(i<(*M).Count){
+            for(j=(*M).Count; j>i; j--){
+                (*M).Elements[j].Key = (*M).Elements[j-1].Key;
+                (*M).Elements[j].Value = (*M).Elements[j-1].Value;
+            }
+        }
+        (*M).Elements[i].Key = name;
+        (*M).Elements[i].Value = score;
+        (*M).Count++;
+    }
+}
