@@ -85,7 +85,7 @@ int main() {
     Stack historygame;
     TabMap listscoreboard;
     Queue antriangame;
-    boolean check = false, IsQuit = false, IsCommandStart = true;
+    boolean check = false, IsQuit = false, IsCommandStart = true, Skip;
 
     CreateQueue(&antriangame);
 
@@ -150,7 +150,10 @@ int main() {
             }
         } else if (IsWordSame(StringToWord("SKIPGAME"), command1)) {
             if (command2.Length != 0) {
-                SKIPGAME(command2, &antriangame, &listscoreboard, listgame);
+                Skip = SKIPGAME(command2, &antriangame);
+                if (Skip){
+                    PLAYGAME(&antriangame, &listscoreboard, listgame);
+                }
             } else {
                 printf("\nMasukan tidak valid. Silahkan masukkan jumlah permainan yang ingin dilewatkan.\n");
             }

@@ -39,11 +39,11 @@ void SCOREBOARD(TabMap TM,Tab T){
                 }
                 printf("| %d", currBoard.Elements[j].Value);
                 if (currBoard.Elements[j].Value < 10){
-                    printf("   |\n");
+                    printf("    |\n");
                 } else if (currBoard.Elements[j].Value < 100){
-                    printf("  |\n");
+                    printf("   |\n");
                 } else {
-                    printf(" |\n");
+                    printf("  |\n");
                 }
             }
     }
