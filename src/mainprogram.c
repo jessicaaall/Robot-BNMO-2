@@ -136,7 +136,7 @@ int main() {
         } else if (IsWordSame(StringToWord("LIST"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             LISTGAME(listgame);
         } else if (IsWordSame(StringToWord("DELETE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
-            DELETEGAME(&listgame, antriangame);
+            DELETEGAME(&listgame, antriangame, &listscoreboard);
         } else if (IsWordSame(StringToWord("QUEUE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             QUEUEGAME(listgame, &antriangame);
         } else if (IsWordSame(StringToWord("PLAY"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
