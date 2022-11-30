@@ -1,31 +1,41 @@
 #include "playgame.h"
 #include <stdio.h>
 
-void PLAYGAME(Queue *queuegame, TabMap *TM) {
+void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
     ElType game;
-    int skor;
+    int i,skor;
+    boolean found;
+    Map M;
 
     dequeue(queuegame, &game);
     printf("Loading ");
     PrintWord(game);
     printf(" ...\n");
 
-    if (IsWordSame(game, StringToWord("RNG"))){
+    found = false;
+    while (!found && i < NbelmtArray(T)) {
+        if (IsWordSame(game, T.TI[i])) {
+            found = true;
+        } else {
+            i++;
+        }
+    }
+    if (i == 0){
         RNGGAME(&skor);
-    } else if (IsWordSame(game, StringToWord("DINER DASH"))){
+    } else if (i == 1){
         DINNERDASH(&skor);
-    } else if (IsWordSame(game, StringToWord("HANGMAN"))){
+    } else if (i == 2){
         HANGMAN(&skor);
-    } else if (IsWordSame(game, StringToWord("TOWER OF HANOI"))){
+    } else if (i == 3){
         TOWEROFHANOI(&skor);
-    } else if (IsWordSame(game, StringToWord("SNAKE ON METEOR"))){
+    } else if (i == 4){
         printf("Game ");
         PrintWord(game);
         printf(" masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n");
     } else {
         SKORGAME(&skor);
     }
-    INSERTSCOREBOARD(skor,TM);
+    INSERTSCOREBOARD(skor,TM,i);
     // TAMBAH KE HISTORY
 }
 /*

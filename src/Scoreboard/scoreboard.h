@@ -6,7 +6,7 @@
 #ifndef __SCOREBOARD_H__
 #define __SCOREBOARD_H__
 
-void INSERTSCOREBOARD (infotype score, Map *M);
+void INSERTSCOREBOARD (infotype score, TabMap *TM, int idx);
 
 void SCOREBOARD (TabMap T,Tab T);
 

@@ -1,16 +1,20 @@
 #include "scoreboard.h"
 #include "../ADT/Mesikata/mesinkata.h"
 
-void INSERTSCOREBOARD(int score, TabMap *TM){
+void INSERTSCOREBOARD(int score, TabMap *TM, int idx) {
     Word name1;
     Word name2;
+    Map M;
+
+    M = TM->TI[idx];
     printf("Silahkan masukkan nama anda: ");
     Scan(&name1, &name2);
     while(IsMember(*M, name1) && name2.Length == 0){
         printf("Nama sudah ada, silahkan masukkan nama lain: ");
         scan(&name1, &name2);
     }
-    InsertScore(GetElmtArrMap(*TM, i), name1, score);
+    InsertScore(M, name1, score);
+    TM->TI[idx] = M;
     printf("Score berhasil dimasukkan ke scoreboard!\n");
 }
 
