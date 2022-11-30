@@ -14,6 +14,7 @@
 #include "../TowerOfHanoi/towerofhanoi.h"
 #include "../SkorGame/skorgame.h"
 #include "../boolean.h"
+#include "../Scoreboard/scoreboard.h"
 
 void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T);
 /*

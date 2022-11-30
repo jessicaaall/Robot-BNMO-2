@@ -3,7 +3,7 @@
 
 void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
     ElType game;
-    int i,skor;
+    int i=0,skor;
     boolean found;
     Map M;
 
@@ -13,7 +13,7 @@ void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
     printf(" ...\n");
 
     found = false;
-    while (!found && i < NbelmtArray(T)) {
+    while (!found && i < NbElmtArray(T)) {
         if (IsWordSame(game, T.TI[i])) {
             found = true;
         } else {
@@ -35,7 +35,7 @@ void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
     } else {
         SKORGAME(&skor);
     }
-    INSERTSCOREBOARD(skor,*TM,i);
+    INSERTSCOREBOARD(skor,TM,i);
     // TAMBAH KE HISTORY
 }
 /*

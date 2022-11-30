@@ -10,7 +10,7 @@ void INSERTSCOREBOARD(int score, TabMap *TM, int idx) {
     Scan(&name1, &name2);
     while(IsMember(M, name1) && name2.Length == 0){
         printf("Nama sudah ada, silahkan masukkan nama lain: ");
-        scan(&name1, &name2);
+        Scan(&name1, &name2);
     }
     InsertScore(&M, name1, score);
     TM->Elmt[idx] = M;
@@ -20,32 +20,38 @@ void INSERTSCOREBOARD(int score, TabMap *TM, int idx) {
 void SCOREBOARD(TabMap TM,Tab T){
     Map currBoard;
     int i,j,k,align;
-    for (i = 0; i < NbelmtArray(T); i++){
+    for (i = 0; i < NbElmtArray(T); i++){
         currBoard = GetElmtArrMap(TM, i);
         printf("**** SCOREBOARD GAME ");
         PrintWord(T.TI[i]);
         printf(" ****\n");
         printf("| NAMA     | SKOR |\n");
-        printf("|-----------------|\n");
-        for (j = 0; j < currBoard.Count; j++){
-            printf("| ");
-            PrintWord(currBoard.Elements[j].Key);
-            align = 10 - currBoard.Elements[j].Key.Length;
-            for (k = 0; k < align; k++){
-                printf(" ");
+        if (currBoard.Count == 0){
+            printf("----- SCOREBOARD KOSONG -----\n");
+        } else {
+            printf("|-----------------|\n");
+            for (j = 0; j < currBoard.Count; j++){
+                printf("| ");
+                PrintWord(currBoard.Elements[j].Key);
+                align = 10 - currBoard.Elements[j].Key.Length;
+                for (k = 0; k < align-1; k++){
+                    printf(" ");
+                }
+                printf("| %d   |\n", currBoard.Elements[j].Value);
             }
-            printf("| %d |\n", currBoard.Elements[j].Value);
-        }
+    }
         printf("\n");
     }
 }
 
 void RESETSCOREBOARD(Tab T, TabMap *TM){
-    Word inp1,inp2;
+    Word inp1,inp2,inp3;
     int i;
+    Map resetM;
+    CreateEmptyMap(&resetM);
 
-    printf("DAFTAR SCOREBOARD:\n0. ALL");
-    for (i = 0; i < NbelmtArray(T); i++){
+    printf("DAFTAR SCOREBOARD:\n0. ALL\n");
+    for (i = 0; i < NbElmtArray(T); i++){
         printf("%d. ", i+1);
         PrintWord(T.TI[i]);
         printf("\n");
@@ -54,11 +60,11 @@ void RESETSCOREBOARD(Tab T, TabMap *TM){
     printf("SCOREBOARD YANG INGIN DIHAPUS: ");
     Scan(&inp1,&inp2);
     if (inp1.Length == 1 && inp1.TabWord[0] == '0' && inp2.Length == 0){
-        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SEMUA SCOREBOARD (YA/TIDAK)? ");
+        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SEMUA SCOREBOARD\n(YA/TIDAK)? ");
         Scan(&inp1,&inp2);
         if (IsWordSame(inp1, StringToWord("YA"))){
-            for (i = 0; i < NbelmtArray(T); i++){
-                MakeEmpty(TM->Elmt[i]);
+            for (i = 0; i < NbElmtArray(T); i++){
+                TM->Elmt[i] = resetM;
             }
             printf("SEMUA SCOREBOARD TELAH DIHAPUS!\n");
         } else {
@@ -67,10 +73,10 @@ void RESETSCOREBOARD(Tab T, TabMap *TM){
     } else if (inp1.Length == 1 && inp1.TabWord[0] >= '1' && inp1.TabWord[0] <= '9' && inp2.Length == 0){
         printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SCOREBOARD ");
         PrintWord(T.TI[inp1.TabWord[0] - '1']);
-        printf("(YA/TIDAK)? ");
-        Scan(&inp1,&inp2);
-        if (IsWordSame(inp1, StringToWord("YA"))){
-            MakeEmpty(TM->Elmt[inp1.TabWord[0] - '1']);
+        printf("\n(YA/TIDAK)? ");
+        Scan(&inp2,&inp3);
+        if (IsWordSame(inp2, StringToWord("YA"))){
+            TM->Elmt[inp1.TabWord[0] - '1'] = resetM;
             printf("Scoreboard berhasil di-reset.\n");
         } else {
             printf("RESET SCOREBOARD DIBATALKAN!\n");

@@ -16,6 +16,7 @@
 #include "./SkipGame/skipgame.h"
 #include "./Quit/quit.h"
 #include "./Help/help.h"
+#include "./Scoreboard/scoreboard.h"
 #include "boolean.h"
 #include <stdio.h>
 
@@ -165,9 +166,9 @@ int main() {
                 printf("Masukan tidak valid. Silahkan masukkan nama file .txt yang akan disimpan.\n");
             }
         } else if ((IsWordSame(StringToWord("SCOREBOARD"), command1)) && (command2.Length == 0)) {
-            SCOREBOARD(listscoreboard);
+            SCOREBOARD(listscoreboard, listgame);
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
-            RESETSCOREBOARD(&listscoreboard);
+            RESETSCOREBOARD(listgame, &listscoreboard);
         } else {
             printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
         }
