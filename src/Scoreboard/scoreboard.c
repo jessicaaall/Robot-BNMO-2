@@ -1,6 +1,6 @@
 #include "scoreboard.h"
 
-void insertScoreboard (int score, Map *M){
+void insertScoreboard (int score, TabMap *TM){
     Word name1;
     Word name2;
     printf("Silahkan masukkan nama anda: ");
@@ -9,7 +9,7 @@ void insertScoreboard (int score, Map *M){
         printf("Nama sudah ada, silahkan masukkan nama lain: ");
         scan(&name1, &name2);
     }
-    Insert(M, name1, score);
+    
     printf("Score berhasil dimasukkan ke scoreboard!\n");
 }
 
