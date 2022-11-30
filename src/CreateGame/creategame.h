@@ -6,9 +6,11 @@
 #include "../boolean.h"
 #include "../ADT/Array/array.h"
 #include "../ADT/MesinKata/mesinkata.h"
+#include "../ADT/Map/map.h"
+#include "../ADT/ArrayOfMap/arrayofmap.h"
 #include <stdio.h>
 
-void CREATEGAME (Tab *daftargame);
+void CREATEGAME (Tab *daftargame, TabMap *TM);
 /* Proses : Menerima input nama game yang akan ditambahkan 
             Menambahkan game baru pada daftar game */
 /* I.S. Daftar game terdefinisi */

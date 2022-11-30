@@ -1,6 +1,6 @@
 #include "creategame.h"
 
-void CREATEGAME (Tab *daftargame) {
+void CREATEGAME (Tab *daftargame, TabMap *TM) {
 
     printf("Masukkan nama game yang akan ditambahkan >> ");
     STARTCOMMAND2();
@@ -11,6 +11,8 @@ void CREATEGAME (Tab *daftargame) {
 
     while ((!found) && (i < (*daftargame).Neff)) {
         if (IsWordSame(CommandCC, (*daftargame).TI[i])) {
+            found = true;
+        } else if (IsWordSame(CommandCC, StringToWord("DINER DASH"))){
             found = true;
         }
         i++;
@@ -31,6 +33,9 @@ void CREATEGAME (Tab *daftargame) {
             printf("\nGame ");
             PrintWord(CommandCC);
             printf(" berhasil ditambahkan.\n");
+            Map M;
+            CreateEmptyMap(&M);
+            InsertArrMap(TM, M);
         } else {
             printf("\nDaftar game sudah penuh. Game ");
             PrintWord(CommandCC);

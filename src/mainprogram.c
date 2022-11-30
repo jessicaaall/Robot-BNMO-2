@@ -132,7 +132,7 @@ int main() {
         if ((IsWordSame(StringToWord("START"), command1)) || (IsWordSame(StringToWord("LOAD"), command1))) {
             printf("Anda telah melakukan pembacaan file.");
         } else if (IsWordSame(StringToWord("CREATE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
-            CREATEGAME(&listgame);
+            CREATEGAME(&listgame, &listscoreboard);
         } else if (IsWordSame(StringToWord("LIST"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             LISTGAME(listgame);
         } else if (IsWordSame(StringToWord("DELETE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
