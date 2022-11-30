@@ -3,6 +3,8 @@
         "boolean.h": "c",
         "mesinkata.h": "c",
         "stack.h": "c",
-        "arrayofmap.h": "c"
+        "arrayofmap.h": "c",
+        "scoreboard.h": "c",
+        "array.h": "c"
     }
 }
