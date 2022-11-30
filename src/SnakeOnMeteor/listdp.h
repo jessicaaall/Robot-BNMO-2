@@ -3,30 +3,30 @@
 /* Representasi berkait dengan address adalah pointer */
 /* infotype adalah integer */
 
-#ifndef listdp_H
-#define listdp_H
+#ifndef LISTDP_H
+#define LISTDP_H
 
 #include "boolean.h"
 
-#define Nil NULL
+#define Niil NULL
 
 /* Definisi Type Data */
-typedef int infotype;
-typedef struct tElmtlist *address;
+typedef int infotypelist;
+typedef struct tElmtlist *addresslist;
 typedef struct tElmtlist { 
-	infotype x;
-	infotype y;
-	address next;
-	address prev;
+	infotypelist x;
+	infotypelist y;
+	addresslist next;
+	addresslist prev;
 } ElmtList;
 typedef struct {
-	address First;
-	address Last;
+	addresslist First;
+	addresslist Last;
 } List;
 
 /* Definisi list : */
 /* List kosong : First(L) = Nil dan Last(L) = Nil */
-/* Setiap elemen dengan address P dapat diacu Info(P), Next(P), Prev(P) */
+/* Setiap elemen dengan addresslist P dapat diacu Info(P), Next(P), Prev(P) */
 /* Elemen terakhir list: Last(L) */
 
 /* Notasi Akses */
@@ -40,34 +40,34 @@ typedef struct {
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
-boolean IsEmpty (List L);
+boolean IsListEmpty (List L);
 /* Mengirim true jika list kosong. Lihat definisi di atas. */
 
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateEmpty (List *L);
+void CreateEmptyList (List *L);
 /* I.S. L sembarang  */
 /* F.S. Terbentuk list kosong. Lihat definisi di atas. */
 
 /****************** Manajemen Memori ******************/
-address Alokasi (infotype X,infotype Y);
-/* Mengirimkan address hasil alokasi sebuah elemen */
-/* Jika alokasi berhasil, maka address tidak nil. */
+addresslist Alokasi (infotypelist X,infotypelist Y);
+/* Mengirimkan addresslist hasil alokasi sebuah elemen */
+/* Jika alokasi berhasil, maka addresslist tidak nil. */
 /* Misalnya: menghasilkan P, maka Info(P)=X, Next(P)=Nil, Prev(P)=Nil */
 /* Jika alokasi gagal, mengirimkan Nil. */
-void Dealokasi (address P);
+void Dealokasi (addresslist P);
 /* I.S. P terdefinisi */
 /* F.S. P dikembalikan ke sistem */
-/* Melakukan dealokasi/pengembalian address P */
+/* Melakukan dealokasi/pengembalian addresslist P */
 
 /****************** PENCARIAN SEBUAH ELEMEN LIST ******************/
-address Search (List L, infotype X,infotype Y);
+addresslist SearchList (List L, infotypelist X,infotypelist Y);
 /* Mencari apakah ada elemen list dengan Info(P)=X */
-/* Jika ada, mengirimkan address elemen tersebut. */
+/* Jika ada, mengirimkan addresslist elemen tersebut. */
 /* Jika tidak ada, mengirimkan Nil */
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void InsVLast (List *L, infotype X,infotype Y);
+void InsVLast (List *L, infotypelist X,infotypelist Y);
 /* I.S. L mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
@@ -76,30 +76,30 @@ void DelVLast (List *L);
 /* I.S. list tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada X */
 /*      dan alamat elemen terakhir di-dealokasi */
-void InsertLast (List *L, address P);
+void InsertLast (List *L, addresslist P);
 /* I.S. Sembarang, P sudah dialokasi  */
 /* F.S. P ditambahkan sebagai elemen terakhir yang baru */
 
-void DelLast (List *L, address *P);
+void DelLast (List *L, addresslist *P);
 /* I.S. List tidak kosong */
 /* F.S. P adalah alamat elemen terakhir list sebelum penghapusan  */
 /*      Elemen list berkurang satu (mungkin menjadi kosong) */
 /* Last element baru adalah predesesor elemen pertama yg lama, jika ada */
 
-void DelP (List *L, address P);
+void DelP (List *L, addresslist P);
 /* I.S. List tidak kosong. Prec adalah anggota list. */
 /* F.S. Menghapus Next(Prec): */
 /*      Pdel adalah alamat elemen list yang dihapus  */
 
-int Length(List L);
+int LengthList(List L);
 
 /* I.S. sembarang*/
 /* F.S. return panjang list*/
 
-boolean meteor_kena_kepala(List L,infotype X, infotype Y);
+boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y);
 /* I.S. list tidak kosong */
 /* F.S. apakah koordinat meteor sama dengan koordinat kepala atau first(L)*/
-boolean meteor_kena_badan(List L,infotype X, infotype Y);
+boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y);
 /* I.S. list tidak kosong */
 /* F.S. apakah koordinat meteor sama dengan koordinat badan*/
 

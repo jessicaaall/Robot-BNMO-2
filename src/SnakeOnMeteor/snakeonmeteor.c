@@ -1,13 +1,13 @@
-#include "snake.h"
+#include "snakeonmeteor.h"
 
 
 void move(List *snake, char input, int *tempX, int *tempY){
-    address P;
+    addresslist P;
     P = Prev(Last(*snake));
     *tempX = X(Prev(Last(*snake)));
     *tempY = Y(Prev(Last(*snake)));
     if (input == 'W'){
-       while (Prev(P)!=Nil){
+       while (Prev(P)!=Niil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
         P = Prev(P); 
@@ -19,7 +19,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        
     }
     else if (input == 'S'){
-       while (Prev(P)!=Nil){
+       while (Prev(P)!=Niil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
         P = Prev(P); 
@@ -27,7 +27,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        X(First(*snake)) = (X(First(*snake))+1) % 5;
     }
     else if (input == 'D'){
-       while (Prev(P)!=Nil){
+       while (Prev(P)!=Niil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
         P = Prev(P); 
@@ -35,7 +35,7 @@ void move(List *snake, char input, int *tempX, int *tempY){
        Y(First(*snake)) = (Y(First(*snake))+1) % 5;
     }
     else if(input == 'A'){
-       while (Prev(P)!=Nil){
+       while (Prev(P)!=Niil){
         X(P) = X(Prev(P));
         Y(P) = Y(Prev(P));
         P = Prev(P); 
@@ -53,7 +53,7 @@ void food(List *snake){
     while (!check){
         x= random1();
         y= random2();
-        if (Search(*snake,x,y)==Nil){
+        if (SearchList(*snake,x,y)==Niil){
             if (X(First(*snake))!=x && Y(First(*snake))!=y){
                 InsVLast(snake,x,y);
                 check =true;
@@ -64,30 +64,30 @@ void food(List *snake){
 }
 
 void Peta(List snake, int x, int y){
-    address P;
+    addresslist P;
     matriks tabel;
-    MakeEmpty(&tabel);
+    MakeEmptyMatriks(&tabel);
     P = First(snake);
     int i = 0;
     printf("Berikut adalah peta permainan\n");
-    while (Next(P)!=Nil){
+    while (Next(P)!=Niil){
         if (i==0){
-            tabel.TI[X(P)][Y(P)]=999;
+            tabel.TM[X(P)][Y(P)]=999;
         }
         else{
-            tabel.TI[X(P)][Y(P)]=i;
+            tabel.TM[X(P)][Y(P)]=i;
         }
         P = Next(P);
         i++;
     }
-    tabel.TI[X(P)][Y(P)]=-1;
-    tabel.TI[x][y]= -2;
+    tabel.TM[X(P)][Y(P)]=-1;
+    tabel.TM[x][y]= -2;
     Display(tabel);
 }
 
 void nabrak(boolean * check, List snake){
-    address P= Next(First(snake));
-    while (Next(P)!=Nil){
+    addresslist P= Next(First(snake));
+    while (Next(P)!=Niil){
         if (X(P)== X(First(snake)) && Y(P)== Y(First(snake))){
             *check = true;
         }
@@ -95,7 +95,7 @@ void nabrak(boolean * check, List snake){
     }
 }
 
-boolean bekas_meteor(List snake,int x,int y,char input){
+boolean bekas_meteor(List snake, int x, int y, char input){
     if (input=='A'){
         if (Y(First(snake))-1==y && X(First(snake))==x){
             return true;
@@ -128,11 +128,9 @@ boolean bekas_meteor(List snake,int x,int y,char input){
             return false;
         }
     }
-    }
+}
 
     
-
-
 char ubah_letak_badan(char input){
     if (input == 'A'){
         return 'D';
@@ -147,34 +145,44 @@ char ubah_letak_badan(char input){
         return 'W';
     }
 }
-void snake(int *skor){
+
+
+void SNAKEONMETEOR(int *skor){
     int a,i,tempX,tempY,meteor_x,meteor_y,bekas_meteor_x,bekas_meteor_y,turn;
     char input;
     char letak_badan = 'a';
     List snake;
-    address P;
+    addresslist P;
     boolean end = false;
+
     meteor_x=-1;
     meteor_y=-1;
     turn=1;
-    CreateEmpty(&snake);
-    printf("Selamat datang di snake on meteor!\n\nMengenerate peta, snake dan makanan . . . \nBerhasil digenerate!\n");
+    CreateEmptyList(&snake);
+    printf("\n===================================================================================================\n");
+    printf(" ____   _   _     _     _  __ _____      ___   _   _     __  __  _____  _____  _____   ___   ____  \n");
+    printf("/ ___| | \\ | |   / \\   | |/ /| ____|    / _ \\ | \\ | |   |  \\/  || ____||_   _|| ____| / _ \\ |  _ \\ \n");
+    printf("\\___ \\ |  \\| |  / _ \\  | ' / |  _|     | | | ||  \\| |   | |\\/| ||  _|    | |  |  _|  | | | || |_) |\n");
+    printf(" ___) || |\\  | / ___ \\ | . \\ | |___    | |_| || |\\  |   | |  | || |___   | |  | |___ | |_| ||  _ < \n");
+    printf("|____/ |_| \\_|/_/   \\_\\|_|\\_\\|_____|    \\___/ |_| \\_|   |_|  |_||_____|  |_|  |_____| \\___/ |_| \\_\\\n");
+    printf("\n===================================================================================================\n\n\n");
+    printf("Mengenerate peta, snake dan makanan . . . \n\nBerhasil digenerate!\n");
+    printf("_________________________________________________________\n\n");
     food(&snake);
     Peta(snake,-1,-1);
     bekas_meteor_x=-1;
     bekas_meteor_y=-1;
     while (!end){
-        printf("TURN %d\nSilahkan masukkan command anda :",turn);
+        printf("\nTURN %d : \nSilahkan masukkan command >> ",turn);
         CommandCC.Length = 0;
         STARTCOMMAND2();
         CommandCC = WordUpper(CommandCC);
-        printf("\n");
         if (IsWordSame(CommandCC, StringToWord("A")) || IsWordSame(CommandCC, StringToWord("W")) || IsWordSame(CommandCC, StringToWord("S")) || IsWordSame(CommandCC, StringToWord("D")) ){
             input = CommandCC.TabWord[0];
             if (!bekas_meteor(snake,meteor_x,meteor_y,input)){
             if (input != letak_badan ){
                 move(&snake,input,&tempX,&tempY);
-                printf("Berhasil bergerak!\n");
+                printf("\nBerhasil bergerak!\n\n");
                 turn++;
                 nabrak(&end,snake);
                 letak_badan = ubah_letak_badan(input);
@@ -191,27 +199,30 @@ void snake(int *skor){
                 }
                 if (!meteor_kena_kepala(snake,meteor_x,meteor_y)){
                     if (meteor_kena_badan(snake,meteor_x,meteor_y)){
-                        DelP(&snake,Search(snake,meteor_x,meteor_y));
+                        DelP(&snake,SearchList(snake,meteor_x,meteor_y));
                     }
                 }
                 else{
                     end = true;
-                    printf("Kepala snake terkena meteor!\n");
+                    printf("\nKepala snake terkena meteor!\n\n");
                 }
                 
                 
             }
             else{
-                printf("Anda tidak dapat bergerak ke tubuh anda sendiri!\nSilahkan input command yang lain\n");}
+                printf("\nAnda tidak dapat bergerak ke tubuh anda sendiri!\nSilahkan input command yang lain\n");}
             
             }
             else{
-                printf("Meteor masih panas! Anda belum dapat kembali ke titik tersebut. Silahkan masukkan command lainnya\n\n");
+                printf("\nMeteor masih panas! Anda belum dapat kembali ke titik tersebut. Silahkan masukkan command lainnya\n\n");
             }}
         else {
-            printf("Command tidak valid! Silahkan input command menggunakan huruf w/a/s/d\n");
+            printf("\nCommand tidak valid! Silahkan input command menggunakan huruf w/a/s/d\n");
         }
     }
-    printf("Game berakhir, skor anda %d\n", Length(snake)-2);
-    *skor = (Length(snake)-2) * 2;
+    *skor = (LengthList(snake)-2) * 2;
+    printf("\n\n===============================\n");
+    printf("||     G A M E   O V E R     ||\n");
+    printf("===============================\n\n");
+    printf("Skor akhir = %d\n\n", *skor);
 }

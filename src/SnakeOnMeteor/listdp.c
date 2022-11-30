@@ -1,12 +1,3 @@
-/* 
-NIM                 : 18221085
-Nama                : Nalendro N.U.A.R.F
-Tanggal             : 13 oktober 2022
-Topik praktikum     : variasi list linear
-Deskripsi           : implementasi listdp.c
-
-*/
-
 #include <stdio.h>
 #include "listdp.h"
 #include <stdlib.h>
@@ -14,15 +5,15 @@ Deskripsi           : implementasi listdp.c
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
-boolean IsEmpty (List L){
-    return (First(L)==Nil && Last(L)==Nil);
+boolean IsListEmpty (List L){
+    return (First(L)==Niil && Last(L)==Niil);
 }
 /* Mengirim true jika list kosong. Lihat definisi di atas. */
 
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateEmpty (List *L){
-    First(*L)=Nil;
-    Last(*L)=Nil;
+void CreateEmptyList (List *L){
+    First(*L)=Niil;
+    Last(*L)=Niil;
     InsVLast(L,random3(),random4());
     if (random4()>0){
         InsVLast(L,random3(),random4()-1);
@@ -58,39 +49,39 @@ void CreateEmpty (List *L){
 /* F.S. Terbentuk list kosong. Lihat definisi di atas. */
 
 /****************** Manajemen Memori ******************/
-address Alokasi (infotype X,infotype Y){
-    address P;
-    P = (address)malloc(sizeof(ElmtList));
+addresslist Alokasi (infotypelist X,infotypelist Y){
+    addresslist P;
+    P = (addresslist)malloc(sizeof(ElmtList));
 
-    if (P != Nil) {
+    if (P != Niil) {
         X(P) = X;
         Y(P) = Y;
-        Next(P) = Nil;
-        Prev(P)=Nil;
+        Next(P) = Niil;
+        Prev(P)=Niil;
         return P;
     }
     else {
-        return Nil;
+        return Niil;
     }
 }
-/* Mengirimkan address hasil alokasi sebuah elemen */
-/* Jika alokasi berhasil, maka address tidak nil. */
-/* Misalnya: menghasilkan P, maka Info(P)=X, Next(P)=Nil, Prev(P)=Nil */
-/* Jika alokasi gagal, mengirimkan Nil. */
-void Dealokasi (address P){
+/* Mengirimkan addresslist hasil alokasi sebuah elemen */
+/* Jika alokasi berhasil, maka addresslist tidak Niil. */
+/* Misalnya: menghasilkan P, maka Info(P)=X, Next(P)=Niil, Prev(P)=Niil */
+/* Jika alokasi gagal, mengirimkan Niil. */
+void Dealokasi (addresslist P){
     free(P);
 }
 /* I.S. P terdefinisi */
 /* F.S. P dikembalikan ke sistem */
-/* Melakukan dealokasi/pengembalian address P */
+/* Melakukan dealokasi/pengembalian addresslist P */
 
 /****************** PENCARIAN SEBUAH ELEMEN LIST ******************/
-address Search (List L, infotype X,infotype Y){
-    address P;
+addresslist SearchList (List L, infotypelist X,infotypelist Y){
+    addresslist P;
     boolean found;
     P = First(L);
     found = false;
-    while (Next(P)!=Nil && !found){
+    while (Next(P)!=Niil && !found){
         if (X(Next(P))==X && Y(Next(P))==Y){
             found=true;
         }
@@ -99,31 +90,31 @@ address Search (List L, infotype X,infotype Y){
         }
     }
     if (!found){
-        return Nil;
+        return Niil;
     }
     else{
         return P;
     }
 }
 /* Mencari apakah ada elemen list dengan Info(P)=X */
-/* Jika ada, mengirimkan address elemen tersebut. */
+/* Jika ada, mengirimkan addresslist elemen tersebut. */
 /* Jika tidak ada, mengirimkan Nil */
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
 
-void InsVLast (List *L, infotype X,infotype Y){
-    address P;
+void InsVLast (List *L, infotypelist X,infotypelist Y){
+    addresslist P;
 
     P = Alokasi(X,Y);
 
-    if (P != Nil) {
+    if (P != Niil) {
         InsertLast(L, P);
     }
 }
 
 void DelVLast (List *L){
-    address P;
+    addresslist P;
     DelLast(L, &P);
     Dealokasi(P);
 }
@@ -135,8 +126,8 @@ void DelVLast (List *L){
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
 /* bernilai X jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
-void InsertLast (List *L, address P){
-    if (IsEmpty(*L)) {
+void InsertLast (List *L, addresslist P){
+    if (IsListEmpty(*L)) {
         First(*L) = P;
         Last(*L) = P;
     }
@@ -149,27 +140,27 @@ void InsertLast (List *L, address P){
 }
 /* I.S. Sembarang, P sudah dialokasi  */
 /* F.S. P ditambahkan sebagai elemen terakhir yang baru */
-void DelLast (List *L, address *P){
+void DelLast (List *L, addresslist *P){
     (*P) = Last(*L);
 
-    if (Prev(Last(*L)) == Nil) {
-        First(*L) = Nil;
-        Last(*L) = Nil;
+    if (Prev(Last(*L)) == Niil) {
+        First(*L) = Niil;
+        Last(*L) = Niil;
     }
     else {
         Last(*L) = Prev(Last(*L));
-        Next(Last(*L)) = Nil;
+        Next(Last(*L)) = Niil;
     }
 
-    Prev(*P) = Nil;
+    Prev(*P) = Niil;
 }
 /* I.S. List tidak kosong */
 /* F.S. P adalah alamat elemen terakhir list sebelum penghapusan  */
 /*      Elemen list berkurang satu (mungkin menjadi kosong) */
 /* Last element baru adalah predesesor elemen pertama yg lama, jika ada */
 
-void DelP(List *L, address P){
-    address X;
+void DelP(List *L, addresslist P){
+    addresslist X;
     X = Next(P);
     Next(P)=Next(Next(P));
     Prev(Next(P)) = P;
@@ -179,18 +170,18 @@ void DelP(List *L, address P){
 /* F.S. Menghapus Next(Prec): */
 /*      Pdel adalah alamat elemen list yang dihapus  */
 
-int Length (List L){
+int LengthList (List L){
     int i=0;
-    address P;
+    addresslist P;
     P = First(L);
-    while (P!=Nil){
+    while (P!=Niil){
         P=Next(P);
         i++;
     }
     return i;
 }
 
-boolean meteor_kena_kepala(List L,infotype X, infotype Y){
+boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y){
     boolean check = false;
     if (X(First(L))==X && Y(First(L))==Y){
             check=true;
@@ -201,11 +192,11 @@ boolean meteor_kena_kepala(List L,infotype X, infotype Y){
     return check;
 }
 
-boolean meteor_kena_badan(List L,infotype X, infotype Y){
+boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y){
     boolean check = false;
-    address P;
+    addresslist P;
     P = First(L);
-    while (Next(P)!=Nil && !check){
+    while (Next(P)!=Niil && !check){
         if (X(P)==X && Y(P)==Y){
             check = true;
         }
