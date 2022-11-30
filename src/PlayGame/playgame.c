@@ -35,7 +35,9 @@ void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
     } else {
         SKORGAME(&skor);
     }
-    INSERTSCOREBOARD(skor,TM,i);
+    if (skor>=0){
+        INSERTSCOREBOARD(skor,TM,i);
+    }
     // TAMBAH KE HISTORY
 }
 /*
