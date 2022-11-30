@@ -28,13 +28,13 @@ typedef struct
 /* Jika T adalah Tab, cara deklarasi dan akses: */
 /* Deklarasi : T : Tab */
 /* Maka cara akses:
- * T.Neff untuk mengetahui banyaknya elemen
- * T.TI untuk mengakses seluruh nilai elemen tabel
- * T.TI[i] untuk mengakses elemen ke-i */
+ * T.Nelmt untuk mengetahui banyaknya elemen
+ * T.Elmt untuk mengakses seluruh nilai elemen tabel
+ * T.Elmt[i] untuk mengakses elemen ke-i */
 /* Definisi :
- * Tabel kosong: T.Neff = 0
- * Definisi elemen pertama : T.TI[i] dengan i=1
- * Definisi elemen terakhir yang terdefinisi: T.TI[i] dengan i=T.Neff */
+ * Tabel kosong: T.Nelmt = 0
+ * Definisi elemen pertama : T.Elmt[i] dengan i=1
+ * Definisi elemen terakhir yang terdefinisi: T.Elmt[i] dengan i=T.Nelmt */
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong */
@@ -100,5 +100,10 @@ void InsertArrMap (TabMap *T, Map M);
 /* Menambahkan Map M sebagai elemen TabMap T */
 /* I.S. T mungkin kosong, tidak penuh */
 /* F.S. M menjadi anggota dari T */
+void DeleteArrMap(TabMap *T, int idx);
+/* Menghapus elemen TabMap T indeks ke-idx */
+/* I.S. T tidak mungkin kosong */
+/* F.S. Elemen setelah indeks ke-idx maju 1 indeks
+		T.Nelmt berkurang 1 */
 
 #endif

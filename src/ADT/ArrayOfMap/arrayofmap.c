@@ -111,3 +111,17 @@ void InsertArrMap (TabMap *T, Map M) {
 /* Menambahkan Map M sebagai elemen TabMap T */
 /* I.S. T mungkin kosong, tidak penuh */
 /* F.S. M menjadi anggota dari T */
+
+void DeleteArrMap(TabMap *T, int idx) {
+    int i;
+
+    (*T).Elmt[idx].Count = 0;
+    for (i = idx; i < (*T).Nelmt-1; i++) {
+        (*T).Elmt[i] = (*T).Elmt[i+1];
+    }
+    (*T).Nelmt--;
+}
+/* Menghapus elemen TabMap T indeks ke-idx */
+/* I.S. T tidak mungkin kosong */
+/* F.S. Elemen setelah indeks ke-idx maju 1 indeks
+		T.Nelmt berkurang 1 */
