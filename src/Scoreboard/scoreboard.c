@@ -6,7 +6,7 @@ void INSERTSCOREBOARD(int score, TabMap *TM, int idx) {
     Map M;
 
     M = GetElmtArrMap(*TM, idx);
-    printf("Silahkan masukkan nama anda: ");
+    printf("Nama: ");
     Scan(&name1, &name2);
     while(IsMember(M, name1) && name2.Length == 0){
         printf("Nama sudah ada, silahkan masukkan nama lain: ");
@@ -25,7 +25,7 @@ void SCOREBOARD(TabMap TM,Tab T){
         printf("**** SCOREBOARD GAME ");
         PrintWord(T.TI[i]);
         printf(" ****\n");
-        printf("| NAMA     | SKOR |\n");
+        printf("| NAMA          | SKOR |\n");
         if (currBoard.Count == 0){
             printf("----- SCOREBOARD KOSONG -----\n");
         } else {
@@ -33,7 +33,7 @@ void SCOREBOARD(TabMap TM,Tab T){
             for (j = 0; j < currBoard.Count; j++){
                 printf("| ");
                 PrintWord(currBoard.Elements[j].Key);
-                align = 10 - currBoard.Elements[j].Key.Length;
+                align = 15 - currBoard.Elements[j].Key.Length;
                 for (k = 0; k < align-1; k++){
                     printf(" ");
                 }
