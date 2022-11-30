@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include "../ADT/Map/map.h"
 #include "../ADT/ArrayOfMap/arrayofmap.h"
+#include "../ADT/Array/Array.h"
+#include "../ADT/Mesikata/mesinkata.h"
 
 #ifndef __SCOREBOARD_H__
 #define __SCOREBOARD_H__
 
-void insertScoreboard (infotype score, Map *M);
+void INSERTSCOREBOARD (infotype score, Map *M);
 
-void displayScoreboard ();
+void SCOREBOARD (TabMap T,Tab T);
 
-void resetScoreboard ();
+void RESETSCOREBOARD ();
 
 #endif
