@@ -127,3 +127,14 @@ void InsertSort(Map *M, keytype k, valuetype v){
 		M mungkin sudah beranggotakan v dengan key k */
 /* F.S. Jika k belum ada, v menjadi anggota dari M dengan key k, M memiliki value yang terurut mengecil 
 		Jika k sudah ada, operasi tidak dilakukan */
+
+int MaxKeyLength(Map M) {
+    int i, max = 0;
+    for (i = 0; i < M.Count; i++) {
+        if (M.Elements[i].Key.Length > max) {
+            max = M.Elements[i].Key.Length;
+        }
+    }
+    return max;
+}
+/* Mengembalikan panjang maksimum dari key pada Map M */

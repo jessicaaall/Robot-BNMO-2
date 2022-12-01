@@ -113,6 +113,9 @@ int LengthOfString(char* string);
 int WordToInt(Word kata);
 /* Mengubah kata menjadi integer */
 
+Word IntToWord(int number);
+/* Mengubah integer menjadi kata */
+
 void WordToString (Word kata, char* string);
 /* Mengubah kata menjadi string 
    I.S. : kata terdefinisi 

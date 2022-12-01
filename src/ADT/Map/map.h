@@ -81,4 +81,7 @@ void InsertSort(Map *M, keytype k, valuetype v);
 /* F.S. Jika k belum ada, v menjadi anggota dari M dengan key k, M memiliki value yang terurut mengecil 
 		Jika k sudah ada, operasi tidak dilakukan */
 
+int MaxKeyLength(Map M);
+/* Mengembalikan panjang maksimum dari key pada Map M */
+
 #endif

@@ -196,6 +196,28 @@ int WordToInt(Word kata) {
 }
 /* Mengubah kata menjadi integer */
 
+Word IntToWord(int number) {
+    Word temp, kata;
+    int i = 0, angka;
+
+    temp.Length = 0;
+    do {
+        angka = number % 10;
+        temp.TabWord[i] = angka + '0';
+        temp.Length++;
+        number = number / 10;
+        i++;
+    } while (number != 0);
+
+    kata.Length = temp.Length;
+    for (i = 0; i < kata.Length; i++) {
+        kata.TabWord[i] = temp.TabWord[kata.Length-1-i];
+    }
+
+    return kata;
+}
+/* Mengubah integer menjadi kata */
+
 void WordToString (Word kata, char* string) {
     int i;
     for (i = 0; i < kata.Length; i++) {
