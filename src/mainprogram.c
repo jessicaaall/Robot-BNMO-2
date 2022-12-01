@@ -146,13 +146,13 @@ int main() {
                 printf("Berikut adalah daftar antrian game-mu\n");
                 displayQueueGame(antriangame);
                 printf("\n");
-                PLAYGAME(&antriangame, &listscoreboard, listgame);
+                PLAYGAME(&antriangame, &listscoreboard, listgame, &historygame);
             }
         } else if (IsWordSame(StringToWord("SKIPGAME"), command1)) {
             if (command2.Length != 0) {
                 Skip = SKIPGAME(command2, &antriangame);
                 if (Skip){
-                    PLAYGAME(&antriangame, &listscoreboard, listgame);
+                    PLAYGAME(&antriangame, &listscoreboard, listgame, &historygame);
                 }
             } else {
                 printf("\nMasukan tidak valid. Silahkan masukkan jumlah permainan yang ingin dilewatkan.\n");
@@ -172,6 +172,10 @@ int main() {
             SCOREBOARD(listscoreboard, listgame);
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
             RESETSCOREBOARD(listgame, &listscoreboard);
+        } else if ((IsWordSame(StringToWord("HISTORY"), command1)) && (IsWordAnInt(command2))) {
+            displayHistory(historygame, WordToInt(command2));
+        } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("HISTORY"), command2))) {
+            resetHistory(&historygame);
         } else {
             printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
         }
