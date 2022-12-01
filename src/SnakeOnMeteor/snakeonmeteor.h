@@ -21,7 +21,7 @@ void Peta(List snake, int x, int y);
 /* IS: Sembarang
    FS: menampilkan peta lengkap dengan ular makanan dan meteor*/
 
-void nabrak(boolean * check, List snake);
+boolean nabrak(char input, List snake);
 /* IS: Sembarang
    FS: memeriksa apakah ular menabrak badan sendiri atau tidak*/
 
@@ -29,9 +29,6 @@ boolean bekas_meteor(List snake,int x,int y,char input);
 /* IS: Sembarang
    FS: memeriksa apakah suatu koordinat merupakan bekas meteor atau bukan dan bisaa untuk dilewati*/
 
-char ubah_letak_badan(char input);
-/* IS: Sembarang
-   FS: mengubah letak badan agak dapat memastikan ular tidak bisa bergerak kebadan sendiri*/
 
 void SNAKEONMETEOR(int *skor);
 // Desc: Menjalankan game snake

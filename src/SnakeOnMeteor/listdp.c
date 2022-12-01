@@ -14,8 +14,25 @@ boolean IsListEmpty (List L){
 void CreateEmptyList (List *L){
     First(*L)=Niil;
     Last(*L)=Niil;
-    InsVLast(L,random3(),random4());
-    if (random4()>0){
+    if (random3()==2 &&random4()==3){
+        InsVLast(L,random3(),random5());
+        InsVLast(L,random3(),random5()-1);
+        InsVLast(L,random3()-1,random5()-1);
+        }
+    else if (random3()==2 &&random4()==2){
+        InsVLast(L,random3(),random5());
+        InsVLast(L,random3()-1,random5());
+        InsVLast(L,random3()-2,random5());
+        }
+    
+    else if (random3()==2 && (random4()==4)){
+        InsVLast(L,random3(),random4());
+        InsVLast(L,random3(),random4()-1);
+        InsVLast(L,random3()-1,random4()-1);
+        }    
+    else{
+        InsVLast(L,random3(),random4());
+        if (random4()>0){
         InsVLast(L,random3(),random4()-1);
         if (random4()>1){
             InsVLast(L,random3(),random4()-2);
@@ -45,6 +62,8 @@ void CreateEmptyList (List *L){
         
     }
 }
+    }
+    
 /* I.S. L sembarang  */
 /* F.S. Terbentuk list kosong. Lihat definisi di atas. */
 
@@ -224,8 +243,11 @@ int random3() {
     return i;
 }
 int random4() {
-    srand(time(0)+time(0)*3/5);
+    srand(time(0)+time(0)*3/3);
     int i =(rand()%5);
     return i;
+}
+int random5(){
+    return random4()-2;
 }
 

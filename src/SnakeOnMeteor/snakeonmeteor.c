@@ -50,18 +50,22 @@ void move(List *snake, char input, int *tempX, int *tempY){
 void food(List *snake){
     int x,y;
     boolean check = false;
-    while (!check){
+    while(!check){    
         x= random1();
         y= random2();
-        if (SearchList(*snake,x,y)==Niil){
+        while(x== 2 && y ==2){
+            x= random1();
+            y= random2();
+        }
+    if (SearchList(*snake,x,y)==Niil){
             if (X(First(*snake))!=x && Y(First(*snake))!=y){
                 InsVLast(snake,x,y);
                 check =true;
             }
         }
-    }
+    }}
     
-}
+
 
 void Peta(List snake, int x, int y){
     addresslist P;
@@ -71,6 +75,7 @@ void Peta(List snake, int x, int y){
     int i = 0;
     printf("Berikut adalah peta permainan\n");
     while (Next(P)!=Niil){
+        printf("asd");
         if (i==0){
             tabel.TM[X(P)][Y(P)]=999;
         }
@@ -82,17 +87,42 @@ void Peta(List snake, int x, int y){
     }
     tabel.TM[X(P)][Y(P)]=-1;
     tabel.TM[x][y]= -2;
+    tabel.TM[2][2]= -3;
     Display(tabel);
 }
 
-void nabrak(boolean * check, List snake){
+boolean nabrak(char input, List snake){
     addresslist P= Next(First(snake));
-    while (Next(P)!=Niil){
-        if (X(P)== X(First(snake)) && Y(P)== Y(First(snake))){
-            *check = true;
+    boolean check = false;
+    if (input == 'W'){
+        while (Next(P)!=Niil){
+        if (X(P)== X(First(snake))-1 && Y(P)== Y(First(snake))){
+            check = true;
         }
         P = Next(P);
-    }
+    }}
+    else if (input == 'A'){
+        while (Next(P)!=Niil){
+        if (X(P)== X(First(snake)) && Y(P)== Y(First(snake))-1){
+            check = true;
+        }
+        P = Next(P);
+    }}
+    else if (input == 'D'){
+        while (Next(P)!=Niil){
+        if (X(P)== X(First(snake)) && Y(P)== Y(First(snake))+1){
+            check = true;
+        }
+        P = Next(P);
+    }}
+    else if (input == 'S'){
+        while (Next(P)!=Niil){
+        if (X(P)== X(First(snake))+1 && Y(P)== Y(First(snake))){
+            check = true;
+        }
+        P = Next(P);
+    }}
+    return check;
 }
 
 boolean bekas_meteor(List snake, int x, int y, char input){
@@ -131,26 +161,12 @@ boolean bekas_meteor(List snake, int x, int y, char input){
 }
 
     
-char ubah_letak_badan(char input){
-    if (input == 'A'){
-        return 'D';
-    }
-    else if (input =='D'){
-        return 'A';
-    }
-    else if (input =='W'){
-        return 'S';
-    }
-    else if (input =='S'){
-        return 'W';
-    }
-}
+
 
 
 void SNAKEONMETEOR(int *skor){
     int a,i,tempX,tempY,meteor_x,meteor_y,bekas_meteor_x,bekas_meteor_y,turn;
     char input;
-    char letak_badan = 'a';
     List snake;
     addresslist P;
     boolean end = false;
@@ -180,12 +196,10 @@ void SNAKEONMETEOR(int *skor){
         if (IsWordSame(CommandCC, StringToWord("A")) || IsWordSame(CommandCC, StringToWord("W")) || IsWordSame(CommandCC, StringToWord("S")) || IsWordSame(CommandCC, StringToWord("D")) ){
             input = CommandCC.TabWord[0];
             if (!bekas_meteor(snake,meteor_x,meteor_y,input)){
-            if (input != letak_badan ){
+            if (!nabrak(input,snake)){
                 move(&snake,input,&tempX,&tempY);
                 printf("\nBerhasil bergerak!\n\n");
                 turn++;
-                nabrak(&end,snake);
-                letak_badan = ubah_letak_badan(input);
                 if (X(First(snake))==X(Last(snake)) && Y(First(snake))==Y(Last(snake))){
                     X(Last(snake))= tempX;
                     Y(Last(snake))= tempY;
@@ -194,12 +208,19 @@ void SNAKEONMETEOR(int *skor){
                 }
                 meteor_x = random3();
                 meteor_y = random4();
+                if (X(First(snake))==2 && Y(First(snake))==2){
+                    end =true;
+                    printf("Kepala menambrak obstacel\n");
+                }
                 if (!end){
                     Peta(snake,meteor_x,meteor_y);
                 }
                 if (!meteor_kena_kepala(snake,meteor_x,meteor_y)){
                     if (meteor_kena_badan(snake,meteor_x,meteor_y)){
                         DelP(&snake,SearchList(snake,meteor_x,meteor_y));
+                    }
+                    else{
+                        printf("Anda beruntuk tidak terkena meteor! lanjutkan permainan\n")
                     }
                 }
                 else{
@@ -210,7 +231,12 @@ void SNAKEONMETEOR(int *skor){
                 
             }
             else{
-                printf("\nAnda tidak dapat bergerak ke tubuh anda sendiri!\nSilahkan input command yang lain\n");}
+                if (nabrak('W',snake)&&nabrak('D',snake)&&nabrak('S',snake)&&nabrak('A',snake)){
+                    end = true;
+                    printf("Tidak bisa bergerak kemana-mana lagi\n");
+                }
+                else{
+                printf("\nAnda tidak dapat bergerak ke tubuh anda sendiri!\nSilahkan input command yang lain\n");}}
             
             }
             else{
@@ -225,4 +251,11 @@ void SNAKEONMETEOR(int *skor){
     printf("||     G A M E   O V E R     ||\n");
     printf("===============================\n\n");
     printf("Skor akhir = %d\n\n", *skor);
+}
+
+
+int main(){
+    int skor;
+    SNAKEONMETEOR(&skor);
+    return 0;
 }

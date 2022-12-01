@@ -36,9 +36,13 @@ void Display(matriks M){
     for (i = 0; i < 5; i++){
         printf("%c ",186);
         for (j = 0; j < 5; j++){
-            if (M.TM[i][j] == 0){
+            if (M.TM[i][j]==-3){
+                printf("%c%c%c",178,178,178);
+            }
+            else if (M.TM[i][j] == 0){
                 printf("   ");
-            } else if (M.TM[i][j] == 999){
+            } 
+            else if (M.TM[i][j] == 999){
                 printf(" H ");
             } else if(M.TM[i][j] == -1){
                 printf(" o ");
