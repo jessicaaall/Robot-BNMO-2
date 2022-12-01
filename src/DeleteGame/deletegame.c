@@ -1,6 +1,6 @@
 #include "deletegame.h"
 
-void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard) {
+void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard, Stack *stackhistory) {
     LISTGAME(*daftargame);
 
     printf("\nMasukkan nomor game yang akan dihapus >> ");
@@ -44,6 +44,7 @@ void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard) {
                 }
                 (*daftargame).Neff--;
                 DeleteArrMap(listscoreboard, nomor-1);
+                deleteHistory(stackhistory, namagame);
                 printf("\nGame berhasil dihapus.\n");
             }
         }

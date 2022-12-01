@@ -136,7 +136,7 @@ int main() {
         } else if (IsWordSame(StringToWord("LIST"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             LISTGAME(listgame);
         } else if (IsWordSame(StringToWord("DELETE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
-            DELETEGAME(&listgame, antriangame, &listscoreboard);
+            DELETEGAME(&listgame, antriangame, &listscoreboard, &historygame);
         } else if (IsWordSame(StringToWord("QUEUE"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
             QUEUEGAME(listgame, &antriangame);
         } else if (IsWordSame(StringToWord("PLAY"), command1) && IsWordSame(StringToWord("GAME"), command2)) {
@@ -172,7 +172,7 @@ int main() {
             DISPLAYSCOREBOARD(listscoreboard, listgame);
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
             RESETSCOREBOARD(listgame, &listscoreboard);
-        } else if ((IsWordSame(StringToWord("HISTORY"), command1)) && (IsWordAnInt(command2))) {
+        } else if ((IsWordSame(StringToWord("HISTORY"), command1)) && (IsWordAnInt(command2) && command2.Length != 0)) {
             displayHistory(historygame, WordToInt(command2));
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("HISTORY"), command2))) {
             resetHistory(&historygame);

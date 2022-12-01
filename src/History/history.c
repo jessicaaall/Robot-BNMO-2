@@ -37,11 +37,16 @@ void displayHistory (Stack S, int n) {
 void deleteHistory (Stack *S, info gameName) {
     Stack sTemp;
     info val;
+    CreateEmptyStack(&sTemp);
     while (!IsStackEmpty(*S)) {
         Pop(S, &val);
         if (!IsWordSame(val, gameName)) {
             Push(&sTemp, val);
         }
+    }
+    while (!IsStackEmpty(sTemp)) {
+        Pop(&sTemp, &val);
+        Push(S, val);
     }
 }
 
