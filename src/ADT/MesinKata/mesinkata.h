@@ -113,6 +113,9 @@ int LengthOfString(char* string);
 int WordToInt(Word kata);
 /* Mengubah kata menjadi integer */
 
+boolean IsWordAnInt(Word input);
+/* Mengecek apakah kata adalah integer */
+
 Word IntToWord(int number);
 /* Mengubah integer menjadi kata */
 

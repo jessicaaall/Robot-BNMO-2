@@ -1,13 +1,16 @@
 #include "playgame.h"
 #include <stdio.h>
 
-void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T) {
+void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S) {
     ElType game;
-    int i=0,skor;
+    int i=0,skor=-1;
     boolean found;
     Map M;
 
     dequeue(queuegame, &game);
+
+    insertHistory(S, game);
+
     printf("Loading ");
     PrintWord(game);
     printf(" ...\n");

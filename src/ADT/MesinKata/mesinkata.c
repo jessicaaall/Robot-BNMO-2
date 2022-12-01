@@ -196,6 +196,17 @@ int WordToInt(Word kata) {
 }
 /* Mengubah kata menjadi integer */
 
+boolean IsWordAnInt(Word input) {
+    boolean valid = true;
+    int i = 0;
+    while ((valid) && (i < input.Length)) {
+        if (!((input.TabWord[i] >= '0') && (input.TabWord[i] <= '9'))) {
+            valid = false;
+        }
+        i++;
+    }
+    return valid;
+}
 Word IntToWord(int number) {
     Word temp, kata;
     int i = 0, angka;
