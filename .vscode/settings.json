@@ -6,6 +6,8 @@
         "arrayofmap.h": "c",
         "scoreboard.h": "c",
         "array.h": "c",
-        "skipgame.h": "c"
+        "skipgame.h": "c",
+        "map.h": "c",
+        "time.h": "c"
     }
 }

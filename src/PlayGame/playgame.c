@@ -32,9 +32,7 @@ void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S) {
     } else if (i == 3){
         TOWEROFHANOI(&skor);
     } else if (i == 4){
-        printf("Game ");
-        PrintWord(game);
-        printf(" masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n");
+        SNAKEONMETEOR(&skor);
     } else {
         SKORGAME(&skor);
     }

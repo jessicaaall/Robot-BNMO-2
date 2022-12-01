@@ -196,3 +196,31 @@ int LengthList (List L){
     }
     return i;
 }
+
+int random1() {
+    srand(time(0));
+    int i =(rand()%4)+1;
+    return i;
+}
+
+int random2() {
+    srand(time(0)+time(0));
+    int i =(rand()%5);
+    return i;
+}
+
+int random3() {
+    srand(time(0)*time(0)-231/time(0));
+    int i =(rand()%4)+1;
+    return i;
+}
+
+int random4() {
+    srand(time(0)+time(0)*3/3);
+    int i =(rand()%5);
+    return i;
+}
+
+int random5(){
+    return random4()-2;
+}

@@ -98,4 +98,13 @@ int LengthList(List L);
 /* I.S. sembarang*/
 /* F.S. return panjang list*/
 
+// Menghasilkan angka random
+int random1();
+int random2();
+int random3();
+int random4();
+int random5();
+// I.S sembarang
+// F.S menghasilkan angka random
+
 #endif

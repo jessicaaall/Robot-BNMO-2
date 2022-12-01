@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include "../boolean.h"
-#include "./ADT/MesinKata/mesinkata.h"
-#include "./ADT/ListLinier/listdp.h"
-#include "./ADT/Matriks/matriks.h"
+#include "../ADT/MesinKata/mesinkata.h"
+#include "../ADT/ListLinier/listdp.h"
+#include "../ADT/Matriks/matriks.h"
 
 boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y);
 /* I.S. list tidak kosong */
@@ -15,15 +15,6 @@ boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y);
 boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y);
 /* I.S. list tidak kosong */
 /* F.S. apakah koordinat meteor sama dengan koordinat badan*/
-
-// Menghasilkan angka random
-int random1();
-int random2();
-int random3();
-int random4();
-int random5();
-// I.S sembarang
-// F.S menghasilkan angka random
 
 void move(List *snake, char input, int *tempX, int *tempY);
 /* IS: Sembarang
