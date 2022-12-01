@@ -1,5 +1,31 @@
 #include "snakeonmeteor.h"
 
+boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y){
+    boolean check = false;
+    if (X(First(L))==X && Y(First(L))==Y){
+            check=true;
+        }
+    else{
+        check=false;
+    }
+    return check;
+}
+
+boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y){
+    boolean check = false;
+    addresslist P;
+    P = First(L);
+    while (Next(P)!=Niil && !check){
+        if (X(P)==X && Y(P)==Y){
+            check = true;
+        }
+        else{
+            P = Next(P);
+        }
+    }
+    return check;
+}
+
 
 void move(List *snake, char input, int *tempX, int *tempY){
     addresslist P;
@@ -63,9 +89,9 @@ void food(List *snake){
                 check =true;
             }
         }
-    }}
+    }
+}
     
-
 
 void Peta(List snake, int x, int y){
     addresslist P;
@@ -73,9 +99,8 @@ void Peta(List snake, int x, int y){
     MakeEmptyMatriks(&tabel);
     P = First(snake);
     int i = 0;
-    printf("Berikut adalah peta permainan\n");
+    printf("\nBerikut adalah peta permainan\n");
     while (Next(P)!=Niil){
-        printf("asd");
         if (i==0){
             tabel.TM[X(P)][Y(P)]=999;
         }
@@ -210,24 +235,23 @@ void SNAKEONMETEOR(int *skor){
                 meteor_y = random4();
                 if (X(First(snake))==2 && Y(First(snake))==2){
                     end =true;
-                    printf("Kepala menambrak obstacel\n");
+                    printf("Kepala snake menabrak obstacle.\n");
                 }
                 if (!end){
                     Peta(snake,meteor_x,meteor_y);
-                }
-                if (!meteor_kena_kepala(snake,meteor_x,meteor_y)){
-                    if (meteor_kena_badan(snake,meteor_x,meteor_y)){
-                        DelP(&snake,SearchList(snake,meteor_x,meteor_y));
+                    if (!meteor_kena_kepala(snake,meteor_x,meteor_y)){
+                        if (meteor_kena_badan(snake,meteor_x,meteor_y)){
+                            DelP(&snake,SearchList(snake,meteor_x,meteor_y));
+                        }
+                        else{
+                            printf("Anda beruntung tidak terkena meteor! Silahkan lanjutkan permainan.\n");
+                        }
                     }
                     else{
-                        printf("Anda beruntuk tidak terkena meteor! lanjutkan permainan\n")
+                        end = true;
+                        printf("Kepala snake terkena meteor!\n\n");
                     }
                 }
-                else{
-                    end = true;
-                    printf("\nKepala snake terkena meteor!\n\n");
-                }
-                
                 
             }
             else{
@@ -236,14 +260,14 @@ void SNAKEONMETEOR(int *skor){
                     printf("Tidak bisa bergerak kemana-mana lagi\n");
                 }
                 else{
-                printf("\nAnda tidak dapat bergerak ke tubuh anda sendiri!\nSilahkan input command yang lain\n");}}
+                printf("\nAnda tidak dapat bergerak ke tubuh Anda sendiri!\nSilahkan masukkan command lain.\n");}}
             
             }
             else{
-                printf("\nMeteor masih panas! Anda belum dapat kembali ke titik tersebut. Silahkan masukkan command lainnya\n\n");
+                printf("\nMeteor masih panas! Anda belum dapat kembali ke titik tersebut. Silahkan masukkan command lain.\n\n");
             }}
         else {
-            printf("\nCommand tidak valid! Silahkan input command menggunakan huruf w/a/s/d\n");
+            printf("\nCommand tidak valid! Silahkan masukkan command menggunakan huruf w/a/s/d.\n");
         }
     }
     *skor = (LengthList(snake)-2) * 2;
@@ -251,11 +275,4 @@ void SNAKEONMETEOR(int *skor){
     printf("||     G A M E   O V E R     ||\n");
     printf("===============================\n\n");
     printf("Skor akhir = %d\n\n", *skor);
-}
-
-
-int main(){
-    int skor;
-    SNAKEONMETEOR(&skor);
-    return 0;
 }

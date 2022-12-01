@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include "listdp.h"
-#include <stdlib.h>
-#include <time.h>
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
@@ -200,37 +197,12 @@ int LengthList (List L){
     return i;
 }
 
-boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y){
-    boolean check = false;
-    if (X(First(L))==X && Y(First(L))==Y){
-            check=true;
-        }
-    else{
-        check=false;
-    }
-    return check;
-}
-
-boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y){
-    boolean check = false;
-    addresslist P;
-    P = First(L);
-    while (Next(P)!=Niil && !check){
-        if (X(P)==X && Y(P)==Y){
-            check = true;
-        }
-        else{
-            P = Next(P);
-        }
-    }
-    return check;
-}
-
 int random1() {
     srand(time(0));
     int i =(rand()%4)+1;
     return i;
 }
+
 int random2() {
     srand(time(0)+time(0));
     int i =(rand()%5);
@@ -242,12 +214,13 @@ int random3() {
     int i =(rand()%4)+1;
     return i;
 }
+
 int random4() {
     srand(time(0)+time(0)*3/3);
     int i =(rand()%5);
     return i;
 }
+
 int random5(){
     return random4()-2;
 }
-

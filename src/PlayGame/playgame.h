@@ -12,6 +12,7 @@
 #include "../DinerDash/diner_dash.h"
 #include "../Hangman/hangman.h"
 #include "../TowerOfHanoi/towerofhanoi.h"
+#include "../SnakeOnMeteor/snakeonmeteor.h"
 #include "../SkorGame/skorgame.h"
 #include "../boolean.h"
 #include "../Scoreboard/scoreboard.h"

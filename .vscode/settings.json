@@ -7,6 +7,11 @@
         "scoreboard.h": "c",
         "array.h": "c",
         "skipgame.h": "c",
+<<<<<<< HEAD
         "history.h": "c"
+=======
+        "map.h": "c",
+        "time.h": "c"
+>>>>>>> de76c0cd447899f713e23338183f90c53c1ae81e
     }
 }
