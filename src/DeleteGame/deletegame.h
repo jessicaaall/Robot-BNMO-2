@@ -9,10 +9,12 @@
 #include "../ADT/MesinKata/mesinkata.h"
 #include "../ListGame/listgame.h"
 #include "../ADT/Map/map.h"
+#include "../ADT/Stack/stack.h"
 #include "../ADT/ArrayOfMap/arrayofmap.h"
+#include "../History/history.h"
 #include <stdio.h>
 
-void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard);
+void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard, Stack *stackhistory);
 /* Proses : Menerima input nomor game yang ingin dihapus
             Game yang dapat dihapus hanya game yang dibuat secara custom oleh pengguna 
             Apabila input game merupakan salah satu dari 5 game pertama pada daftar game, maka game gagal dihapus
