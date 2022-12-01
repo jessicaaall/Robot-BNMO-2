@@ -1,6 +1,6 @@
 #include "history.h"
 
-void insertHistory (Stack *S, info gameName) {
+void INSERTHISTORY (Stack *S, info gameName) {
     Push(S, gameName);
 }
 
@@ -10,12 +10,12 @@ void displayHistory (Stack S, int n) {
     int i = 1;
     CreateEmptyStack(&sTemp);
     if (IsStackEmpty(S)) {
-        printf("Belum ada Game yang dimainkan\n");
+        printf("Belum ada game yang dimainkan\n");
     } else {
         if (n == 0) {
-            printf("Masukan tidak valid, masukkan harus lebih besar dari 0\n");
+            printf("Masukan tidak valid. Masukan angka harus lebih besar dari 0.\n");
         } else {
-            printf("Berikut adalah daftar Game yang telah dimainkan\n");
+            printf("Berikut adalah daftar game yang telah dimainkan\n");
             while (!IsStackEmpty(S) && i <= n) {
                 Pop(&S, &val);
                 printf("%d. ", i);
