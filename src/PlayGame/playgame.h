@@ -15,8 +15,9 @@
 #include "../SkorGame/skorgame.h"
 #include "../boolean.h"
 #include "../Scoreboard/scoreboard.h"
+#include "../History/history.h"
 
-void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T);
+void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S);
 /*
 I.S. Daftar antrian game terdefinisi
 F.S. Game pertama pada daftar antrian game dimainkan

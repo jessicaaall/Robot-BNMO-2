@@ -5,7 +5,7 @@
 #ifndef __HISTORY_H__
 #define __HISTORY_H__
 
-void insertHistory (char * gameName, Stack *S);
+void insertHistory (Stack *S, info gameName);
 
 void displayHistory (Stack S, int n);
 
