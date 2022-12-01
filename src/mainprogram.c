@@ -169,7 +169,7 @@ int main() {
                 printf("Masukan tidak valid. Silahkan masukkan nama file .txt yang akan disimpan.\n");
             }
         } else if ((IsWordSame(StringToWord("SCOREBOARD"), command1)) && (command2.Length == 0)) {
-            SCOREBOARD(listscoreboard, listgame);
+            DISPLAYSCOREBOARD(listscoreboard, listgame);
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
             RESETSCOREBOARD(listgame, &listscoreboard);
         } else if ((IsWordSame(StringToWord("HISTORY"), command1)) && (IsWordAnInt(command2))) {
