@@ -20,8 +20,12 @@
 
 void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S);
 /*
-I.S. Daftar antrian game terdefinisi
+I.S. Queue queuegame yang merupakan daftar antrian game terdefinisi
+     TabMap TM yang merupakan daftar scoreboard terdefinisi
+     Stack S yang merupakan daftar history game terdefinisi 
 F.S. Game pertama pada daftar antrian game dimainkan
+     Daftar scoreboard bertambah untuk game yang dimainkan
+     Daftar history game bertambah
 */
 
 #endif

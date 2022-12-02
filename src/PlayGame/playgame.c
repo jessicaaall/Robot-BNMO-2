@@ -3,13 +3,11 @@
 
 void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S) {
     ElType game;
-    int i=0,skor=-1;
+    int i = 0, skor = -1;
     boolean found;
     Map M;
 
     dequeue(queuegame, &game);
-
-    insertHistory(S, game);
 
     printf("Loading ");
     PrintWord(game);
@@ -38,10 +36,14 @@ void PLAYGAME(Queue *queuegame, TabMap *TM, Tab T, Stack *S) {
     }
     if (skor>=0){
         INSERTSCOREBOARD(skor,TM,i);
+        INSERTHISTORY(S, game);
     }
-    // TAMBAH KE HISTORY
 }
 /*
-I.S. Daftar antrian game terdefinisi
+I.S. Queue queuegame yang merupakan daftar antrian game terdefinisi
+     TabMap TM yang merupakan daftar scoreboard terdefinisi
+     Stack S yang merupakan daftar history game terdefinisi 
 F.S. Game pertama pada daftar antrian game dimainkan
+     Daftar scoreboard bertambah untuk game yang dimainkan
+     Daftar history game bertambah
 */

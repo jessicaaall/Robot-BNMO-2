@@ -14,7 +14,7 @@
 #include "../History/history.h"
 #include <stdio.h>
 
-void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard, Stack *stackhistory);
+void DELETEGAME (Tab *daftargame, Queue queuegame, TabMap *listscoreboard, Stack *history);
 /* Proses : Menerima input nomor game yang ingin dihapus
             Game yang dapat dihapus hanya game yang dibuat secara custom oleh pengguna 
             Apabila input game merupakan salah satu dari 5 game pertama pada daftar game, maka game gagal dihapus

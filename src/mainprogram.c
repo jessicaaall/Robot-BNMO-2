@@ -98,13 +98,17 @@ int main() {
         } else if (IsWordSame(StringToWord("LOAD"), command1)) {
             if ((command2.Length != 0) && (ValidTxt(command2))) {
                 LOAD(command2.TabWord, &listgame, &historygame, &listscoreboard);
-                if (listgame.Neff != 0) {
-                    check = true;
-                    IsCommandStart = false;
+                if (IsWordSame(command2, StringToWord("listofwords.txt"))) {
+                    printf("\nMasukan filename salah. File listofwords.txt berisi daftar kata. Mohon masukkan filename lain.\n");
                 } else {
-                    printf("Filename ");
-                    PrintWord(command2);
-                    printf(" tidak ditemukan.\n");
+                    if (listgame.Neff != 0) {
+                        check = true;
+                        IsCommandStart = false;
+                    } else {
+                        printf("\nFilename ");
+                        PrintWord(command2);
+                        printf(" tidak ditemukan.\n");
+                    }
                 }
             } else {
                 printf("\nMasukan tidak valid. Silahkan masukkan nama file .txt yang ingin dibaca.\n");
@@ -173,9 +177,9 @@ int main() {
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("SCOREBOARD"), command2))) {
             RESETSCOREBOARD(listgame, &listscoreboard);
         } else if ((IsWordSame(StringToWord("HISTORY"), command1)) && (IsWordAnInt(command2) && command2.Length != 0)) {
-            displayHistory(historygame, WordToInt(command2));
+            DISPLAYHISTORY(historygame, WordToInt(command2));
         } else if ((IsWordSame(StringToWord("RESET"), command1)) && (IsWordSame(StringToWord("HISTORY"), command2))) {
-            resetHistory(&historygame);
+            RESETHISTORY(&historygame);
         } else {
             printf("Command tidak dikenali. Silahkan masukkan command yang valid.\n");
         }
