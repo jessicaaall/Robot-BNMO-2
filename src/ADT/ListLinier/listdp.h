@@ -49,7 +49,7 @@ boolean IsListEmpty (List L);
 /****************** PEMBUATAN LIST KOSONG ******************/
 void CreateEmptyList (List *L);
 /* I.S. L sembarang  */
-/* F.S. Terbentuk list kosong. Lihat definisi di atas. */
+/* F.S. Terbentuk list dengan 3 element. Lihat definisi di atas. */
 
 /****************** Manajemen Memori ******************/
 addresslist Alokasi (infotypelist X,infotypelist Y);
@@ -64,7 +64,7 @@ void Dealokasi (addresslist P);
 
 /****************** PENCARIAN SEBUAH ELEMEN LIST ******************/
 addresslist SearchList (List L, infotypelist X,infotypelist Y);
-/* Mencari apakah ada elemen list dengan Info(P)=X */
+/* Mencari apakah ada elemen list dengan X(P)=X dan Y(P)=X */
 /* Jika ada, mengirimkan addresslist elemen tersebut. */
 /* Jika tidak ada, mengirimkan Nil */
 
