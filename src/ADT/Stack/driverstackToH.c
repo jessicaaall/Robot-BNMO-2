@@ -2,10 +2,11 @@
 // akses : gcc -o drive driverToH.c ToH.c mesinkata.c mesinkarakter.c
 
 #include <stdio.h>
-#include "ToH.h"
+#include "stackToH.h"
+#include "../TowerOfHanoi/towerofhanoi.h"
 
 int main() {
-    Stack S;
+    StackToH S;
     // CreateEmpty, IsEmpty
     printf("Cek IsEmpty dan CreateEmpty\n");
     CreateSEmpty(&S);
@@ -55,15 +56,15 @@ int main() {
     printf("Stack tes1 merupakan Stack dengan input 'C'\n");
     printf("Hasil diinginkan : tes1 = A dan tes2 = C\n");
     piringan = 5;
-    Stack A, B, C;
+    StackToH A, B, C;
     CreateSEmpty(&A);
     CreateSEmpty(&B);
     CreateSEmpty(&C);
     InisialisasiS(&A, piringan);
     char input1 = 'A';
     char input2 = 'C';
-    Stack tes1 = GetStack(input1, A, B, C);
-    Stack tes2 = GetStack(input2, A, B, C);
+    StackToH tes1 = GetStack(input1, A, B, C);
+    StackToH tes2 = GetStack(input2, A, B, C);
     DisplayStack(tes1, piringan);
     DisplayStack(tes2, piringan);
     printf("\n");
@@ -108,7 +109,7 @@ int main() {
     printf("Misal, Stack C1, C2 merupakan Stack 5 piringan\n");
     printf("Stack C1 tidak penuh\n");
     printf("Stack C2 penuh\n");
-    Stack C1, C2;
+    StackToH C1, C2;
     piringan = 5;
     CreateSEmpty(&C1);
     CreateSEmpty(&C2);
