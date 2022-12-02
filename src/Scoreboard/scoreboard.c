@@ -10,12 +10,16 @@ void INSERTSCOREBOARD(int score, TabMap *TM, int idx) {
         printf("Nama >> ");
         Scan(&name1, &name2);
         printf("\n");
-        if (name2.Length != 0) {
-            printf("Masukan nama tidak valid. Nama hanya boleh terdiri dari satu kata. Mohon masukkan nama lain.\n\n");
-        } else if (IsMember(M, name1)) {
-            printf("Masukan nama tidak valid. Nama sudah pernah terpakai. Mohon masukkan nama lain.\n\n");
+        if (name1.Length == 0) {
+            printf("Mohon masukkan nama.\n\n");
+        } else {
+            if (name2.Length != 0) {
+                printf("Masukan nama tidak valid. Nama hanya boleh terdiri dari satu kata. Mohon masukkan nama lain.\n\n");
+            } else if (IsMember(M, name1)) {
+                printf("Masukan nama tidak valid. Nama sudah pernah terpakai. Mohon masukkan nama lain.\n\n");
+            }
         }
-    } while (IsMember(M, name1) || name2.Length != 0);
+    } while (IsMember(M, name1) || name2.Length != 0 || name1.Length == 0);
 
     InsertSort(&M, name1, score);
     TM->Elmt[idx] = M;
