@@ -9,6 +9,12 @@
 #include "../ADT/ListLinier/listdp.h"
 #include "../ADT/Matriks/matriks.h"
 
+boolean meteor_kena_kepala(List L,infotypelist X, infotypelist Y);
+/* I.S. list tidak kosong */
+/* F.S. apakah koordinat meteor sama dengan koordinat kepala atau first(L)*/
+boolean meteor_kena_badan(List L,infotypelist X, infotypelist Y);
+/* I.S. list tidak kosong */
+/* F.S. apakah koordinat meteor sama dengan koordinat badan*/
 
 void move(List *snake, char input, int *tempX, int *tempY);
 /* IS: Sembarang
@@ -41,7 +47,5 @@ void SNAKEONMETEOR(int *skor);
 // Desc: Menjalankan game snake
 /* IS: Sembarang
    FS: Menghasilkan skor akhir dari game snake */
-
-
 
 #endif
