@@ -38,6 +38,19 @@ BNMO juga memiliki beberapa fitur untuk menjalankan  permainan yang ada, antara 
 | SAVE <file> | Menyimpan state game pemain ke dalam suatu file |
 | QUIT | Keluar dari program |
 
+## Implementasi Struktur Data
+Dalam mengimplementasikan program, digunakan beberapa model ADT (Abstract Data Type) berikut.
+- ADT Mesin Karakter
+- ADT Mesin Kata
+- ADT Array
+- ADT Queue
+- ADT Stack of Word
+- ADT Stack of Integer
+- ADT Map
+- ADT Array of Map
+- ADT Matriks
+- ADT Linked List
+
 ## Cara Menjalankan Program
 - Apabila memiliki _git bash_, dapat menjalankan _command _ berikut ini pada _command prompt_ atau _terminal_ lainnya.
 
