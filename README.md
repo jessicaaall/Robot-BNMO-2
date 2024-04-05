@@ -20,43 +20,45 @@ Program BNMO yang menggunakan bahasa C ini memiliki beberapa permainan dan fitur
   Snake on Meteor menjadi game andalan pada BNMO. Game ini mirip dengan game snake pada berbagai console lama, namun dipersulit dengan adanya kehadiran meteor yaang dapat mengenai snake tersebut. Apabila snake terkena serangan meteor, maka panjang snake akan berkurang sebanyak 1 unit. Permainan akan berakhir apabila kepala dari snake terkena meteor atau ekor baru snake tidak dapat di-spawn karena tidak ada area di sekitar ekor lama. Skor akhir permainan dihhitung berdasarkan panjang snake, dengan satu unit komponen snake dikonversi menjadi 2 poin.
 
 BNMO juga memiliki beberapa fitur untuk menjalankan  permainan yang ada, antara lain sebagai berikut.
-- Membaca file konfigurasi sistem (start)
-- Membaca file penyimpanan berbasis txt berdasarkan masukan pemain (load)
-- menambahkan permainan baru pada daftar game (create game)
-- menghapus permainan pada daftar game yang tersedia (delete game)
-- melihat daftar permainan yang tersedia (list game)
-- pembuatan antrian permainan (queue game) berdasarkan daftar permainan yang tersedia
-- kemampuan untuk melewati beberapa permainan pada antrian permainan (skip game)
-- memainkan permainan yang berada di antrian game paling awal (play game)
-- menampilkan scoreboard setiap game yang ada pada BNMO
-- menghapus scoreboard suatu game
-- menampilkan daftar history game
-- menghapus seluruh history game
-- bantuan untuk menampilkan daftar command yang dapat dipanggil (help)
-- menyimpan state game pemain ke dalam suatu file (save)
-- keluar dari program (quit).
+| Fitur | Keterangan |
+| --- | --- |
+| START | Membaca file konfigurasi program _konfigurasi.txt_ |
+| LOAD <file> | Membaca file penyimpanan berbasis txt berdasarkan masukan pemain, yang berisi daftar game, daftar history game, dan daftar scoreboard setiap game |
+| CREATE GAME | Menambahkan permainan baru pada daftar game |
+| LIST GAME | Menampilkan daftar game yang tersedia |
+| DELETE GAME | Menghapus permainan dari daftar game |
+| QUEUE GAME | Mendaftarkan permainan ke dalam daftar antrian game |
+| PLAY GAME | Memainkan game pertama pada antrian game |
+| SKIPGAME <n> | Melewatkan permainan sebanyak n pada antrian permainan |
+| SCOREBOARD | Menampilkan daftar scoreboard setiap game |
+| RESET SCOREBOARD | Melakukan reset terhadap scoreboard game |
+| HISTORY <n> | Menampilkan daftar history game sebanyak n |
+| RESET HISTORY | Menghapus semua history game yang dimainkan |
+| HELP | Bantuan untuk menampilkan daftar _command_ yang dapat dipanggil |
+| SAVE <file> | Menyimpan state game pemain ke dalam suatu file |
+| QUIT | Keluar dari program |
 
 ## Cara Menjalankan Program
-Jika memiliki git bash, dapat gunakan command berikut di Command Prompt atau terminal lainnya
-```
-sh compile.sh
+- Apabila memiliki _git bash_, dapat menjalankan _command _ berikut ini pada _command prompt_ atau _terminal_ lainnya.
 
-BNMO
-```
+  ```
+  sh compile.sh
+  BNMO
+  ```
 
-Jika memiliki git bash, dapat gunakan command berikut di Command Prompt atau terminal lainnya
-```
-gcc -o BNMO ./src/mainprogram.c ./src/ADT/Array/array.c ./src/ADT/MesinKarakter/mesinkarakter.c ./src/ADT/MesinKata/mesinkata.c ./src/ADT/Queue/queue.c ./src/ADT/Stack/stack.c ./src/ADT/Stack/stackToH.c ./src/ADT/Map/map.c ./src/ADT/ArrayOfMap/arrayofmap.c ./src/ADT/ListLinier/listdp.c ./src/ADT/Matriks/matriks.c ./src/Command/load.c ./src/Command/save.c ./src/Command/start.c ./src/DeleteGame/deletegame.c ./src/CreateGame/creategame.c ./src/DinerDash/DD2.c ./src/DinerDash/diner_dash.c ./src/Hangman/hangman.c ./src/Help/help.c ./src/ListGame/listgame.c ./src/PlayGame/playgame.c ./src/QueueGame/queuegame.c ./src/Quit/quit.c ./src/RNGgame/rnggame.c ./src/SkipGame/skipgame.c ./src/SkorGame/skorgame.c ./src/TowerOfHanoi/towerofhanoi.c ./src/SnakeOnMeteor/snakeonmeteor.c ./src/Scoreboard/scoreboard.c ./src/History/history.c
+- Apabila tidak memiliki _git bash_, dapat menjalankan _command_ berikut ini pada _command prompt_ atau _terminal_ lainnya.
 
-BNMO
-```
+  ```
+  gcc -o BNMO ./src/mainprogram.c ./src/ADT/Array/array.c ./src/ADT/MesinKarakter/mesinkarakter.c ./src/ADT/MesinKata/mesinkata.c ./src/ADT/Queue/queue.c ./src/ADT/Stack/stack.c ./src/ADT/Stack/stackToH.c ./src/ADT/Map/map.c ./src/ADT/ArrayOfMap/arrayofmap.c ./src/ADT/ListLinier/listdp.c ./src/ADT/Matriks/matriks.c ./src/Command/load.c ./src/Command/save.c ./src/Command/start.c ./src/DeleteGame/deletegame.c ./src/CreateGame/creategame.c ./src/DinerDash/DD2.c ./src/DinerDash/diner_dash.c ./src/Hangman/hangman.c ./src/Help/help.c ./src/ListGame/listgame.c ./src/PlayGame/playgame.c ./src/QueueGame/queuegame.c ./src/Quit/quit.c ./src/RNGgame/rnggame.c ./src/SkipGame/skipgame.c ./src/SkorGame/skorgame.c ./src/TowerOfHanoi/towerofhanoi.c ./src/SnakeOnMeteor/snakeonmeteor.c ./src/Scoreboard/scoreboard.c ./src/History/history.c
 
-## K01 Kelompok 9
+  BNMO
+  ```
 
-| Nama | NIM |
+## Anggota Tim
+| Nama |
 | --- | --- |
-| Silvester Kresna W. P. P. | 18221049 |
-| Jessica | 18221073 |
-| Nalendro N.U.A.R.F. | 18221085 |
-| Muhammad Aliefnaufal P. | 18221105 |
-| Rayhan Nugraha Putra | 18221149 |
+| Silvester Kresna W. P. P. |
+| Jessica |
+| Nalendro N.U.A.R.F. |
+| Muhammad Aliefnaufal P. |
+| Rayhan Nugraha Putra |
